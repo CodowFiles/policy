@@ -251,12 +251,23 @@ function clearSearch2(){
   });
   _m2=[];_i2=-1;document.getElementById('srbar2').classList.remove('on');
 }
+function _loadTabImgs(container){
+  if(!container)return;
+  var imgs=container.querySelectorAll('img[data-src]');
+  imgs.forEach(function(img){
+    if(img.getAttribute('src')!==img.dataset.src){
+      img.src=img.dataset.src;
+    }
+  });
+}
 function switchTab(btn,cid){
   var sec=btn.closest('.policy-section');
   sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
   sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
   btn.classList.add('active');
-  document.getElementById(cid).classList.add('active');
+  var tc=document.getElementById(cid);
+  tc.classList.add('active');
+  _loadTabImgs(tc);
 }
 // 从URL读关键词
 (function(){
@@ -281,7 +292,7 @@ window.addEventListener('scroll',function(){document.getElementById('backTop2').
     sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
     scanTab.classList.add('active');
     var m=scanTab.getAttribute('onclick').match(/switchTab\(this,'([^']+)'\)/);
-    if(m){var tc=document.getElementById(m[1]);tc.classList.add('active');_loadImgs(tc);}
+    if(m){var tc=document.getElementById(m[1]);tc.classList.add('active');_loadTabImgs(tc);}
   });
 })();
 </script>
