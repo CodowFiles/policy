@@ -3,379 +3,481 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<meta name="version" content="20260315-v5">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026年政策文件汇编</title>
+<meta name="version" content="20260315-v5">
 <style>
-:root{--primary:#1a5fa8;--pl:#e8f0fb;--text:#222;--tl:#666;--border:#ddd;--bg:#f5f7fa;--white:#fff;--shadow:0 2px 8px rgba(0,0,0,.10);}
+:root{--primary:#1a5fa8;--pl:#e8f0fb;--text:#222;--tl:#666;--border:#ddd;--bg:#f5f7fa;--white:#fff;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px;color:var(--text);background:var(--bg);line-height:1.7;}
-.top-bar{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a5fa8 0%,#2272d3 100%);color:#fff;padding:0 12px;height:50px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 10px rgba(26,95,168,.35);}
-.menu-btn{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 6px;flex-shrink:0;}
-.top-title{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;}
-.nav-overlay.open{display:block;}
-.side-nav{position:fixed;top:0;left:0;width:280px;max-width:85vw;height:100%;background:#fff;z-index:201;overflow-y:auto;transform:translateX(-100%);transition:transform .3s;box-shadow:2px 0 12px rgba(0,0,0,.15);}
-.side-nav.open{transform:translateX(0);}
-.nav-header{background:var(--primary);color:#fff;padding:14px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center;}
-.nav-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;}
-.side-nav ul{list-style:none;padding:4px 0;}
-.side-nav li a{display:block;padding:9px 16px;color:var(--text);text-decoration:none;font-size:12px;border-bottom:1px solid #f5f5f5;line-height:1.45;transition:background .15s;}
-.side-nav li a:hover{background:#f0f7ff;color:var(--primary);}
-.main-content{padding:12px 10px 60px;}
-.page-header{text-align:center;padding:14px 0 16px;}
-.page-header h2{color:var(--primary);font-size:18px;font-weight:700;margin-bottom:4px;}
-.page-header p{color:#888;font-size:12px;}
-.index-card{display:flex;align-items:center;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:10px;padding:12px 14px;text-decoration:none;color:var(--text);gap:10px;transition:box-shadow .2s,transform .15s;}
-.index-card:hover,.index-card:active{box-shadow:0 4px 16px rgba(26,95,168,.2);transform:translateY(-1px);}
-.index-num{flex-shrink:0;width:28px;height:28px;background:var(--pl);color:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
-.index-info{flex:1;min-width:0;}
-.index-title{font-size:13px;font-weight:700;color:var(--primary);line-height:1.4;margin-bottom:3px;}
-.section-tags{margin-bottom:2px;}
-.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:10px;margin-right:3px;}
+body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px;color:var(--text);background:var(--bg);}
+.top-bar{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a5fa8,#2272d3);color:#fff;padding:0 14px;height:52px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 10px rgba(26,95,168,.35);}
+.top-title{font-size:15px;font-weight:700;flex:1;}
+.search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.15);border-radius:24px;padding:5px 12px;border:1px solid rgba(255,255,255,.25);}
+#globalSearch{background:none;border:none;outline:none;color:#fff;font-size:13px;width:130px;}
+#globalSearch::placeholder{color:rgba(255,255,255,.75);}
+.search-btn{background:none;border:none;color:#fff;cursor:pointer;font-size:16px;margin-left:4px;}
+.layout{display:flex;max-width:1200px;margin:0 auto;}
+.side-nav{width:260px;flex-shrink:0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;background:var(--white);border-right:1px solid var(--border);padding:10px 0;}
+.side-nav h3{padding:8px 14px;font-size:12px;color:var(--tl);font-weight:600;letter-spacing:.5px;}
+.side-nav ul{list-style:none;}
+.side-nav li a{display:block;padding:7px 16px;color:var(--text);text-decoration:none;font-size:12px;border-left:3px solid transparent;transition:all .15s;line-height:1.45;}
+.side-nav li a:hover,.side-nav li a.hl{background:#f0f7ff;color:var(--primary);border-left-color:var(--primary);}
+.side-nav li.hidden{display:none;}
+.main-content{flex:1;padding:16px 20px 60px;}
+.header-info{text-align:center;padding:10px 0 18px;}
+.header-info h2{color:var(--primary);font-size:19px;font-weight:700;}
+.header-info p{color:var(--tl);font-size:12px;margin-top:5px;}
+.search-tip{text-align:center;margin-bottom:14px;font-size:13px;color:#888;}
+.search-tip span{color:var(--primary);font-weight:600;}
+.doc-item{background:var(--white);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:10px;padding:14px 18px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .1s;cursor:pointer;border:1px solid transparent;}
+.doc-item:hover{box-shadow:0 4px 16px rgba(26,95,168,.15);border-color:var(--pl);}
+.doc-item.hidden{display:none;}
+.doc-num{font-size:22px;font-weight:800;color:var(--pl);flex-shrink:0;width:40px;text-align:center;line-height:1;color:var(--primary);opacity:.25;}
+.doc-body{flex:1;}
+.doc-title{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:5px;line-height:1.4;}
+.doc-title mark{background:#ffe066;color:#333;border-radius:2px;font-style:normal;}
+.doc-meta{font-size:12px;color:var(--tl);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;}
 .tag-both{background:#d1f2e0;color:#0f6b3e;}
 .tag-pdf{background:#fff3cd;color:#856404;}
 .tag-word{background:#cce5ff;color:#004085;}
-.index-meta{font-size:10px;color:#aaa;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.index-arrow{flex-shrink:0;font-size:20px;color:#bbb;}
-@media(min-width:700px){
-  .side-nav{position:sticky;top:50px;height:calc(100vh - 50px);transform:none!important;box-shadow:var(--shadow);width:240px;flex-shrink:0;overflow-y:auto;}
-  .nav-overlay{display:none!important;}
-  .layout{display:flex;max-width:1100px;margin:0 auto;}
-  .main-content{flex:1;padding:14px 20px 60px;}
-  .menu-btn{display:none;}
-  .index-card:hover{box-shadow:0 4px 16px rgba(26,95,168,.2);}
-  .index-title{font-size:14px;}
+.doc-arrow{color:#ccc;font-size:20px;flex-shrink:0;align-self:center;}
+.no-result{text-align:center;padding:40px;color:#999;font-size:14px;display:none;}
+@media(max-width:699px){
+  .side-nav{display:none;}
+  .main-content{padding:10px 12px 50px;}
+  .doc-title{font-size:14px;}
+  #globalSearch{width:90px;}
 }
 </style>
 </head>
 <body>
 <div class="top-bar">
-  <button class="menu-btn" onclick="toggleNav()">&#9776;</button>
-  <span class="top-title">2026年政策文件汇编</span>
+  <span class="top-title">&#128196; 2026年政策文件汇编</span>
+  <div class="search-wrap">
+    <input id="globalSearch" type="text" placeholder="搜索文件名或关键词…" oninput="filterDocs()" onkeydown="if(event.key==='Enter')goSearch()">
+    <button class="search-btn" onclick="goSearch()" title="全文检索（跳转到文档）">&#128269;</button>
+  </div>
 </div>
-<div id="navOverlay" class="nav-overlay" onclick="closeNav()"></div>
 <div class="layout">
-  <nav id="sideNav" class="side-nav">
-    <div class="nav-header">
-      <span>&#128196; 政策目录（29份）</span>
-      <button class="nav-close" onclick="closeNav()">&#10005;</button>
-    </div>
-    <ul>
-<li><a href="doc_01.html">新可多标准店紧密型加盟模式3.0版</a></li>
-<li><a href="doc_02.html">新可多鲜食店紧密型加盟模式3.0版</a></li>
-<li><a href="doc_03.html">可多新开带铺加盟方案3.0</a></li>
-<li><a href="doc_04.html">可多新开店加盟优惠政策3.0</a></li>
-<li><a href="doc_05.html">可多员工加盟开店指导方案2.0</a></li>
-<li><a href="doc_06.html">可多加盟意向定金缴纳标准2.0</a></li>
-<li><a href="doc_07.html">门店迁址方案3.0</a></li>
-<li><a href="doc_08.html">新开门店首年异动处理方案2.0</a></li>
-<li><a href="doc_09.html">市场开发部开店提成方案2.0</a></li>
-<li><a href="doc_10.html">市场开发部历史开店提成方案2.0</a></li>
-<li><a href="doc_11.html">可多全民开发奖励方案4.0</a></li>
-<li><a href="doc_12.html">大客户服务方案1.0</a></li>
-<li><a href="doc_13.html">开发人员晋升降级内控标准优化3.0</a></li>
-<li><a href="doc_14.html">市场开发部开发员绩效标准及评比规则1.0</a></li>
-<li><a href="doc_15.html">市场开发部开店阶段达成激励方案2.0</a></li>
-<li><a href="doc_16.html">市场开发部新人培养期激励方案2.0</a></li>
-<li><a href="doc_17.html">关于外埠市场开发设备支持方案2.0</a></li>
-<li><a href="doc_18.html">市场开发部光谷东片区阶段性激励方案1.0</a></li>
-<li><a href="doc_19.html">市场开发部原东部战区方案1.0</a></li>
-<li><a href="doc_20.html">场地评估流程标准4.0</a></li>
-<li><a href="doc_21.html">招投标方案2.0</a></li>
-<li><a href="doc_22.html">市场开发部招标项目办理流程2.0</a></li>
-<li><a href="doc_23.html">可多优质加盟商访谈方案1.0</a></li>
-<li><a href="doc_24.html">市场开发部本埠外埠区域划分规定2.0</a></li>
-<li><a href="doc_25.html">市场开发部黄区培训及会议机制3.0</a></li>
-<li><a href="doc_26.html">市场开发部各岗位参会管理细则1.0</a></li>
-<li><a href="doc_27.html">市场开发部会议管理机制2.0</a></li>
-<li><a href="doc_28.html">市场开发部开发评级方案1.0</a></li>
-<li><a href="doc_29.html">可多市场开发部招聘标准及要求2.0</a></li>
-
+  <nav class="side-nav">
+    <h3>政策目录（29份）</h3>
+    <ul id="sideList">
+<li id="side_doc_1"><a href="#doc_1">新可多标准店紧密型加盟模式3.0版</a></li>
+<li id="side_doc_2"><a href="#doc_2">新可多鲜食店紧密型加盟模式3.0版</a></li>
+<li id="side_doc_3"><a href="#doc_3">可多新开带铺加盟方案3.0</a></li>
+<li id="side_doc_4"><a href="#doc_4">可多新开店加盟优惠政策3.0</a></li>
+<li id="side_doc_5"><a href="#doc_5">可多员工加盟开店指导方案2.0</a></li>
+<li id="side_doc_6"><a href="#doc_6">可多加盟意向定金缴纳标准2.0</a></li>
+<li id="side_doc_7"><a href="#doc_7">门店迁址方案3.0</a></li>
+<li id="side_doc_8"><a href="#doc_8">新开门店首年异动处理方案2.0</a></li>
+<li id="side_doc_9"><a href="#doc_9">市场开发部开店提成方案2.0</a></li>
+<li id="side_doc_10"><a href="#doc_10">市场开发部历史开店提成方案2.0</a></li>
+<li id="side_doc_11"><a href="#doc_11">可多全民开发奖励方案4.0</a></li>
+<li id="side_doc_12"><a href="#doc_12">大客户服务方案1.0</a></li>
+<li id="side_doc_13"><a href="#doc_13">开发人员晋升降级内控标准优化3.0</a></li>
+<li id="side_doc_14"><a href="#doc_14">市场开发部开发员绩效标准及评比规则1.0</a></li>
+<li id="side_doc_15"><a href="#doc_15">市场开发部开店阶段达成激励方案2.0</a></li>
+<li id="side_doc_16"><a href="#doc_16">市场开发部新人培养期激励方案2.0</a></li>
+<li id="side_doc_17"><a href="#doc_17">关于外埠市场开发设备支持方案2.0</a></li>
+<li id="side_doc_18"><a href="#doc_18">市场开发部光谷东片区阶段性激励方案1.0</a></li>
+<li id="side_doc_19"><a href="#doc_19">市场开发部原东部战区方案1.0</a></li>
+<li id="side_doc_20"><a href="#doc_20">场地评估流程标准4.0</a></li>
+<li id="side_doc_21"><a href="#doc_21">招投标方案2.0</a></li>
+<li id="side_doc_22"><a href="#doc_22">市场开发部招标项目办理流程2.0</a></li>
+<li id="side_doc_23"><a href="#doc_23">可多优质加盟商访谈方案1.0</a></li>
+<li id="side_doc_24"><a href="#doc_24">市场开发部本埠外埠区域划分规定2.0</a></li>
+<li id="side_doc_25"><a href="#doc_25">市场开发部黄区培训及会议机制3.0</a></li>
+<li id="side_doc_26"><a href="#doc_26">市场开发部各岗位参会管理细则1.0</a></li>
+<li id="side_doc_27"><a href="#doc_27">市场开发部会议管理机制2.0</a></li>
+<li id="side_doc_28"><a href="#doc_28">市场开发部开发评级方案1.0</a></li>
+<li id="side_doc_29"><a href="#doc_29">可多市场开发部招聘标准及要求2.0</a></li>
     </ul>
   </nav>
   <main class="main-content">
-    <div class="page-header">
+    <div class="header-info">
       <h2>2026年政策文件汇编</h2>
-      <p>共收录政策文件 29 份 &nbsp;·&nbsp; 点击文件名查看详细内容</p>
+      <p>共收录政策文件 <strong>29</strong> 份 &nbsp;·&nbsp; 点击文件名查看详细内容</p>
     </div>
-<a class="index-card" href="doc_01.html">
-  <div class="index-num">01</div>
-  <div class="index-info">
-    <div class="index-title">新可多标准店紧密型加盟模式3.0版</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年新可多标准店紧密型加盟模式3.0版.pdf　Word：2026年新可多标准店紧密型加盟模式3.0版（定）.docx</div>
+    <div class="search-tip" id="searchTip" style="display:none">
+      搜索 "<span id="searchTipKw"></span>" — 点击文件名在文档内高亮显示
+    </div>
+    <div id="docList">
+<div class="doc-item" id="item_doc_1" data-href="doc_01.html" data-title="新可多标准店紧密型加盟模式3.0版">
+  <div class="doc-num">01</div>
+  <div class="doc-body">
+    <div class="doc-title">新可多标准店紧密型加盟模式3.0版</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年新可多标准店紧密型加盟模式3.0版.pdf　Word：2026年新可多标准店紧密型加盟模式3.0版（定）.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_02.html">
-  <div class="index-num">02</div>
-  <div class="index-info">
-    <div class="index-title">新可多鲜食店紧密型加盟模式3.0版</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年新可多鲜食店紧密型加盟模式3.0版.pdf　Word：2026年新可多鲜食店紧密型加盟模式3.0版（定）.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_2" data-href="doc_02.html" data-title="新可多鲜食店紧密型加盟模式3.0版">
+  <div class="doc-num">02</div>
+  <div class="doc-body">
+    <div class="doc-title">新可多鲜食店紧密型加盟模式3.0版</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年新可多鲜食店紧密型加盟模式3.0版.pdf　Word：2026年新可多鲜食店紧密型加盟模式3.0版（定）.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_03.html">
-  <div class="index-num">03</div>
-  <div class="index-info">
-    <div class="index-title">可多新开带铺加盟方案3.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年可多新开带铺加盟方案3.0.pdf　Word：2026年可多新开带铺加盟方案3.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_3" data-href="doc_03.html" data-title="可多新开带铺加盟方案3.0">
+  <div class="doc-num">03</div>
+  <div class="doc-body">
+    <div class="doc-title">可多新开带铺加盟方案3.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年可多新开带铺加盟方案3.0.pdf　Word：2026年可多新开带铺加盟方案3.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_04.html">
-  <div class="index-num">04</div>
-  <div class="index-info">
-    <div class="index-title">可多新开店加盟优惠政策3.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年可多新开店加盟优惠政策3.0.pdf　Word：2026年可多新开店加盟优惠政策3.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_4" data-href="doc_04.html" data-title="可多新开店加盟优惠政策3.0">
+  <div class="doc-num">04</div>
+  <div class="doc-body">
+    <div class="doc-title">可多新开店加盟优惠政策3.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年可多新开店加盟优惠政策3.0.pdf　Word：2026年可多新开店加盟优惠政策3.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_05.html">
-  <div class="index-num">05</div>
-  <div class="index-info">
-    <div class="index-title">可多员工加盟开店指导方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年可多员工加盟开店指导方案2.0.pdf　Word：2026年可多员工加盟开店指导方案2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_5" data-href="doc_05.html" data-title="可多员工加盟开店指导方案2.0">
+  <div class="doc-num">05</div>
+  <div class="doc-body">
+    <div class="doc-title">可多员工加盟开店指导方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年可多员工加盟开店指导方案2.0.pdf　Word：2026年可多员工加盟开店指导方案2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_06.html">
-  <div class="index-num">06</div>
-  <div class="index-info">
-    <div class="index-title">可多加盟意向定金缴纳标准2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年可多加盟意向定金缴纳标准2.0.pdf　Word：2026年可多加盟意向定金缴纳标准2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_6" data-href="doc_06.html" data-title="可多加盟意向定金缴纳标准2.0">
+  <div class="doc-num">06</div>
+  <div class="doc-body">
+    <div class="doc-title">可多加盟意向定金缴纳标准2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年可多加盟意向定金缴纳标准2.0.pdf　Word：2026年可多加盟意向定金缴纳标准2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_07.html">
-  <div class="index-num">07</div>
-  <div class="index-info">
-    <div class="index-title">门店迁址方案3.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年门店迁址方案3.0.pdf　Word：2026年门店迁址方案3.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_7" data-href="doc_07.html" data-title="门店迁址方案3.0">
+  <div class="doc-num">07</div>
+  <div class="doc-body">
+    <div class="doc-title">门店迁址方案3.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年门店迁址方案3.0.pdf　Word：2026年门店迁址方案3.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_08.html">
-  <div class="index-num">08</div>
-  <div class="index-info">
-    <div class="index-title">新开门店首年异动处理方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年新开门店首年异动处理方案2.0.pdf　Word：2026年新开门店首年异动处理方案2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_8" data-href="doc_08.html" data-title="新开门店首年异动处理方案2.0">
+  <div class="doc-num">08</div>
+  <div class="doc-body">
+    <div class="doc-title">新开门店首年异动处理方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年新开门店首年异动处理方案2.0.pdf　Word：2026年新开门店首年异动处理方案2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_09.html">
-  <div class="index-num">09</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部开店提成方案2.0</div>
-    <div class="section-tags"><span class="tag tag-pdf">仅扫描版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部开店提成方案2.0.pdf</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_9" data-href="doc_09.html" data-title="市场开发部开店提成方案2.0">
+  <div class="doc-num">09</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部开店提成方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-pdf">仅扫描版</span>
+      PDF：JL-2026年市场开发部开店提成方案2.0.pdf
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_10.html">
-  <div class="index-num">10</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部历史开店提成方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部历史开店提成方案2.0.pdf　Word：2026年市场开发部历史开店提成方案2.0（定）.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_10" data-href="doc_10.html" data-title="市场开发部历史开店提成方案2.0">
+  <div class="doc-num">10</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部历史开店提成方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年市场开发部历史开店提成方案2.0.pdf　Word：2026年市场开发部历史开店提成方案2.0（定）.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_11.html">
-  <div class="index-num">11</div>
-  <div class="index-info">
-    <div class="index-title">可多全民开发奖励方案4.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年可多全民开发奖励方案4.0.pdf　Word：2026年可多全民开发奖励方案4.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_11" data-href="doc_11.html" data-title="可多全民开发奖励方案4.0">
+  <div class="doc-num">11</div>
+  <div class="doc-body">
+    <div class="doc-title">可多全民开发奖励方案4.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年可多全民开发奖励方案4.0.pdf　Word：2026年可多全民开发奖励方案4.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_12.html">
-  <div class="index-num">12</div>
-  <div class="index-info">
-    <div class="index-title">大客户服务方案1.0</div>
-    <div class="section-tags"><span class="tag tag-word">仅文字版</span></div>
-    <div class="index-meta">Word：2026年大客户服务方案1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_12" data-href="doc_12.html" data-title="大客户服务方案1.0">
+  <div class="doc-num">12</div>
+  <div class="doc-body">
+    <div class="doc-title">大客户服务方案1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-word">仅文字版</span>
+      Word：2026年大客户服务方案1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_13.html">
-  <div class="index-num">13</div>
-  <div class="index-info">
-    <div class="index-title">开发人员晋升降级内控标准优化3.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年开发人员晋升降级内控标准优化3.0.pdf　Word：2026年开发人员晋升降级内控标准优化3.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_13" data-href="doc_13.html" data-title="开发人员晋升降级内控标准优化3.0">
+  <div class="doc-num">13</div>
+  <div class="doc-body">
+    <div class="doc-title">开发人员晋升降级内控标准优化3.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年开发人员晋升降级内控标准优化3.0.pdf　Word：2026年开发人员晋升降级内控标准优化3.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_14.html">
-  <div class="index-num">14</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部开发员绩效标准及评比规则1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026市场开发部开发员绩效标准及评比规则1.0.pdf　Word：2026市场开发部开发员绩效标准及评比规则1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_14" data-href="doc_14.html" data-title="市场开发部开发员绩效标准及评比规则1.0">
+  <div class="doc-num">14</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部开发员绩效标准及评比规则1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026市场开发部开发员绩效标准及评比规则1.0.pdf　Word：2026市场开发部开发员绩效标准及评比规则1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_15.html">
-  <div class="index-num">15</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部开店阶段达成激励方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部开店阶段达成激励方案2.0.pdf　Word：2026年市场开发部开店阶段达成激励政策2.0（定）.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_15" data-href="doc_15.html" data-title="市场开发部开店阶段达成激励方案2.0">
+  <div class="doc-num">15</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部开店阶段达成激励方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年市场开发部开店阶段达成激励方案2.0.pdf　Word：2026年市场开发部开店阶段达成激励政策2.0（定）.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_16.html">
-  <div class="index-num">16</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部新人培养期激励方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部新人培养期激励方案2.0.pdf　Word：2026年市场开发部新人培养期激励政策2.0（定）.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_16" data-href="doc_16.html" data-title="市场开发部新人培养期激励方案2.0">
+  <div class="doc-num">16</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部新人培养期激励方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年市场开发部新人培养期激励方案2.0.pdf　Word：2026年市场开发部新人培养期激励政策2.0（定）.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_17.html">
-  <div class="index-num">17</div>
-  <div class="index-info">
-    <div class="index-title">关于外埠市场开发设备支持方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年关于外埠市场开发设备支持方案2.0.pdf　Word：2026年关于外埠市场开发设备支持方案2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_17" data-href="doc_17.html" data-title="关于外埠市场开发设备支持方案2.0">
+  <div class="doc-num">17</div>
+  <div class="doc-body">
+    <div class="doc-title">关于外埠市场开发设备支持方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年关于外埠市场开发设备支持方案2.0.pdf　Word：2026年关于外埠市场开发设备支持方案2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_18.html">
-  <div class="index-num">18</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部光谷东片区阶段性激励方案1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部光谷东片区阶段性激励方案1.0.pdf　Word：2026年市场开发部光谷东片区激励方案1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_18" data-href="doc_18.html" data-title="市场开发部光谷东片区阶段性激励方案1.0">
+  <div class="doc-num">18</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部光谷东片区阶段性激励方案1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年市场开发部光谷东片区阶段性激励方案1.0.pdf　Word：2026年市场开发部光谷东片区激励方案1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_19.html">
-  <div class="index-num">19</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部原东部战区方案1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年市场开发部原东部战区新规划方案1.0.pdf　Word：2026年市场开发部原东部战区激励方案1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_19" data-href="doc_19.html" data-title="市场开发部原东部战区方案1.0">
+  <div class="doc-num">19</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部原东部战区方案1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年市场开发部原东部战区新规划方案1.0.pdf　Word：2026年市场开发部原东部战区激励方案1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_20.html">
-  <div class="index-num">20</div>
-  <div class="index-info">
-    <div class="index-title">场地评估流程标准4.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年可多场地评估流程标准4.0.pdf　Word：2026年场地评估的流程标准4.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_20" data-href="doc_20.html" data-title="场地评估流程标准4.0">
+  <div class="doc-num">20</div>
+  <div class="doc-body">
+    <div class="doc-title">场地评估流程标准4.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年可多场地评估流程标准4.0.pdf　Word：2026年场地评估的流程标准4.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_21.html">
-  <div class="index-num">21</div>
-  <div class="index-info">
-    <div class="index-title">招投标方案2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：JL-2026年招投标方案2.0.pdf　Word：2026年招投标方案2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_21" data-href="doc_21.html" data-title="招投标方案2.0">
+  <div class="doc-num">21</div>
+  <div class="doc-body">
+    <div class="doc-title">招投标方案2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：JL-2026年招投标方案2.0.pdf　Word：2026年招投标方案2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_22.html">
-  <div class="index-num">22</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部招标项目办理流程2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部招标项目办理流程2.0.pdf　Word：2026年市场开发部招标项目办理流程2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_22" data-href="doc_22.html" data-title="市场开发部招标项目办理流程2.0">
+  <div class="doc-num">22</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部招标项目办理流程2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部招标项目办理流程2.0.pdf　Word：2026年市场开发部招标项目办理流程2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_23.html">
-  <div class="index-num">23</div>
-  <div class="index-info">
-    <div class="index-title">可多优质加盟商访谈方案1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年可多优质加盟商访谈方案1.0.pdf　Word：2026年可多优质加盟商访谈方案1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_23" data-href="doc_23.html" data-title="可多优质加盟商访谈方案1.0">
+  <div class="doc-num">23</div>
+  <div class="doc-body">
+    <div class="doc-title">可多优质加盟商访谈方案1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年可多优质加盟商访谈方案1.0.pdf　Word：2026年可多优质加盟商访谈方案1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_24.html">
-  <div class="index-num">24</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部本埠外埠区域划分规定2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部本埠外埠区域划分规定2.0.pdf　Word：2026年市场开发部本埠外埠区域划分规定2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_24" data-href="doc_24.html" data-title="市场开发部本埠外埠区域划分规定2.0">
+  <div class="doc-num">24</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部本埠外埠区域划分规定2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部本埠外埠区域划分规定2.0.pdf　Word：2026年市场开发部本埠外埠区域划分规定2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_25.html">
-  <div class="index-num">25</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部黄区培训及会议机制3.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部黄区人员培训机制3.0.pdf　Word：2026年市场开发部黄区培训及会议机制优化3.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_25" data-href="doc_25.html" data-title="市场开发部黄区培训及会议机制3.0">
+  <div class="doc-num">25</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部黄区培训及会议机制3.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部黄区人员培训机制3.0.pdf　Word：2026年市场开发部黄区培训及会议机制优化3.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_26.html">
-  <div class="index-num">26</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部各岗位参会管理细则1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部各岗位参会管理细则1.0.pdf　Word：2026年市场开发部各岗位参会管理细则1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_26" data-href="doc_26.html" data-title="市场开发部各岗位参会管理细则1.0">
+  <div class="doc-num">26</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部各岗位参会管理细则1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部各岗位参会管理细则1.0.pdf　Word：2026年市场开发部各岗位参会管理细则1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_27.html">
-  <div class="index-num">27</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部会议管理机制2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部会议管理机制2.0.pdf　Word：2026年市场开发部会议管理机制2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_27" data-href="doc_27.html" data-title="市场开发部会议管理机制2.0">
+  <div class="doc-num">27</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部会议管理机制2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部会议管理机制2.0.pdf　Word：2026年市场开发部会议管理机制2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_28.html">
-  <div class="index-num">28</div>
-  <div class="index-info">
-    <div class="index-title">市场开发部开发评级方案1.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年市场开发部开发评级方案1.0.pdf　Word：2026年市场开发部开发评级方案1.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_28" data-href="doc_28.html" data-title="市场开发部开发评级方案1.0">
+  <div class="doc-num">28</div>
+  <div class="doc-body">
+    <div class="doc-title">市场开发部开发评级方案1.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年市场开发部开发评级方案1.0.pdf　Word：2026年市场开发部开发评级方案1.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-<a class="index-card" href="doc_29.html">
-  <div class="index-num">29</div>
-  <div class="index-info">
-    <div class="index-title">可多市场开发部招聘标准及要求2.0</div>
-    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
-    <div class="index-meta">PDF：ZC-2026年可多市场开发部招聘标准及要求2.0.pdf　Word：2026年可多市场开发部招聘标准及要求2.0.docx</div>
+  <div class="doc-arrow">›</div>
+</div>
+<div class="doc-item" id="item_doc_29" data-href="doc_29.html" data-title="可多市场开发部招聘标准及要求2.0">
+  <div class="doc-num">29</div>
+  <div class="doc-body">
+    <div class="doc-title">可多市场开发部招聘标准及要求2.0</div>
+    <div class="doc-meta">
+      <span class="tag tag-both">图文版</span>
+      PDF：ZC-2026年可多市场开发部招聘标准及要求2.0.pdf　Word：2026年可多市场开发部招聘标准及要求2.0.docx
+    </div>
   </div>
-  <span class="index-arrow">&#8250;</span>
-</a>
-
+  <div class="doc-arrow">›</div>
+</div>
+    </div>
+    <div class="no-result" id="noResult">未找到匹配的文件</div>
   </main>
 </div>
 <script>
-function toggleNav(){document.getElementById('sideNav').classList.toggle('open');document.getElementById('navOverlay').classList.toggle('open');}
-function closeNav(){document.getElementById('sideNav').classList.remove('open');document.getElementById('navOverlay').classList.remove('open');}
-// 版本检测
-(function(){
-  var V='20260315-v5';
-  var s=localStorage.getItem('policy_ver');
-  if(s&&s!==V&&!sessionStorage.getItem('refreshed')){
-    sessionStorage.setItem('refreshed','1');
-    localStorage.setItem('policy_ver',V);
-    window.location.reload(true);
-  }else{localStorage.setItem('policy_ver',V);}
-})();
+var docs = [{"id": "doc_1", "title": "新可多标准店紧密型加盟模式3.0版", "file": "doc_01.html"}, {"id": "doc_2", "title": "新可多鲜食店紧密型加盟模式3.0版", "file": "doc_02.html"}, {"id": "doc_3", "title": "可多新开带铺加盟方案3.0", "file": "doc_03.html"}, {"id": "doc_4", "title": "可多新开店加盟优惠政策3.0", "file": "doc_04.html"}, {"id": "doc_5", "title": "可多员工加盟开店指导方案2.0", "file": "doc_05.html"}, {"id": "doc_6", "title": "可多加盟意向定金缴纳标准2.0", "file": "doc_06.html"}, {"id": "doc_7", "title": "门店迁址方案3.0", "file": "doc_07.html"}, {"id": "doc_8", "title": "新开门店首年异动处理方案2.0", "file": "doc_08.html"}, {"id": "doc_9", "title": "市场开发部开店提成方案2.0", "file": "doc_09.html"}, {"id": "doc_10", "title": "市场开发部历史开店提成方案2.0", "file": "doc_10.html"}, {"id": "doc_11", "title": "可多全民开发奖励方案4.0", "file": "doc_11.html"}, {"id": "doc_12", "title": "大客户服务方案1.0", "file": "doc_12.html"}, {"id": "doc_13", "title": "开发人员晋升降级内控标准优化3.0", "file": "doc_13.html"}, {"id": "doc_14", "title": "市场开发部开发员绩效标准及评比规则1.0", "file": "doc_14.html"}, {"id": "doc_15", "title": "市场开发部开店阶段达成激励方案2.0", "file": "doc_15.html"}, {"id": "doc_16", "title": "市场开发部新人培养期激励方案2.0", "file": "doc_16.html"}, {"id": "doc_17", "title": "关于外埠市场开发设备支持方案2.0", "file": "doc_17.html"}, {"id": "doc_18", "title": "市场开发部光谷东片区阶段性激励方案1.0", "file": "doc_18.html"}, {"id": "doc_19", "title": "市场开发部原东部战区方案1.0", "file": "doc_19.html"}, {"id": "doc_20", "title": "场地评估流程标准4.0", "file": "doc_20.html"}, {"id": "doc_21", "title": "招投标方案2.0", "file": "doc_21.html"}, {"id": "doc_22", "title": "市场开发部招标项目办理流程2.0", "file": "doc_22.html"}, {"id": "doc_23", "title": "可多优质加盟商访谈方案1.0", "file": "doc_23.html"}, {"id": "doc_24", "title": "市场开发部本埠外埠区域划分规定2.0", "file": "doc_24.html"}, {"id": "doc_25", "title": "市场开发部黄区培训及会议机制3.0", "file": "doc_25.html"}, {"id": "doc_26", "title": "市场开发部各岗位参会管理细则1.0", "file": "doc_26.html"}, {"id": "doc_27", "title": "市场开发部会议管理机制2.0", "file": "doc_27.html"}, {"id": "doc_28", "title": "市场开发部开发评级方案1.0", "file": "doc_28.html"}, {"id": "doc_29", "title": "可多市场开发部招聘标准及要求2.0", "file": "doc_29.html"}];
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function filterDocs(){
+  var kw=document.getElementById('globalSearch').value.trim().toLowerCase();
+  var sideItems=document.querySelectorAll('#sideList li');
+  var docItems=document.querySelectorAll('.doc-item');
+  var noResult=document.getElementById('noResult');
+  var tip=document.getElementById('searchTip');
+  var tipKw=document.getElementById('searchTipKw');
+  var visible=0;
+  docItems.forEach(function(el,i){
+    var title=docs[i].title.toLowerCase();
+    var show=!kw||title.includes(kw);
+    el.classList.toggle('hidden',!show);
+    if(sideItems[i])sideItems[i].classList.toggle('hidden',!show);
+    // 高亮匹配
+    var titleEl=el.querySelector('.doc-title');
+    if(kw&&show){
+      var re=new RegExp('('+kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      titleEl.innerHTML=escHtml(docs[i].title).replace(re,'<mark>$1</mark>');
+    } else {
+      titleEl.textContent=docs[i].title;
+    }
+    if(show)visible++;
+  });
+  noResult.style.display=visible===0?'block':'none';
+  if(kw){
+    tip.style.display='block';
+    tipKw.textContent=document.getElementById('globalSearch').value.trim();
+  } else {
+    tip.style.display='none';
+  }
+}
+function goSearch(){
+  var kw=document.getElementById('globalSearch').value.trim();
+  if(!kw)return;
+  // 找第一个可见文档
+  var items=document.querySelectorAll('.doc-item:not(.hidden)');
+  if(items.length>0){
+    var href=items[0].dataset.href+'?q='+encodeURIComponent(kw);
+    window.location.href=href;
+  }
+}
+document.querySelectorAll('.doc-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    var kw=document.getElementById('globalSearch').value.trim();
+    var href=el.dataset.href;
+    if(kw)href+='?q='+encodeURIComponent(kw);
+    window.location.href=href;
+  });
+});
 </script>
 </body>
 </html>
