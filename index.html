@@ -12,7 +12,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 .top-bar{position:sticky;top:0;z-index:100;background:var(--primary);color:#fff;padding:0 12px;height:52px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
 .top-title{font-size:15px;font-weight:700;flex:1;}
 .search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.18);border-radius:20px;padding:4px 10px;}
-#searchInput{background:none;border:none;outline:none;color:#fff;font-size:13px;width:100px;}
+#searchInput{background:none;border:none;outline:none;color:#fff;font-size:13px;width:110px;}
 #searchInput::placeholder{color:rgba(255,255,255,.7);}
 .search-btn{background:none;border:none;color:#fff;cursor:pointer;font-size:15px;padding:0 2px;}
 .hero{background:linear-gradient(135deg,var(--primary) 0%,#2d7fd3 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
@@ -23,22 +23,26 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 .stat-num{font-size:22px;font-weight:700;}
 .stat-label{font-size:11px;opacity:.8;}
 .content{padding:12px 10px 40px;max-width:860px;margin:0 auto;}
-.section-label{font-size:12px;color:#888;padding:8px 4px 4px;font-weight:600;letter-spacing:.5px;}
+.section-label{font-size:12px;color:#888;padding:8px 4px 6px;font-weight:600;letter-spacing:.5px;}
 .doc-card{display:flex;align-items:center;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:8px;padding:12px 14px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .1s;gap:10px;}
 .doc-card:active{box-shadow:0 1px 3px rgba(0,0,0,.1);transform:scale(.99);}
 .doc-num{background:var(--primary);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px;flex-shrink:0;min-width:30px;text-align:center;}
-.doc-card-title{flex:1;font-size:13px;font-weight:600;line-height:1.4;color:#1a1a1a;}
+.doc-card-body{flex:1;min-width:0;}
+.doc-card-title{font-size:13px;font-weight:600;line-height:1.4;color:#1a1a1a;display:block;}
+.doc-card-snippet{font-size:11px;color:#888;line-height:1.5;margin-top:3px;display:none;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.doc-card-snippet.on{display:-webkit-box;}
+.doc-card-snippet mark{background:#ffe066;color:#333;font-style:normal;border-radius:2px;padding:0 1px;}
 .doc-arrow{color:#bbb;font-size:20px;flex-shrink:0;}
-.doc-card.hidden{display:none;}
+.doc-card.hidden{display:none!important;}
 .no-result{text-align:center;padding:40px 16px;color:#999;font-size:14px;display:none;}
-.search-tip{font-size:12px;color:#aaa;text-align:center;padding:8px 0 0;display:none;}
+.result-stat{font-size:12px;color:#1a5fa8;padding:4px 4px 8px;display:none;font-weight:600;}
 </style>
 </head>
 <body>
 <div class="top-bar">
   <span class="top-title">&#128196; 政策文件汇编</span>
   <div class="search-wrap">
-    <input id="searchInput" type="text" placeholder="搜索政策…" autocomplete="off">
+    <input id="searchInput" type="text" placeholder="搜索标题或内容…" autocomplete="off">
     <button class="search-btn" onclick="doSearch()">&#128269;</button>
   </div>
 </div>
@@ -51,186 +55,319 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
   </div>
 </div>
 <div class="content">
-  <div class="section-label">全部文件（点击查看详情）</div>
+  <div id="sectionLabel" class="section-label">全部文件（点击查看详情）</div>
+  <div id="resultStat" class="result-stat"></div>
 
-<a class="doc-card" href="doc_01.html" data-title="新可多标准店紧密型加盟模式3.0版">
+<a class="doc-card" href="doc_01.html" data-title="新可多标准店紧密型加盟模式3.0版" data-text="class=&quot;policy-section&quot;> 新可多标准店紧密型加盟模式3.0版 图文版 PDF：ZC-2026年新可多标准店紧密型加盟模式3.0版.pdf Word：2026年新可多标准店紧密型加盟模式3.0版（定）.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 05 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年新可多标准店紧密型加盟模式 3 .0 为继续贯彻找好铺、开好店的原则， 坚持以客户为中心的服务准则，最大程度上降低公司现有老加盟商的新开店投资风险，同时给老加盟商多一个优质选择，现就打造新可多非鲜食店型制定以下紧密型加盟模式。 加盟品牌 可多便利 适用群体 仅适用于公司现有可多品牌老加盟商新开店 立地要求 符合可多选址要求 店铺面积 社区型≥50平方，商业/写字楼/其它类型≥30平方，门店展面要求门头3米以上。 合同周期 5年 品牌 使用费 2.5万元（有复数店政策） 履约 保证金 3万元（复数店不递减） 商品 保证金 1、商品保证金标准为10万元。 前100家签约的加盟商，经审核确认后可减免该保证金 。 2、其它审批规则：当单次/单批货款金额超过10万元且不足20万元时，需提交审批表，经公司总经办审批通过后方可执行。 3、商品保证金最高限额为20万元。 设计 监理费 0.3万元 招牌 收费标准：吸塑灯箱1500元/米，招牌打底600元/米（超高超厚非标招牌的打底费用据实结算）。 以10米为例，招牌预算约15000元，招牌打底预算约6000元。 信息系统 ERP系统、OA系统、帆软， 合计1.44万元。 监控设备费用 （云值守） 门店以KA价格栏为准, 可多享受微店全场减-3500的优惠政策, 10路监控费用">
   <span class="doc-num">01</span>
-  <span class="doc-card-title">新可多标准店紧密型加盟模式3.0版</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">新可多标准店紧密型加盟模式3.0版</span>
+    <span class="doc-card-snippet" id="snip_1"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_02.html" data-title="新可多鲜食店紧密型加盟模式3.0版">
+<a class="doc-card" href="doc_02.html" data-title="新可多鲜食店紧密型加盟模式3.0版" data-text="class=&quot;policy-section&quot;> 新可多鲜食店紧密型加盟模式3.0版 图文版 PDF：ZC-2026年新可多鲜食店紧密型加盟模式3.0版.pdf Word：2026年新可多鲜食店紧密型加盟模式3.0版（定）.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 06 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年新可多鲜食店紧密型加盟模式 3.0 为继续贯彻找好铺、开好店的原则， 践行公司可以义为利，多以爱示人的可多核心价值观，坚持以客户为中心的服务准则，最大程度上降低客户的投资创业风险，现就打造新可多制定以下紧密型加盟模式。 加盟品牌 可多便利 适用群体 1、 公司现有可多品牌老加盟商新开店；2、老加盟推荐的新加盟商新开店； 3、接受开店后办理托管模式的新加盟商新开店。 立地要求 符合可多选址要求 店铺面积 社区型≥50平方，商业/写字楼/其它类型≥30平方，门店展面要求门头3米以上。 合同周期 5年 品牌 使用费 2.5万元（有复数店政策） 履约 保证金 3万元（复数店不递减） 商品 保证金 1、商品保证金标准为10万元。 前100家签约的加盟商，经审核确认后可减免该保证金 。 2、其它审批规则：当单次/单批货款金额超过10万元且不足20万元时，需提交审批表，经公司总经办审批通过后方可执行。 3、商品保证金最高限额为20万元。 设计 监理费 0.3万元 招牌 收费标准：吸塑灯箱1500元/米，招牌打底600元/米（超高超厚非标招牌的打底费用据实结算）。 以10米为例，招牌预算约15000元，招牌打底预算约6000元。 信息系统 ERP系统、OA系统、帆软， 合计1.44万元。 监控设备费用 （云值守） 门店以KA">
   <span class="doc-num">02</span>
-  <span class="doc-card-title">新可多鲜食店紧密型加盟模式3.0版</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">新可多鲜食店紧密型加盟模式3.0版</span>
+    <span class="doc-card-snippet" id="snip_2"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_03.html" data-title="可多新开带铺加盟方案3.0">
+<a class="doc-card" href="doc_03.html" data-title="可多新开带铺加盟方案3.0" data-text="class=&quot;policy-section&quot;> 可多新开带铺加盟方案3.0 图文版 PDF：JL-2026年可多新开带铺加盟方案3.0.pdf Word：2026年可多新开带铺加盟方案3.0.docx 文字版 扫描版 通知编号 ： SCKF/TZ/202 5/12 - 19 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年可多新开带铺加盟方案 3.0 为提升客户满意度，公司对新开带铺加盟门店 设定以下政策 ： 1、 新客户带铺加盟新开可多，公司招牌全送（根据门店实际情况提交处理方案，经公司总经办审批同意方可执行，总金额在15000元以内）。 2、 老客户带铺加盟新开可多，公司赠送5000元积分，且只可与复数店优惠同享。 备注：带铺加盟包含自购铺， 不包含招投标成功开店项 目 。 以上方案从 2026年01月01日 开始执行，试行3个月，如无调整则继续沿用。 市场开发部 2025年12月10日 第 1 / 1 页">
   <span class="doc-num">03</span>
-  <span class="doc-card-title">可多新开带铺加盟方案3.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多新开带铺加盟方案3.0</span>
+    <span class="doc-card-snippet" id="snip_3"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_04.html" data-title="可多新开店加盟优惠政策3.0">
+<a class="doc-card" href="doc_04.html" data-title="可多新开店加盟优惠政策3.0" data-text="class=&quot;policy-section&quot;> 可多新开店加盟优惠政策3.0 图文版 PDF：JL-2026年可多新开店加盟优惠政策3.0.pdf Word：2026年可多新开店加盟优惠政策3.0.docx 文字版 扫描版 通知编号：SCKF/TZ/202 5 / 12 - 18 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 202 6 年 可多新开店 加盟优惠政策 3 .0 类型 新客新店 特殊店 内加盟店 开店数 品牌使用费 品牌保证金 其 他 品牌使用费 品牌保证金 品牌使用费 品牌保证金 第 1 家 25000 30000 交纳意向金1000元，赠送3000元设备抵用券 20000 30000 12500 15000 第 2 家 复数店 20000 20000 / 20000 20000 20000 20000 第 3 家 15000 10000 / 15000 10000 15000 10000 第 4 家 10000 0 / 10000 0 10000 0 第 5 家 及以上 10000 0 / 10000 0 10000 0 政策说明： 一、复数店认定标准： ①加盟商老店需处于正常经营状态，新店已筹备完毕并正式营业； ②加盟商老店与新店的营业执照法人及加盟合同法人均需保持 一致； ③ 同时满足以上2条标准方可将老加盟商新店认定为复数店 ； ④复数店 加盟政策不适用于翻牌店 。 注意：如有因为证件办理、租赁合同或合伙出资占比等各种原因无法满足以上条件的情况，则需要加盟商出具正式书面情况说明并附相应证明材料， 交 由公司审批，公司通过后方可享受复数店优惠政策。 二、特 殊店认定标准： ①退役军人或残障人士加盟可多便利店，持有效证件可享受特殊店加盟政策; ">
   <span class="doc-num">04</span>
-  <span class="doc-card-title">可多新开店加盟优惠政策3.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多新开店加盟优惠政策3.0</span>
+    <span class="doc-card-snippet" id="snip_4"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_05.html" data-title="可多员工加盟开店指导方案2.0">
+<a class="doc-card" href="doc_05.html" data-title="可多员工加盟开店指导方案2.0" data-text="class=&quot;policy-section&quot;> 可多员工加盟开店指导方案2.0 图文版 PDF：ZC-2026年可多员工加盟开店指导方案2.0.pdf Word：2026年可多员工加盟开店指导方案2.0.docx 文字版 扫描版 发件 编号: SCKF/TZ/ 202 5/12 - 20 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址：OA—公司公告 总经理签发： 2026 年可多员工加盟开店指导方案 2 .0 一、 方案 目的： 为鼓励员工创业热情，实现公司与员工共同发展，现就公司员工以加盟形式参与品牌门店创业制定本指导意见。本方案适用于签订劳动合同满 1 年以上的 公司 员工。 二、合作模式分类： 根据合作主体差异，设立两类加盟模式：&nbsp;&nbsp; （一）员工众筹托管店 由 公司或员工个人 发起众筹 ， 联合其他员工，由公司统一进行选址评估、装修设计、运营管理，投资人享有分红权但不参与实际经营。 运营管理及股权、分红等操作参照之前公司颁布的众筹托管店方案执行。 （二）合伙创业店 1.员工与外部合伙人联合开店 。 &nbsp;&nbsp; 2.员工间联合开店 。 三、针对合伙创业店类型的门店做以下要求： （一）合伙创业店的股权比例限制：&nbsp;&nbsp; 创业阶段 个人最高持股比例 第一家 允许≥51% 第二家 仅能≤25% 第三家及以上 仅能≤20% （二）合伙创业店的运营管理机制： 1. 严格按照公司开店政策和流程执行，新店不享受复数店任何政策。 2. 员工本人不能在自己店内担任任何职务，不能参与日常经营。 3. 必须使用公司供应链系统及收银系统。&nbsp;&nbsp; 4. 必须遵守《品牌运营管理手册》，接受公司对加盟店的管理办法。&nbsp;&nbsp; 5. 所有商品不">
   <span class="doc-num">05</span>
-  <span class="doc-card-title">可多员工加盟开店指导方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多员工加盟开店指导方案2.0</span>
+    <span class="doc-card-snippet" id="snip_5"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_06.html" data-title="可多加盟意向定金缴纳标准2.0">
+<a class="doc-card" href="doc_06.html" data-title="可多加盟意向定金缴纳标准2.0" data-text="class=&quot;policy-section&quot;> 可多加盟意向定金缴纳标准2.0 图文版 PDF：ZC-2026年可多加盟意向定金缴纳标准2.0.pdf Word：2026年可多加盟意向定金缴纳标准2.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 09 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年可多加盟意向定金缴纳标准 2.0 为贯彻以客户为中心的原则，规范加盟意向定金的缴纳流程，让缴纳流程更规范化，标准化，透明化，便于监督审核以及后期工作的展开与交流，现针对加盟意向定金的缴纳标准做规范，具体如下： 一、加盟意向定金一般情况的缴纳方式 &nbsp;&nbsp;&nbsp;&nbsp;1、银行转账：意向加盟商向公司银行账户仁德立一般户（0601）转账后，接待人员将转账成功的界面拍照或截图后，在财务对接群里报备，并让财务开收据。报备格式为：转账成功的图片或截图+文字说明（开收据：意向加盟商姓名+身份证后四位+加盟意向定金1000元）。 2、微信/支付宝支付：意向加盟商如无法操作银行卡对公转账，则可至财务部用微信或支付宝转账，如后期涉及到退款，产生3‰的手续费由可多公司承担。意向加盟商转账后，接待人员在财务群报备，让财务开收据（开收据：意向加盟商姓名+身份证后四位+加盟意向定金 1000元）。 注：加盟意向定金不可由公司内部员工代缴，如员工代缴此笔意向金客户不核算业绩，款项由财务原路返回，同时代缴员工须乐捐50元/次。 此规则自签订之日起执行，试行三个月，到期如无调整则继续延用。 市场开发部 2025年12月10日 第 1 / 1 页">
   <span class="doc-num">06</span>
-  <span class="doc-card-title">可多加盟意向定金缴纳标准2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多加盟意向定金缴纳标准2.0</span>
+    <span class="doc-card-snippet" id="snip_6"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_07.html" data-title="门店迁址方案3.0">
+<a class="doc-card" href="doc_07.html" data-title="门店迁址方案3.0" data-text="class=&quot;policy-section&quot;> 门店迁址方案3.0 图文版 PDF：JL-2026年门店迁址方案3.0.pdf Word：2026年门店迁址方案3.0.docx 文字版 扫描版 发件 编号： SCKF/TZ/2025/12-07 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年门店迁址方案 3.0 为更好的服务 可多现有加盟商 ，公司对迁址门店做出 以下规则 ： 1、 新址 商铺属于开发员推荐，且 原 门店经营满一年 （以陈列日时间为准） ，收两万 元 迁址费， 市场 开发部正常核算 业绩及各岗位 提成 （提成标准与新店一致） 。 2、 新址 商铺属于开发员推荐， 且原 门店经营未满一年 （以陈列日时间为准） ，公司不收迁址费 ，市场开发部正常核算业绩，不按新店核发提成， 该新店新增 设备及装修净利润的20%作为开发 员 提成。 3、 老加盟商 自带铺迁址，不收迁址费 ，市场开发部正常核算业绩，不按新店核发提成， 该新店新增 设备及装修净利润的20%作为开发提 成。 以上方案自签批之日起开始执行，试行三个月，如无调整，则继续延用。 市场开发部 2025年12月10日 第 1 / 1 页">
   <span class="doc-num">07</span>
-  <span class="doc-card-title">门店迁址方案3.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">门店迁址方案3.0</span>
+    <span class="doc-card-snippet" id="snip_7"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_08.html" data-title="新开门店首年异动处理方案2.0">
+<a class="doc-card" href="doc_08.html" data-title="新开门店首年异动处理方案2.0" data-text="class=&quot;policy-section&quot;> 新开门店首年异动处理方案2.0 图文版 PDF：JL-2026年新开门店首年异动处理方案2.0.pdf Word：2026年新开门店首年异动处理方案2.0.docx 文字版 扫描版 发件 编号： SCKF /TZ/ 202 5/12 - 22 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 人事行政部/财务部/市场开发部/营运部/商品部/ 教培部 总经理签发： 2026年新开门店首年异动处理方案2.0 为贯彻找好铺、开好店的原则，开发部在开店前期须对商铺及周边进行详细市调工作，并在《新店、迁址及翻牌确认表》中与加盟商同步、确认相关内容，经总经办审核之后才能召开进度会。 但由于市场竞争、周边环境、现场经营等各种不确定因素会经常发生变化，导致门店产生了异动，且异动原因也无法快速准确的判定。公司 考虑到加盟商的前期投入还有公司各部门的工作付出，针对不同情况的门店首年异动做如下处理方案： 一、 适用范围 ： 自加盟合同生效起12个月内新开门店。（“加盟合同生效”：指门店得到公司品牌授权且正常开始经营。“新开门店”：指新增店号的门店，迁址店不算在内。） 二、异动类型 ： 1、闭店且不在原址继续经营同业态（以走完闭店流程的时间点考核）的处理方式： ①业绩：公司各部门因该店产生的业绩不计入完成指标。 ②提成：公 司各部门因该店产生的提成须退回50%至公司，公司根据实际情况给予加盟商一定的补偿，补偿标准以公司的最新政策及审批为准。如半年内原址再做同业态，则公司需将扣掉的相关提成退回至相关部门。 2、 闭店且原址继续经营同业态（其他品牌、烟酒副食、生活超市、零食店等）、或转让（同业态、异业态）的处理方式： ①业绩：公司各部门因该店产生的业绩保持计入完成指标。 ②">
   <span class="doc-num">08</span>
-  <span class="doc-card-title">新开门店首年异动处理方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">新开门店首年异动处理方案2.0</span>
+    <span class="doc-card-snippet" id="snip_8"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_09.html" data-title="市场开发部开店提成方案2.0">
+<a class="doc-card" href="doc_09.html" data-title="市场开发部开店提成方案2.0" data-text="class=&quot;policy-section&quot;> 市场开发部开店提成方案2.0 仅扫描版 PDF：JL-2026年市场开发部开店提成方案2.0.pdf 扫描版 第 1 / 2 页 第 2 / 2 页">
   <span class="doc-num">09</span>
-  <span class="doc-card-title">市场开发部开店提成方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部开店提成方案2.0</span>
+    <span class="doc-card-snippet" id="snip_9"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_10.html" data-title="市场开发部历史开店提成方案2.0">
+<a class="doc-card" href="doc_10.html" data-title="市场开发部历史开店提成方案2.0" data-text="class=&quot;policy-section&quot;> 市场开发部历史开店提成方案2.0 图文版 PDF：JL-2026年市场开发部历史开店提成方案2.0.pdf Word：2026年市场开发部历史开店提成方案2.0（定）.docx 文字版 扫描版 发件 编号: SCKF/TZ/ 202 5/12 - 26 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门： 人事部、财务部 轮值副总签发： 存档地址： 市场开发部 总经理签发： 2026 年市场开发部历史开店提成方案 2.0 一、 方案 目的： 为了构建长效激励机制，紧密绑定开发员与所开门店的关系。激励开发员在前期积极找好铺、开好店，充分发挥主观能动性，深入调研市场，精准选址布局。更为了激发开发员的责任心与积极性，推动公司整体业务稳健发展，实现员工物心双幸福，特制定此方案。 二、历史开店提成核算周期和提成比例： 三、相关说明和要求： 1、历史开店提成=当月实际配货额×提成比例 举例：某店第1个核算月实际配货额为50000元，则该店当月产生的历史开店提成为50000*0.5%=250元。 2、配送额包含所有进货，但需要剔除退货金额。 3、历史开店提成每个核算月核算一次，时间核算方式是按照开业日直接往后推当月天数，发放日为每月15日。 4、提成受益人为总部系统中登记的开发人员，一店一人。 5、发生迁址的门店，历史开店提成的受益人随即变更为新址的开发人员。 6、此方案生效日之前的历史门店自202 6 年 01 月 01 日起以门店真实开业时间为标准按照方案中的核算周期计算。 本方案自 202 6 年 01 月 01 日 生效，试行三个月，到期如无调整则继续延用。中途如果因特殊原因闭店、造成恶劣影响的，公司有权收回相应 提成，并保留追究相应责任的权利 。 市场开发部 202 5 年 12 月1 0 日">
   <span class="doc-num">10</span>
-  <span class="doc-card-title">市场开发部历史开店提成方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部历史开店提成方案2.0</span>
+    <span class="doc-card-snippet" id="snip_10"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_11.html" data-title="可多全民开发奖励方案4.0">
+<a class="doc-card" href="doc_11.html" data-title="可多全民开发奖励方案4.0" data-text="class=&quot;policy-section&quot;> 可多全民开发奖励方案4.0 图文版 PDF：JL-2026年可多全民开发奖励方案4.0.pdf Word：2026年可多全民开发奖励方案4.0.docx 文字版 扫描版 发件 编号：SCKF/TZ/202 5/12 - 21 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年可多 全民开发奖励方案 4.0 适用范围: 可多公司在职人员 (市场开发部除外)、 存量特许 门店 一、奖励标准 推荐人 推荐项目 有效推荐标准 推荐成功标准 奖励金额 A. 可多公司在职人员 ( 市场 开发部除外) 推荐商铺 推荐日期前，伙伴云目标店铺板块无此商铺的录入记录，空铺或意向翻牌门店均可 该商铺成功开设可多新店 1000 元 推荐新客户 （1） 推荐日期前，伙伴云客户板块无该客户的录入记录或近 两 年内无该客户的跟进记录； 该客户以本人名义 缴纳 加盟意向定金 200元 （2） 推荐日期前，伙伴云客户板块无该客户的录入记录或近 两 年内无该客户的跟进记录； 该客户以本人名义签署加盟合同并成功开店 20 00元 （ 3 ）推荐日期前，伙伴云客户板块无该客户的录入 记录或近 两 年内无该客户的跟进记录 ，且客户已签订场地合同； 30 00元 推荐存量加盟商 仅限营运部负责该存量门店的 督导 ，三个月内无公司直访记录。 该存量加盟商成功以本人名义开设可多新店 300 元 B. 存量可多门店 推荐新客户 推荐日期前，伙伴云客户板块无该客户的录入记录或近 两 年内无该客户的跟进记录 成功开设可多新店 5000元 二、 推荐渠道 1、 推荐新客户/存量加盟商：通过电话或微信直接联系招商小组工作人员或通过公众号平台填写推荐信息包括但不限于店">
   <span class="doc-num">11</span>
-  <span class="doc-card-title">可多全民开发奖励方案4.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多全民开发奖励方案4.0</span>
+    <span class="doc-card-snippet" id="snip_11"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_12.html" data-title="大客户服务方案1.0">
+<a class="doc-card" href="doc_12.html" data-title="大客户服务方案1.0" data-text="class=&quot;policy-section&quot;> 大客户服务方案1.0 仅文字版 Word：2026年大客户服务方案1.0.docx 文字版 发件编号：SCKF/TZ/2025/12-01 部门会签： 发件部门：市场开发部 发件日期：2025-12-05 收件部门：总经办、各相关部门 轮值副总签字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 存档地址：市场开发部 总经理签发：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026年大客户服务方案1.0 一、方案背景与目标 （一）背景阐述 随着便利店行业竞争日趋激烈，大客户已成为公司品牌扩张、业绩增长的核心支柱。大客户凭借其资金实力、运营能力及区域资源优势，不仅单店产出效益突出，更在区域市场形成良好的品牌示范效应，对公司整体发展战略的落地具有关键推动作用。 为 强化大客户服务能力，解决服务过程中可能存在的协同不足、政策针对性不强等问题，特制定本方案。 （二）核心目标 1.提升服务质量：聚焦大客户核心需求，整合总部各部门资源，构建专业化、精细化的大客户服务体系，显著提升大客户对品牌及服务的满意度。 2.增强客户黏性：通过定制化服务与政策支持，深化与大客户的战略合作伙伴关系，降低大客户流失风险，提高续约率及合作深度。 3.推动共同发展：以优质服务赋能大客户成长，助力大客户实现业绩提升，进而带动公司整体市场份额扩大、品牌影响力增强，实现双方共赢。 4.规范协同机制：明确各部门在大客户服务中的职责与衔接流程，打破部门壁垒，形成“全员参与、协同联动”的服务格局。 二、大客户界定标准 为确保服务资源精准投放，“大客户”需满足以下至少一项核心条件，并经相关部门联合审核确认后，纳入大客户服务名单（名单实行动态管理，每季度更新一次）： 1.加盟规模： 已加盟门店数量">
   <span class="doc-num">12</span>
-  <span class="doc-card-title">大客户服务方案1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">大客户服务方案1.0</span>
+    <span class="doc-card-snippet" id="snip_12"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_13.html" data-title="开发人员晋升降级内控标准优化3.0">
+<a class="doc-card" href="doc_13.html" data-title="开发人员晋升降级内控标准优化3.0" data-text="class=&quot;policy-section&quot;> 开发人员晋升降级内控标准优化3.0 图文版 PDF：JL-2026年开发人员晋升降级内控标准优化3.0.pdf Word：2026年开发人员晋升降级内控标准优化3.0.docx 文字版 扫描版 发件 编号： SCKF/TZ/2025/12-14 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年开发人员晋升降级内控标准优化 3.0 职称 岗位补贴 保底业绩指标 晋升业绩条件 黄区开发员 无 完成相关绩效 当月开进度会 开发员 210 1、 连续3个自然月累计开店≥1； 2、 3 个自然月累计开店＜1，进入黄区，由开发员于第3个月最后一天之前自主提出申请是否想延期，经 部门 审核，总经办批准则可延期； 3、 延期总时长最长不超过三个月，每次一个月，最多3次。如三次到期仍未达成保底业绩则进行优化或调岗。 1、 连续两个考核周期（6个自然月）开店时间间隔不超过两个月。 2、 三个自然月个人累计开店≥2。 3、 满足以上任意一条则 次月 自动晋升为高级开发员。 高级开发员 710 1、 连续两个考核周期（6个自然月）开店时间间隔不超过两个月； 2、 连续3个自然月个人累计开店≥2； 3、 若在考核期进入黄区（连续3个月未开店），降为开发员，适用开发员补贴，同时进入黄区，由开发员于第三个月最后一天之前自主提出申请是 否想延期，经部门审核，总经办批准则可延期。 1、3 个自然月个人累计开店≥2，或6个自然月个人累计开店≥3。 2、 愿意带组员。 3、 当月个人未进黄区。 4、 同时满足以上3条 则次月由主管提报晋升组长。 组长 1310 1、连续3个自然月个人累计开店≥2或连续6个月小组累计开店≥3； 2、以上条件未完成">
   <span class="doc-num">13</span>
-  <span class="doc-card-title">开发人员晋升降级内控标准优化3.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">开发人员晋升降级内控标准优化3.0</span>
+    <span class="doc-card-snippet" id="snip_13"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_14.html" data-title="市场开发部开发员绩效标准及评比规则1.0">
+<a class="doc-card" href="doc_14.html" data-title="市场开发部开发员绩效标准及评比规则1.0" data-text="class=&quot;policy-section&quot;> 市场开发部开发员绩效标准及评比规则1.0 图文版 PDF：JL-2026市场开发部开发员绩效标准及评比规则1.0.pdf Word：2026市场开发部开发员绩效标准及评比规则1.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 6/03 - 01 部门会签： 发件部门： 市场开发 部 发件日期：20 26 - 03 - 09 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026年 市场开发部开发员绩效标准及评比规则 1.0 一、开发员绩效标准 1、目标店： ①&nbsp;基础标准： a、商铺照片4张（商铺正面，商铺左边，商铺右边，商铺对面）。 b、商铺视频2个（360度解说视频，360度环绕视频）。 c、基础信息（伙伴云基础信息及推荐理由）。 ②&nbsp;合规原则： a、同一客群的同一客流动线上，同一个开发员不能同时录入2个及以上目标店。 b、同一目标店在商铺可租的情况下，开发员不能重复录入。 2、竞争店/老店： ①&nbsp;基础标准： a、照片3张（入店前门店正面，单页在收银台上或老板手里的照片，出店后门店门口自拍照）。 b、门店老板微信主页截图（能看到微信号的页面）。 c、老板微信名片推送至招商部指定微信号。 d、基础信息（伙伴云基础信息）。 ②&nbsp;合规原则： a、同一竞争店/老店绩效，同一开发员不能在2个月内重复录入。 3、带看/复看绩效： ①&nbsp;基础标准： a、带看照片（开发员与加盟商合影）。 b、伙伴云填写带看反馈。 ②&nbsp;合规原则： a、带看/复看照片中背景为所带看的商铺。 b、带看/复看日期与绩效填写日期对应。 c、同一张带看/复看照片不能重复使用到同项目的其他目标店。 4、检核标准： ①&nbsp;开发员所有绩效中所使用的照片及视">
   <span class="doc-num">14</span>
-  <span class="doc-card-title">市场开发部开发员绩效标准及评比规则1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部开发员绩效标准及评比规则1.0</span>
+    <span class="doc-card-snippet" id="snip_14"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_15.html" data-title="市场开发部开店阶段达成激励方案2.0">
+<a class="doc-card" href="doc_15.html" data-title="市场开发部开店阶段达成激励方案2.0" data-text="class=&quot;policy-section&quot;> 市场开发部开店阶段达成激励方案2.0 图文版 PDF：JL-2026年市场开发部开店阶段达成激励方案2.0.pdf Word：2026年市场开发部开店阶段达成激励政策2.0（定）.docx 文字版 扫描版 发件 编号: SCKF/TZ/ 202 5/12 - 13 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发： 2026 年市场开发部开店阶段达成激励方案 2.0 一、 方案 目的： 为了激发市场开发部员工工作热情，充分调动团队积极性，激励员工全力达成业绩目标。同时在助力公司发展的同时，让开发员凭借努力收获物质回报，感受自我价值实现带来的精神满足，最终实现物质和精神双幸福，特制定此方案。 二、 开店阶段达成奖励规则： 三、相关说明和要求： 1、以上激励政策，适用于 202 6 年1月1日至202 6 年12 月31日期间 开设的新店，以开店业绩核算时间为准（进度会+全款到账），新址授权费为0的迁址门店不计在内，复投标门店不计算在内。 2、奖励对象为该店的开发 员 ，开发部其他岗位 （包含开发主管） 不参与本奖励政策。 3、本奖金为公司额外增设的开店奖励，不影响 开发 员原有的开店提成标准。 4、重新带单入职的开发员可参与该开店激励政策的阶段达成奖励。 5、该开店激励政的两个阶段分开核算，即半年为一个阶段，上一阶段的开店数不累计到下一阶段。 本方案自 202 6 年 1 月1日 生效，试行三个月，到期如无调整则继续延用。中途如果因特殊原因闭店、造成恶劣影响的，公司有权收回相应奖励 ，并保留追究相应责任的权利 。 市场开发部 2025年 12 月1 0 日 第 1 / 2 页 第 2 / 2 页">
   <span class="doc-num">15</span>
-  <span class="doc-card-title">市场开发部开店阶段达成激励方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部开店阶段达成激励方案2.0</span>
+    <span class="doc-card-snippet" id="snip_15"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_16.html" data-title="市场开发部新人培养期激励方案2.0">
+<a class="doc-card" href="doc_16.html" data-title="市场开发部新人培养期激励方案2.0" data-text="class=&quot;policy-section&quot;> 市场开发部新人培养期激励方案2.0 图文版 PDF：JL-2026年市场开发部新人培养期激励方案2.0.pdf Word：2026年市场开发部新人培养期激励政策2.0（定）.docx 文字版 扫描版 发件 编号: SCKF/TZ/ 202 5/12 - 25 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发： 2026 年市场开发部新人培养期激励方案 2.0 一、 方案 目的： 为鼓励 市场开发部 新人快速融入工作并取得成果 ， 同时调动资深员工带教热情，发挥传帮带作用，传承经验技巧，促进团队协作与整体业务能力提升，特拟定本激励方案。&nbsp;&nbsp; 二、新人培养期奖励规则： 三、相关说明和要求： 1、本奖金为公司额外增设的开店奖励，不影响 开发 员原有的开店提成标准。 2、原导师提成奖励方案作废。 3、 核算时间为义工期结束后，试用期第一天开始计算，并且 只针对入职90天内有奖励前3 单 ，超过90天无奖励。 超过第3单的无奖励。 4、如果新人没有师傅带领开店，则“新人培养期奖励”中师傅奖励部分也归该开发员所有。 5 、重新带单入职的开发员不享受该激励政策的奖励。 6 、如果因特殊原因闭店的，公司有权收回 相应 奖励，并保留 相应 处罚权利。 本方案自 202 6 年 01 月 01 日 生效，试行三个月，到期如无调整则继续延用。中途如果因特殊原因闭店、造成恶劣影响的，公司有权收回相应奖励 ，并保留追究相应责任的权利 。 市场开发部 202 5 年 12 月1 0 日 第 1 / 2 页 第 2 / 2 页">
   <span class="doc-num">16</span>
-  <span class="doc-card-title">市场开发部新人培养期激励方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部新人培养期激励方案2.0</span>
+    <span class="doc-card-snippet" id="snip_16"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_17.html" data-title="关于外埠市场开发设备支持方案2.0">
+<a class="doc-card" href="doc_17.html" data-title="关于外埠市场开发设备支持方案2.0" data-text="class=&quot;policy-section&quot;> 关于外埠市场开发设备支持方案2.0 图文版 PDF：JL-2026年关于外埠市场开发设备支持方案2.0.pdf Word：2026年关于外埠市场开发设备支持方案2.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 -0 4 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年关于外埠市场开发设备支持方案 2.0 为进一步加大外埠市场开发力度，提升品牌知名度和影响力，进而加大门店密度，实现公司与客户的价值双赢。关于外埠市场设备支持方案如下： 一 、 2026年01月01日 起外埠战区责任区域（见下表）“可多”新开门店由公司免费赠送子母柜。 战 区 赠送区域 原 东 部 战区 鄂州市、黄石 市、 黄冈市 南 部 战区 咸宁市、蔡甸区、汉南区 西部战区 孝感市、东西湖区、黄陂区 二、 此政策不适用于翻牌门店 和招投标门店 。 三、 此政策可与自带铺门店、新客新店政策同享。 此方案自签订之日起生效，试行三个月，到期如无变动则自动 沿用 。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs">
   <span class="doc-num">17</span>
-  <span class="doc-card-title">关于外埠市场开发设备支持方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">关于外埠市场开发设备支持方案2.0</span>
+    <span class="doc-card-snippet" id="snip_17"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_18.html" data-title="市场开发部光谷东片区阶段性激励方案1.0">
+<a class="doc-card" href="doc_18.html" data-title="市场开发部光谷东片区阶段性激励方案1.0" data-text="class=&quot;policy-section&quot;> 市场开发部光谷东片区阶段性激励方案1.0 图文版 PDF：JL-2026年市场开发部光谷东片区阶段性激励方案1.0.pdf Word：2026年市场开发部光谷东片区激励方案1.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 31 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 23 收件部门： 总经办及各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026年市场开发部光谷东片区激励方案1.0 一、方案目的 为激活光谷东片区市场潜力、释放业务增长动能，抢抓光谷东片区发展机遇、挖掘市场增量空间，激发一线人员拓店攻坚与服务优化的主动性，特推出本片区阶段性激励方案，加速区域业务布局、夯实市场根基。 二、方案约束 该方案是作为《2026年市场开发部本埠外埠区域划分规定2.0》及《2026年市场开发部原东部战区激励 方案1.0》的后续阶段性激励方案，故执行前提是在以上两个方案的约束范围内的。 三、阶段性激励奖励标准 1、市场开发部本埠战区开发员，在光谷东区域成功开店的，除正常开店提成外，额外享受1000元/店奖励；对应开发员所属战区的开发主管，额外享受200元/店奖励。 2、开发员和开发主管的额外奖励实行累积发放制，每累积达成2家门店发放1次，发放金额分别为2000元、400元；该奖励以自然年为统计周期，周期内未累积满2家门店的，奖励自动失效，不予发放。 3、本次激励政策限定2026年全年（2026.1.1-2026.12.31）在15家以内（含15家），超出的店数以正常开店核算提成，不享受以上1、2条中设定的奖励。 4、本次激励奖励的发放时间，与正常开店提成保持一致，发放进度同步全款到账节点执行。 四、光谷东片区区域界定 东起武汉鄂州行政分界线，西至东三环与">
   <span class="doc-num">18</span>
-  <span class="doc-card-title">市场开发部光谷东片区阶段性激励方案1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部光谷东片区阶段性激励方案1.0</span>
+    <span class="doc-card-snippet" id="snip_18"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_19.html" data-title="市场开发部原东部战区方案1.0">
+<a class="doc-card" href="doc_19.html" data-title="市场开发部原东部战区方案1.0" data-text="class=&quot;policy-section&quot;> 市场开发部原东部战区方案1.0 图文版 PDF：JL-2026年市场开发部原东部战区新规划方案1.0.pdf Word：2026年市场开发部原东部战区激励方案1.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 23 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026年市场开发部原东部战区激励方案1.0 为激活区域市场潜力、提振业务动能，现对原东部战区进行规划调整，优化资源配置与发展策略，推动区域业务提质增效。 一、区域界定 1、 本方案涉及区域为 鄂州 市行政区域 、 黄石 市行政区域 、 黄冈 市行政区域 。 2、 《2025年市场开发部本埠外埠区域划分规定1.0》中本埠战区与东部战区共享的光谷东（东起左岭新城，西至三环线和光谷二路，南至G50，北至G316）、江夏区（三环线以外区域，沪渝高速以北）调整回归本埠战区管理，具体以《2026年市场开发部本埠外埠区域划分规定2.0》为准。 二、开店政策 按照《2026年市场开发部本埠外埠区域划分规定2.0》规定，即日起该区域内部界定为“公共区域”，开店统一适用外埠加盟政策。 三、业绩划分 1、该公共区域内各战区均有开店权限，开发员与所属分部业绩绑定，以进度会为标准划分业绩； 2、市场开发部部门负责人结合实际业务需求及各战区能力，统筹分配招投标项目及评估单资源，具体执行参照《可多场地评估流程标准》最新版执行。 四、提成标准 1、如在该公共区域内成功开店的项目是战区或开发员自主开发的，则在原有提成基础上，额外给予开发员2000元/店的奖励、开发主管500元/店的奖励； 2、如在该公共区域内成功开店的项目是市场开发部经理分配的评估单或招投标项目">
   <span class="doc-num">19</span>
-  <span class="doc-card-title">市场开发部原东部战区方案1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部原东部战区方案1.0</span>
+    <span class="doc-card-snippet" id="snip_19"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_20.html" data-title="场地评估流程标准4.0">
+<a class="doc-card" href="doc_20.html" data-title="场地评估流程标准4.0" data-text="class=&quot;policy-section&quot;> 场地评估流程标准4.0 图文版 PDF：JL-2026年可多场地评估流程标准4.0.pdf Word：2026年场地评估的流程标准4.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 29 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年可多场地评估流程标准 4.0 通过对过往场地评估流程标准及落地成效复盘，为持续贯彻以客户为中心的服务准则，有效降低客户创业风险，进一步规范评估实施要求，实现客户创业保障与销售业绩最大化的双重目标，现结合实际业务需求与各战区作战能力对场地评估实施以下调整方案： 一、 评估单类型 1、客户自有商铺（自购、自带） 由 招商专员介绍公司加盟政策，收集整理客户信息与需求 。包括客户的基本信息，联系方式，商铺的基本情况（商铺基本情况包括但不限于品牌，面积，商圈，租金，目前的销售额，相关证件是否齐全等）和定位，并在当天将评估的相关需求与信息同步到微信【评估铺沟通群】， 经 市场开发部 经理 审核确认后 结合实际业务需求及各战区开发员能力，统筹分配评估单资源， 由开发经理自主决定将评估单指派给分部战区主管或直接分配给开发员。若指派至分部战区主管，由其确认评估时间与评估开发员，并督促评估人在1个工作日内联系客户、约定评估时间。 在评估时，评估人须对商铺及周边进行详细市调工作，现场水印相机拍照，出具《商铺评估表》，并将评估信息 以表格和文字的形式反馈 到开发部经理处，由开发经理同步到 【评估铺沟通群】 ，由招商专员进行信息登记。 2、 客户有意向商铺 由招商小组告知客户，意向商铺需要通过公司评估审核，收集整理客户的信息与需求，包括客户基本信息，联系方式，商铺基本情">
   <span class="doc-num">20</span>
-  <span class="doc-card-title">场地评估流程标准4.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">场地评估流程标准4.0</span>
+    <span class="doc-card-snippet" id="snip_20"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_21.html" data-title="招投标方案2.0">
+<a class="doc-card" href="doc_21.html" data-title="招投标方案2.0" data-text="class=&quot;policy-section&quot;> 招投标方案2.0 图文版 PDF：JL-2026年招投标方案2.0.pdf Word：2026年招投标方案2.0.docx 文字版 扫描版 发件 编号 ： SCKF/TZ/202 5/12 - 17 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年招投标方案 2.0 客户类型 招投标协议 托管协议 扶持政策 新加盟商 50000元 （伍万元整） 不托管：需缴纳50000-200000元不等的风险保证金及商品安全保证金（参考长江职业技术学院1078店，一店一议） 门店可自行选择装修模式及是否公司装修，但需遵循公司的装修标准，且由公司审核。 门店可自行选择从公司采购水柜、自己采购水柜或由厂家投放，以甲方标准作为第一优先级； 但需遵循公司的 标准，且由公司审核。 老加盟商及门店复投标业务 20000元 （贰万元整） 不托管：一次性缴纳50000-100000元个人保证金，作为客户个人承诺，后期除开店费用外，无需重复缴纳 备注： 1、投标成功，全额转为开设可多便利店新店费用，依新开店标准。如开标不中则扣除2000（贰仟元整）作为投标资料费及开发对接费使用，不予退还 ， 经办 开发员 拿 1 0 00元提成， 经办 招商专员 拿 500元 提成，公司收益500元。 2、门店可自行选择是否托管 —— 托管：依照营运部最新托管政策或根据实际情况，一店一议 ； 不托管：相应保证金根据实际情况，一店一议。 3、除甲方特殊 要求 的 装修、水柜、货架 、 收银台 外，其余项目需 全 从公司配置。 该 方案自 2026年01月01日 执行，试 行三个月 ，如无变化则继续 延 用。 市场开发部 2025年12月10日 第 1 / ">
   <span class="doc-num">21</span>
-  <span class="doc-card-title">招投标方案2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">招投标方案2.0</span>
+    <span class="doc-card-snippet" id="snip_21"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_22.html" data-title="市场开发部招标项目办理流程2.0">
+<a class="doc-card" href="doc_22.html" data-title="市场开发部招标项目办理流程2.0" data-text="class=&quot;policy-section&quot;> 市场开发部招标项目办理流程2.0 图文版 PDF：ZC-2026年市场开发部招标项目办理流程2.0.pdf Word：2026年市场开发部招标项目办理流程2.0.docx 文字版 扫描版 发件 编号： SCKF/TZ/2025/12-16 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026 年市场开发部招标项目办理流程 2.0 一、 适用范围： 本制度流程适用于以“可多”品牌参与便利店、超市业态招租项目投标活动的全流程管理，所覆盖的招标发起主体包括但不限于学校、军区部队、医院、各类企事业单位；前述主体发起的相关招租招标场景，均须遵照本流程执行。 二、办理须知 1、投标人须全面了解可多便利最新加盟政策，认可可多经营理念、加盟模式及各项投资费用组成。 2、 投标人需充分认识到招标项目的风险性及不确定性，并自愿承担由此可能产生的一切损失，可多公司不对任何投标结果负责。 3、 投标人需缴纳投标保证金 （新加盟商50000元，老加盟商20000元） ，可多公司将安排专人协助投标人参与投标项目，协助内容包括提供投标所需的授权证明，企业介绍，公司资质证明文件，企业宣讲介绍等。可多公司不负责招标项目标书的制作及完善。 4、 投标保证金： 投标人投标成功，投标保证金可全额冲抵开店款项； 投标人投标失败，扣除2000元投标资料使用费，新加盟商投标保证金退 还48000元，老加盟商投标保证金退还18000元。 5、 投标人需提供本人身份证复印件1份，并签订招标项目承诺书及加盟须知。 三、办理流程 四、 办理规则 1、需要提供挂网招标公告,签署投标协议、打款后需在管理群报备（以打款先后顺序为准）市场开发部管理群报备格式如下： 【 091">
   <span class="doc-num">22</span>
-  <span class="doc-card-title">市场开发部招标项目办理流程2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部招标项目办理流程2.0</span>
+    <span class="doc-card-snippet" id="snip_22"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_23.html" data-title="可多优质加盟商访谈方案1.0">
+<a class="doc-card" href="doc_23.html" data-title="可多优质加盟商访谈方案1.0" data-text="class=&quot;policy-section&quot;> 可多优质加盟商访谈方案1.0 图文版 PDF：ZC-2026年可多优质加盟商访谈方案1.0.pdf Word：2026年可多优质加盟商访谈方案1.0.docx 文字版 扫描版 发件 编号： SCKF/TZ/2025/12-30 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-18 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发： 2026年可多优质加盟商访谈方案1.0 一、访谈背景 为回应潜在加盟商对创业 开店 的 疑虑 ，计划每月访谈一家优质加盟商，分享真实 开店 运营经验与品牌赋能历程，旨在建立信任、吸引咨询转化，从而助力实现2026年 拓店 目标。 二、访谈目的 1 . 梳理运营经验：系统总结加盟商在 经营 、管理、服务等环节的有效方法与技巧。 2 . 提炼品牌价值：收集加盟商对各项支持的实际反馈，清晰呈现品牌核心价值。 3 . 打造标杆案例：打造真实可复制的成功案例，为潜在加盟商提供参考，提升加盟吸引力。 三 、访谈对象 每月 选取 1 名优质加盟商，筛选标准如下： 1 . 门店客户评价良好，近1年内无重大投诉、食品安全问题及品牌违规记录； 2 . 认可 总部的运营管理 方式 ，主动参与品牌组织的培训、营销等活动； 3 . 不同门店类型（社区店、写字楼店、校园店、交通枢纽店），确保 店型 多样性。 四 、访谈时间与地点 周期： 1次/月， 单场时长控制在 3 0分钟 内 ，避开门店营业高峰 时段 。 加盟商门店 店 内 。 日期 事项 每月 10日前 确认名单：与营运部对接，初选3名候选加盟商，经审核后，最终确定1名访谈对象。 每月 15日前 采访邀约：与被采访的加盟商确定时间、并策划好交流的话题，准备好设备、道具、资料。 每月 20日前 完成采访：视频、拍照、录音">
   <span class="doc-num">23</span>
-  <span class="doc-card-title">可多优质加盟商访谈方案1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多优质加盟商访谈方案1.0</span>
+    <span class="doc-card-snippet" id="snip_23"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_24.html" data-title="市场开发部本埠外埠区域划分规定2.0">
+<a class="doc-card" href="doc_24.html" data-title="市场开发部本埠外埠区域划分规定2.0" data-text="class=&quot;policy-section&quot;> 市场开发部本埠外埠区域划分规定2.0 图文版 PDF：ZC-2026年市场开发部本埠外埠区域划分规定2.0.pdf Word：2026年市场开发部本埠外埠区域划分规定2.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 12 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发： 202 6 年 市场开发部本埠外埠区域划分规定 2.0 为进一步明确市场开发边界与责任归属，避免区域资源内耗与业务重叠，提升执行效率。精准聚焦目标客群与场景，优化资源投放精度，保障市场拓展有序推进。同时便于数据追踪与成果复盘，助力精准施策、稳步扩大市场份额。现对本埠、外埠区域划分做进一步规范。 一、市场开发部区域划分 （ 一 ） 本埠战区 （1）责任区： 江岸区、江汉区、硚口区、汉阳区、武昌区、青山区、洪山区、蔡甸区、黄陂区、新洲区 、 江夏区 （ 武汉绕城高速—沪渝高速以北 ） ； 蔡甸区 （ S106—知音湖大道—车谷大道—硃山路以东 ） 。 （2）与外埠战区的共享区域： ①与南部战区的共享区域： 蔡甸区 （ S 1 06—知音湖大道一车谷大道—硃山路以 东 ） 。 ②与西部战区的共享区域： 黄陂区、新洲区。 （ 二 ） 外埠战区 1、 南部战区 （1）责任区 ： 咸宁 市 ； 汉南区；江夏区 （ 武汉绕城高速—沪渝高速以南 ） ； 蔡甸区 （ S 1 06—知音湖大道一车谷大道—硃山路以西 ） 。 （2）与 本埠战区 的共享区域： 蔡甸区 （ S 1 06—知音湖大道一车谷大道—硃山路以西 ） 。 2、 西部战区 （1）责任区 ： 东西湖区 ； 孝感 市 。 （2） 与 本埠战区 的共享区域：无 。 （三）公共区域 ">
   <span class="doc-num">24</span>
-  <span class="doc-card-title">市场开发部本埠外埠区域划分规定2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部本埠外埠区域划分规定2.0</span>
+    <span class="doc-card-snippet" id="snip_24"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_25.html" data-title="市场开发部黄区培训及会议机制3.0">
+<a class="doc-card" href="doc_25.html" data-title="市场开发部黄区培训及会议机制3.0" data-text="class=&quot;policy-section&quot;> 市场开发部黄区培训及会议机制3.0 图文版 PDF：ZC-2026年市场开发部黄区人员培训机制3.0.pdf Word：2026年市场开发部黄区培训及会议机制优化3.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 11 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年 市场开发部黄区人员培训机制 3.0 市场开发部黄区人员培训，旨在全面提升开发员的专业技能与综合素质，同时增强团队凝聚力，打造一支专业技能过硬、团队协作紧密、执行力强的市场开发团队，为实现 找好铺，开好店 的目标奠定坚实基础。 一、培训对象 市场开发部黄区人员（黄区人员以每月名单为准） 二、 培训安排 培训讲师 培训次数 总部培训 外出实地培训 各战区主管 （轮流制） 2次/月 （1）总部理论培训1次 （2）外出实地培训1次 （1）培训日期为开发部当天； （2）培训时间：10：30-11：30 当月25号之前完成 三、检核标准 为确保市场开发部黄区人员培训工作的有效执行与监督，特制定以下检核标准： 1.&nbsp; 总部培训检核： 培训讲师需在当月全员会当天上午10:40前，使用“今日水印相机”拍摄一张培训现场的照片。 (1) 照片需清晰展示培训场景，包括培训人员、培训地点或相关培训材料等； (2) 培训讲师需将照片上传至市场开发部 管理群 ， 并将《培训反馈记录表》交由市场开发部文员进行检核 ； (3) 文员需在收到照片 和记录表后 ，及时确认资料的真实性与合规性，并做好 存档 。 2.&nbsp; 外出实地培训检核： 在规定的培训日期内，培训讲师需在当天下午17：30前，使用“今日水印相机”拍摄一张培训现">
   <span class="doc-num">25</span>
-  <span class="doc-card-title">市场开发部黄区培训及会议机制3.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部黄区培训及会议机制3.0</span>
+    <span class="doc-card-snippet" id="snip_25"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_26.html" data-title="市场开发部各岗位参会管理细则1.0">
+<a class="doc-card" href="doc_26.html" data-title="市场开发部各岗位参会管理细则1.0" data-text="class=&quot;policy-section&quot;> 市场开发部各岗位参会管理细则1.0 图文版 PDF：ZC-2026年市场开发部各岗位参会管理细则1.0.pdf Word：2026年市场开发部各岗位参会管理细则1.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 24 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026年市场开发部各岗位参会管理细则1.0 为优化部门时间资源配置、提升会议效能，明确2026年市场开发部各岗位的参会类型与频次，既避免非必要会议占用业务拓展精力，又确保核心决策类、业务协同类会议的精准参与，助力部门聚焦市场开发主业，同时保障信息传递的高效性与决策落地的及时性，特制定此方案。 一、相关岗位 开发管理、开发主管、开发员、招商小组组长、招商小组成员 二、 具体执行 类 型 招商小组 成员 招商小组 组长 开发员 开发主管 开发经理 月冠 周冠 其他 早课 周早课 √ √ √ √ √ 月度早课 √ √ √ √ √ √ √ 四季战歌启动 大会早课 √ √ √ √ √ √ √ 百日奋战誓师 大会早课 √ √ √ √ √ √ √ 类 型 招商小组 成员 招商小组 组长 开发员 开发主管 开发经理 月冠 周冠 其他 会议 周经营分析会 √ 周部门管理层会议 √ √ 月度经营分析会 √ √ 部门月度全员会 √ √ √ √ √ √ √ 季度经营分析会 √ √ 半年度经营分析会 √ √ 年度经营分析会 √ √ 干部培训会 √ √ 核心管理层群要求的其它线上线下会 √ √ √ * 周冠 开发员 参加的周早课只是获奖后需要领奖的那个周早课 四、相关要求 1、所有会议中涉及的参会岗位人员须按时参会；若遇特殊情况，需提前向直属上级报备，再">
   <span class="doc-num">26</span>
-  <span class="doc-card-title">市场开发部各岗位参会管理细则1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部各岗位参会管理细则1.0</span>
+    <span class="doc-card-snippet" id="snip_26"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_27.html" data-title="市场开发部会议管理机制2.0">
+<a class="doc-card" href="doc_27.html" data-title="市场开发部会议管理机制2.0" data-text="class=&quot;policy-section&quot;> 市场开发部会议管理机制2.0 图文版 PDF：ZC-2026年市场开发部会议管理机制2.0.pdf Word：2026年市场开发部会议管理机制2.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 03 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年市场开发部会议管理机制 2.0 为进一步提升市场开发部的整体活力，加速市场开 拓进程，确保每位成员都能紧跟公司步伐，共同实现业务目标，现就 部门 相关 会议 作出如下 要求 ，请各位成员务必遵照执行。 1、早启动线上会议 会议时间： 周二至周五，早上9:00-10:00，由各分部主管组织，并于当日10:00之前拍照到开发管理层微信群汇报。 参会人员： 各战区全员。 2、 招商小组早会 会议时间： 周二至周五，早上8:30-9:00，由招商小组组长组织，并于当日9:00之前拍照向开发部负责人汇报。 参会人员： 招商小组全员。 3、开发管理层周会 会议时间： 周一早课以后，由开发部负责人组织。 参会人员： 开发主管、招商小组组长、部门文员。 4、部门全员会 会议时间： 每月25日左右，具体以部门当月通知时间为准。 参会人员： 部门全员。 乐捐制度： 无故 缺席 会议或迟到 者 、 未按时拍照汇报者 ， 需 乐捐 5 0元 /次，用作 部门经费。 此方案自签订之日起生效，特此通知。 市场开发部 202 5 年 12 月1 0 日 第 1 / 1 页">
   <span class="doc-num">27</span>
-  <span class="doc-card-title">市场开发部会议管理机制2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部会议管理机制2.0</span>
+    <span class="doc-card-snippet" id="snip_27"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_28.html" data-title="市场开发部开发评级方案1.0">
+<a class="doc-card" href="doc_28.html" data-title="市场开发部开发评级方案1.0" data-text="class=&quot;policy-section&quot;> 市场开发部开发评级方案1.0 图文版 PDF：ZC-2026年市场开发部开发评级方案1.0.pdf Word：2026年市场开发部开发评级方案1.0.docx 文字版 扫描版 发件编号：SCKF/TZ/2025/12-02 部门会签： 发件部门：市场开发部 发件日期：2025-12-05 收件部门：总经办 轮值副总签字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 存档地址：市场开发部 总经理签发：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026年市场开发部开发评级方案1.0 一、方案目的与意义 （一）核心目的 为响应公司战略发展部署，建立以“开店业绩为核心、兼顾团队协作”的评级体系，通过科学量化的评价标准与差异化激励措施，精准衡量开发员及各开发分部的工作成效，充分激发团队内生动力，推动部门2026年度拓店任务高质量完成。 （二）核心意义 1. 明确价值导向：以开店数为核心评级指标，引导开发员及各分部将工作重心聚焦于高效拓店与优质加盟 商 开发。 2. 激发个体与团队活力：通过分级分类的评级规则与阶梯式激励，打破“平均主义”， 以奋斗者为本 ，同时促进分部内部协作与战区间良性竞争。 3. 优化人才管理：以评级结果为依据，精准识别优秀开发人才与高效管理团队，为人才晋升、培训赋能提供数据支撑。 二、评级范围与周期 （一）评级范围 本方案覆盖市场开发部全体在职开发员，以及按战区划分的所有开发分部 。 （二）评级周期 年度评级 ， 以全年开店业绩为核心依据，结合年度综合表现，确定最终评级结果，作为年度评优、晋升、奖金核算的核心参考。 三、评级核心依据与标准 评级以“开店数”为核心量化指标，同时兼顾加盟门店质量（如加盟方资质、门店选址等级、签约年限等）">
   <span class="doc-num">28</span>
-  <span class="doc-card-title">市场开发部开发评级方案1.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">市场开发部开发评级方案1.0</span>
+    <span class="doc-card-snippet" id="snip_28"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-<a class="doc-card" href="doc_29.html" data-title="可多市场开发部招聘标准及要求2.0">
+<a class="doc-card" href="doc_29.html" data-title="可多市场开发部招聘标准及要求2.0" data-text="class=&quot;policy-section&quot;> 可多市场开发部招聘标准及要求2.0 图文版 PDF：ZC-2026年可多市场开发部招聘标准及要求2.0.pdf Word：2026年可多市场开发部招聘标准及要求2.0.docx 文字版 扫描版 发件编号： SCKF /TZ/ 202 5/12 - 10 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发： 2026 年可多市场开发部招聘标准及要求 2.0 为进一步规范市场开发部 开发端 招聘管理制度，提高工作效率，现将招聘制度 做出 优化，具体如下： 以月度为单位，各战区若当月 有效 开店数为0， 则该战区次月取消 招聘 权限 ；若各战区 有效 开店数≥1， 则 恢复 该战区次月开发员 招聘 权限（本文件适用于开发员与各战区主管） 举例： &nbsp;&nbsp; 开发员招聘： （1）XX战区：编制5人，实际4人，7月开店数据为0 ，该战区 8月无招聘 权限 ； （2）XX战区：编制5人，实际4人，7月开店数据为1 ，该战区 8月 可 开启招聘。 主管招聘： 若该战区主管离职，且7月有效开店数据为0，则该战区8月无招聘主管权限，开发员归高级组长/组长代管，无高级组长/组长的开发员归部门负责人/总经办代管。 （注：若8月人员未及时招聘到位，该分部8月开店数为0，则该战区9月无开发员招聘权限。） 此方案自签订之日起生效，试行三个月，到期如无变动则自动延用。 特此通知 。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp">
   <span class="doc-num">29</span>
-  <span class="doc-card-title">可多市场开发部招聘标准及要求2.0</span>
+  <div class="doc-card-body">
+    <span class="doc-card-title">可多市场开发部招聘标准及要求2.0</span>
+    <span class="doc-card-snippet" id="snip_29"></span>
+  </div>
   <span class="doc-arrow">&#8250;</span>
 </a>
-  <div class="no-result" id="noResult">未找到相关文件</div>
-  <div class="search-tip" id="searchTip"></div>
+  <div class="no-result" id="noResult">&#128269; 未找到相关文件，换个关键词试试</div>
 </div>
 <script>
-var DOCS = [{"t": "新可多标准店紧密型加盟模式3.0版", "f": "doc_01.html", "n": 1}, {"t": "新可多鲜食店紧密型加盟模式3.0版", "f": "doc_02.html", "n": 2}, {"t": "可多新开带铺加盟方案3.0", "f": "doc_03.html", "n": 3}, {"t": "可多新开店加盟优惠政策3.0", "f": "doc_04.html", "n": 4}, {"t": "可多员工加盟开店指导方案2.0", "f": "doc_05.html", "n": 5}, {"t": "可多加盟意向定金缴纳标准2.0", "f": "doc_06.html", "n": 6}, {"t": "门店迁址方案3.0", "f": "doc_07.html", "n": 7}, {"t": "新开门店首年异动处理方案2.0", "f": "doc_08.html", "n": 8}, {"t": "市场开发部开店提成方案2.0", "f": "doc_09.html", "n": 9}, {"t": "市场开发部历史开店提成方案2.0", "f": "doc_10.html", "n": 10}, {"t": "可多全民开发奖励方案4.0", "f": "doc_11.html", "n": 11}, {"t": "大客户服务方案1.0", "f": "doc_12.html", "n": 12}, {"t": "开发人员晋升降级内控标准优化3.0", "f": "doc_13.html", "n": 13}, {"t": "市场开发部开发员绩效标准及评比规则1.0", "f": "doc_14.html", "n": 14}, {"t": "市场开发部开店阶段达成激励方案2.0", "f": "doc_15.html", "n": 15}, {"t": "市场开发部新人培养期激励方案2.0", "f": "doc_16.html", "n": 16}, {"t": "关于外埠市场开发设备支持方案2.0", "f": "doc_17.html", "n": 17}, {"t": "市场开发部光谷东片区阶段性激励方案1.0", "f": "doc_18.html", "n": 18}, {"t": "市场开发部原东部战区方案1.0", "f": "doc_19.html", "n": 19}, {"t": "场地评估流程标准4.0", "f": "doc_20.html", "n": 20}, {"t": "招投标方案2.0", "f": "doc_21.html", "n": 21}, {"t": "市场开发部招标项目办理流程2.0", "f": "doc_22.html", "n": 22}, {"t": "可多优质加盟商访谈方案1.0", "f": "doc_23.html", "n": 23}, {"t": "市场开发部本埠外埠区域划分规定2.0", "f": "doc_24.html", "n": 24}, {"t": "市场开发部黄区培训及会议机制3.0", "f": "doc_25.html", "n": 25}, {"t": "市场开发部各岗位参会管理细则1.0", "f": "doc_26.html", "n": 26}, {"t": "市场开发部会议管理机制2.0", "f": "doc_27.html", "n": 27}, {"t": "市场开发部开发评级方案1.0", "f": "doc_28.html", "n": 28}, {"t": "可多市场开发部招聘标准及要求2.0", "f": "doc_29.html", "n": 29}];
+function escRe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function getSnippet(text, kw, maxLen){
+  maxLen = maxLen||100;
+  var idx = text.indexOf(kw);
+  if(idx<0)return '';
+  var start = Math.max(0, idx-20);
+  var end = Math.min(text.length, start+maxLen);
+  var snip = (start>0?'…':'')+text.slice(start,end)+(end<text.length?'…':'');
+  return snip.replace(new RegExp(escRe(kw),'gi'),function(m){return '<mark>'+m+'</mark>';});
+}
 function doSearch(){
   var kw = document.getElementById('searchInput').value.trim();
   var cards = document.querySelectorAll('.doc-card');
   var shown = 0;
+  var label = document.getElementById('sectionLabel');
+  var stat = document.getElementById('resultStat');
+
   cards.forEach(function(card){
-    var title = card.getAttribute('data-title') || '';
-    var match = !kw || title.indexOf(kw) >= 0;
+    var title = card.getAttribute('data-title')||'';
+    var text  = card.getAttribute('data-text')||'';
+    var snipEl = card.querySelector('.doc-card-snippet');
+
+    if(!kw){
+      // 无关键词：显示全部，隐藏摘要
+      card.classList.remove('hidden');
+      if(snipEl){snipEl.innerHTML='';snipEl.classList.remove('on');}
+      var base=(card.getAttribute('href')||'').split('?')[0];
+      card.href=base;
+      shown++;
+      return;
+    }
+
+    // 同时搜索标题和正文（多关键词空格分隔，全部命中才算）
+    var terms = kw.split(/[\s,，]+/).filter(Boolean);
+    var titleHit = terms.every(function(t){return title.indexOf(t)>=0;});
+    var textHit  = terms.every(function(t){return text.indexOf(t)>=0;});
+    var match = titleHit || textHit;
+
     card.classList.toggle('hidden', !match);
-    if(match) shown++;
+    if(match){
+      shown++;
+      // 显示正文摘要（优先显示内容命中的位置）
+      if(snipEl){
+        var snippet='';
+        if(textHit && !titleHit){
+          // 内容命中，显示摘要
+          snippet = getSnippet(text, terms[0], 100);
+        }
+        if(snippet){
+          snipEl.innerHTML=snippet;
+          snipEl.classList.add('on');
+        } else {
+          snipEl.innerHTML='';
+          snipEl.classList.remove('on');
+        }
+      }
+      // 携带关键词进入文档页自动高亮
+      var base=(card.getAttribute('href')||'').split('?')[0];
+      card.href = base+'?q='+encodeURIComponent(kw);
+    }
   });
-  document.getElementById('noResult').style.display = (shown === 0 && kw) ? 'block' : 'none';
-  var tip = document.getElementById('searchTip');
-  if(kw && shown > 0){
-    tip.style.display = 'block';
-    tip.textContent = '找到 ' + shown + ' 份相关文件，点击进入后可在文件内继续搜索';
+
+  document.getElementById('noResult').style.display=(shown===0&&kw)?'block':'none';
+  if(kw){
+    label.textContent='搜索结果';
+    stat.style.display='block';
+    stat.textContent='找到 '+shown+' 份相关文件（标题或内容含"'+kw+'"）';
   } else {
-    tip.style.display = 'none';
+    label.textContent='全部文件（点击查看详情）';
+    stat.style.display='none';
   }
-  // 给卡片链接追加搜索词，进入文档页自动高亮
-  cards.forEach(function(card){
-    var href = card.getAttribute('href') || '';
-    var base = href.split('?')[0];
-    card.href = kw ? base + '?q=' + encodeURIComponent(kw) : base;
-  });
 }
 document.getElementById('searchInput').addEventListener('input', doSearch);
-document.getElementById('searchInput').addEventListener('keydown', function(e){
-  if(e.key==='Enter') doSearch();
+document.getElementById('searchInput').addEventListener('keydown',function(e){
+  if(e.key==='Enter')doSearch();
 });
 </script>
 </body>
