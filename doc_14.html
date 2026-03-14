@@ -112,7 +112,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 /* 文档页额外样式 */
 .doc-topbar{position:sticky;top:0;z-index:100;background:var(--primary);color:#fff;padding:0 10px;height:48px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
-.doc-back{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 8px;flex-shrink:0;text-decoration:none;line-height:1;}
+.doc-back{background:rgba(255,255,255,.18);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer;padding:5px 10px;flex-shrink:0;text-decoration:none;line-height:1;border-radius:6px;white-space:nowrap;}
 .doc-topbar-title{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .doc-nav-btns{display:flex;gap:4px;flex-shrink:0;}
 .doc-nav-btns a{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:12px;text-decoration:none;white-space:nowrap;}
@@ -125,7 +125,19 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 .srbar2 button{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:3px 9px;cursor:pointer;font-size:13px;}
 /* 隐藏文件名meta行（手机端不需要显示原始文件名） */
 .section-meta{display:none;}
+
+/* 手机端默认显示扫描版（无需等待JS）*/
+@media(max-width:699px){
+  .tab-content.word-default{display:none!important;}
+  .tab-content.scan-default{display:block!important;}
+  .tab-btn.word-btn-default{color:var(--tl)!important;border-bottom-color:transparent!important;font-weight:normal!important;background:none!important;}
+  .tab-btn.scan-btn-default{color:var(--primary)!important;border-bottom-color:var(--primary)!important;font-weight:600!important;background:#fff!important;}
+}
 </style>
+<link rel="preload" as="image" href="images/doc_14_p1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/doc_14_p2.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/doc_14_p3.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/doc_14_p4.jpg" fetchpriority="high">
 </head>
 <body>
 <div class="doc-topbar">
@@ -151,8 +163,8 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
       PDF：JL-2026市场开发部开发员绩效标准及评比规则1.0.pdf　Word：2026市场开发部开发员绩效标准及评比规则1.0.docx
     </div>
   </div>
-  <div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_14-word')">文字版</button><button class="tab-btn" onclick="switchTab(this,'doc_14-scan')">扫描版</button></div>
-  <div id="doc_14-word" class="tab-content active">
+  <div class="section-tabs"><button class="tab-btn active word-btn-default" onclick="switchTab(this,'doc_14-word')">文字版</button><button class="tab-btn scan-btn-default" onclick="switchTab(this,'doc_14-scan')">扫描版</button></div>
+  <div id="doc_14-word" class="tab-content active word-default">
     <div class="word-content">
 <div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:316px;"><col style="width:50.6%;min-width:324px;"></colgroup><tr><th><span style="font-size:15pt">发件编号：</span><span style="font-size:15pt">SCKF</span><span style="font-size:15pt">/TZ/</span><span style="font-size:15pt">202</span><span style="font-size:15pt">6/03</span><span style="font-size:15pt">-</span><span style="font-size:15pt">01</span></th><th rowspan="3"><span style="font-size:15pt">部门会签：</span></th></tr><tr><td><span style="font-size:15pt">发件部门：</span><span style="font-size:15pt">市场开发</span><span style="font-size:15pt">部</span></td></tr><tr><td><span style="font-size:15pt">发件日期：20</span><span style="font-size:15pt">26</span><span style="font-size:15pt">-</span><span style="font-size:15pt">03</span><span style="font-size:15pt">-</span><span style="font-size:15pt">09</span></td></tr><tr><td><span style="font-size:15pt">收件部门：</span><span style="font-size:15pt">市场开发部</span></td><td><span style="font-size:15pt">轮值副总签字：</span></td></tr><tr><td><span style="font-size:15pt">存档地址：</span><span style="font-size:15pt">市场开发部</span></td><td><span style="font-size:15pt">总经理签发：</span></td></tr></table></div>
 <h1 style="margin:3px 0;"><span style="font-weight:bold">2026年</span><span style="font-weight:bold">市场开发部开发员绩效标准及评比规则</span><span style="font-weight:bold">1.0</span></h1>
@@ -236,7 +248,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 <p class="body-text" style="text-align:right;margin:3px 0;"><span style="font-size:12pt">2026年3月9日</span></p>
     </div>
   </div>
-  <div id="doc_14-scan" class="tab-content">
+  <div id="doc_14-scan" class="tab-content scan-default">
     <div class="scan-content">
 <div class="scan-page"><img src="images/doc_14_p1.jpg" alt="第1页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 1 / 4 页</div></div>
 <div class="scan-page"><img src="images/doc_14_p2.jpg" alt="第2页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 2 / 4 页</div></div>
