@@ -112,7 +112,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 /* 文档页额外样式 */
 .doc-topbar{position:sticky;top:0;z-index:100;background:var(--primary);color:#fff;padding:0 10px;height:48px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
-.doc-back{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 8px;flex-shrink:0;text-decoration:none;line-height:1;}
+.doc-back{background:rgba(255,255,255,.18);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer;padding:5px 10px;flex-shrink:0;text-decoration:none;line-height:1;border-radius:6px;white-space:nowrap;}
 .doc-topbar-title{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .doc-nav-btns{display:flex;gap:4px;flex-shrink:0;}
 .doc-nav-btns a{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:12px;text-decoration:none;white-space:nowrap;}
@@ -125,11 +125,19 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 .srbar2 button{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:3px 9px;cursor:pointer;font-size:13px;}
 /* 隐藏文件名meta行（手机端不需要显示原始文件名） */
 .section-meta{display:none;}
+
+/* 手机端默认显示扫描版（无需等待JS）*/
+@media(max-width:699px){
+  .tab-content.word-default{display:none!important;}
+  .tab-content.scan-default{display:block!important;}
+  .tab-btn.word-btn-default{color:var(--tl)!important;border-bottom-color:transparent!important;font-weight:normal!important;background:none!important;}
+  .tab-btn.scan-btn-default{color:var(--primary)!important;border-bottom-color:var(--primary)!important;font-weight:600!important;background:#fff!important;}
+}
 </style>
 </head>
 <body>
 <div class="doc-topbar">
-  <a class="doc-back" href="index.html">&#8592;</a>
+  <a class="doc-back" id="backBtn" href="index.html" onclick="return doBack()">&#8592; 目录</a>
   <span class="doc-topbar-title">大客户服务方案1.0</span>
   <div class="doc-nav-btns">
     <a href="doc_11.html">&#8592;上一篇</a>
@@ -151,8 +159,8 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
       Word：2026年大客户服务方案1.0.docx
     </div>
   </div>
-  <div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_12-word')">文字版</button></div>
-  <div id="doc_12-word" class="tab-content active">
+  <div class="section-tabs"><button class="tab-btn active word-btn-default" onclick="switchTab(this,'doc_12-word')">文字版</button></div>
+  <div id="doc_12-word" class="tab-content active word-default">
     <div class="word-content">
 <div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:315px;"><col style="width:50.6%;min-width:322px;"></colgroup><tr><th><div style="padding-left:0.43em;">发件编号：SCKF/TZ/2025/12-01</div></th><th rowspan="3"><div style="padding-left:0.43em;">部门会签：</div></th></tr><tr><td><div style="padding-left:0.43em;">发件部门：市场开发部</div></td></tr><tr><td><div style="padding-left:0.43em;">发件日期：2025-12-05</div></td></tr><tr><td><div style="padding-left:0.43em;">收件部门：总经办、各相关部门</div></td><td><div style="padding-left:0.43em;">轮值副总签字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr><tr><td><div style="padding-left:0.43em;">存档地址：市场开发部</div></td><td><div style="padding-left:0.43em;">总经理签发：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr></table></div>
 <h1 style="margin:3px 0;">2026年大客户服务方案1.0</h1>
