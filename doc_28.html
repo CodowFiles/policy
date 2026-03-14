@@ -112,7 +112,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 /* 文档页额外样式 */
 .doc-topbar{position:sticky;top:0;z-index:100;background:var(--primary);color:#fff;padding:0 10px;height:48px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
-.doc-back{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 8px;flex-shrink:0;text-decoration:none;line-height:1;}
+.doc-back{background:rgba(255,255,255,.18);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer;padding:5px 10px;flex-shrink:0;text-decoration:none;line-height:1;border-radius:6px;white-space:nowrap;}
 .doc-topbar-title{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .doc-nav-btns{display:flex;gap:4px;flex-shrink:0;}
 .doc-nav-btns a{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:12px;text-decoration:none;white-space:nowrap;}
@@ -125,11 +125,22 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 .srbar2 button{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:3px 9px;cursor:pointer;font-size:13px;}
 /* 隐藏文件名meta行（手机端不需要显示原始文件名） */
 .section-meta{display:none;}
+
+/* 手机端默认显示扫描版（无需等待JS）*/
+@media(max-width:699px){
+  .tab-content.word-default{display:none!important;}
+  .tab-content.scan-default{display:block!important;}
+  .tab-btn.word-btn-default{color:var(--tl)!important;border-bottom-color:transparent!important;font-weight:normal!important;background:none!important;}
+  .tab-btn.scan-btn-default{color:var(--primary)!important;border-bottom-color:var(--primary)!important;font-weight:600!important;background:#fff!important;}
+}
 </style>
+<link rel="preload" as="image" href="images/doc_28_p1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/doc_28_p2.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/doc_28_p3.jpg" fetchpriority="high">
 </head>
 <body>
 <div class="doc-topbar">
-  <a class="doc-back" href="index.html">&#8592;</a>
+  <a class="doc-back" id="backBtn" href="index.html" onclick="return doBack()">&#8592; 目录</a>
   <span class="doc-topbar-title">市场开发部开发评级方案1.0</span>
   <div class="doc-nav-btns">
     <a href="doc_27.html">&#8592;上一篇</a>
@@ -151,8 +162,8 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
       PDF：ZC-2026年市场开发部开发评级方案1.0.pdf　Word：2026年市场开发部开发评级方案1.0.docx
     </div>
   </div>
-  <div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_28-word')">文字版</button><button class="tab-btn" onclick="switchTab(this,'doc_28-scan')">扫描版</button></div>
-  <div id="doc_28-word" class="tab-content active">
+  <div class="section-tabs"><button class="tab-btn active word-btn-default" onclick="switchTab(this,'doc_28-word')">文字版</button><button class="tab-btn scan-btn-default" onclick="switchTab(this,'doc_28-scan')">扫描版</button></div>
+  <div id="doc_28-word" class="tab-content active word-default">
     <div class="word-content">
 <div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:315px;"><col style="width:50.6%;min-width:322px;"></colgroup><tr><th><div style="padding-left:0.43em;">发件编号：SCKF/TZ/2025/12-02</div></th><th rowspan="3"><div style="padding-left:0.43em;">部门会签：</div></th></tr><tr><td><div style="padding-left:0.43em;">发件部门：市场开发部</div></td></tr><tr><td><div style="padding-left:0.43em;">发件日期：2025-12-05</div></td></tr><tr><td><div style="padding-left:0.43em;">收件部门：总经办</div></td><td><div style="padding-left:0.43em;">轮值副总签字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr><tr><td><div style="padding-left:0.43em;">存档地址：市场开发部</div></td><td><div style="padding-left:0.43em;">总经理签发：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr></table></div>
 <h1 style="margin:3px 0;">2026年市场开发部开发评级方案1.0</h1>
@@ -204,7 +215,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 <p style="text-align:right;margin:3px 0;"><span style="font-size:12pt">2025年1</span><span style="font-size:12pt">2</span><span style="font-size:12pt">月</span><span style="font-size:12pt">05</span><span style="font-size:12pt">日</span></p>
     </div>
   </div>
-  <div id="doc_28-scan" class="tab-content">
+  <div id="doc_28-scan" class="tab-content scan-default">
     <div class="scan-content">
 <div class="scan-page"><img src="images/doc_28_p1.jpg" alt="第1页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 1 / 3 页</div></div>
 <div class="scan-page"><img src="images/doc_28_p2.jpg" alt="第2页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 2 / 3 页</div></div>
