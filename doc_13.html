@@ -252,6 +252,20 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 .section-meta{display:none;}
 
+
+/* ===== 导航升级样式 ===== */
+.doc-topbar{height:auto;min-height:48px;flex-wrap:wrap;padding:4px 8px;gap:4px;}
+.topbar-row1{display:flex;align-items:center;width:100%;gap:4px;}
+.topbar-row2{display:flex;align-items:center;width:100%;gap:4px;padding-bottom:2px;}
+.doc-back{font-size:18px;padding:3px 6px;flex-shrink:0;text-decoration:none;color:#fff;background:none;border:none;cursor:pointer;line-height:1;}
+.doc-topbar-title{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-home{background:rgba(255,255,255,.22);color:#fff;border:none;border-radius:4px;padding:3px 9px;font-size:12px;cursor:pointer;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.btn-back-search{background:rgba(255,255,255,.15);color:#fff;border:none;border-radius:4px;padding:3px 9px;font-size:12px;cursor:pointer;white-space:nowrap;flex:1;overflow:hidden;text-overflow:ellipsis;text-align:left;}
+.btn-back-search.hidden{display:none;}
+.doc-nav-btns{display:flex;gap:4px;flex-shrink:0;margin-left:auto;}
+.doc-nav-btns a,.doc-nav-btns span{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:4px;padding:3px 10px;font-size:12px;text-decoration:none;white-space:nowrap;}
+.doc-nav-btns span{opacity:.45;cursor:default;}
+
 </style>
 
 </head>
@@ -259,19 +273,18 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 <body>
 
 <div class="doc-topbar">
-
-  <a href="doc_12.html">&#8592;上一篇</a>
-
-  <span class="doc-topbar-title">开发人员晋升降级内控标准优化3.0</span>
-
-  <div class="doc-nav-btns">
-
-    <a href="doc_02.html">&#8592;上一篇</a>
-
-    <a href="doc_14.html">下一篇&#8594;</a>
-
+  <div class="topbar-row1">
+    <a class="doc-back btn-home" href="index.html" title="返回主页">&#8962;</a>
+    <span class="doc-topbar-title">开发人员晋升降级内控标准优化3.0</span>
+    <div class="doc-nav-btns">
+      <a href="doc_12.html">&#8592;上一篇</a>
+      <a href="doc_14.html">下一篇&#8594;</a>
+    </div>
   </div>
-
+  <div class="topbar-row2">
+    <button class="btn-back-search hidden" id="btnBackSearch" onclick="goBackSearch()">&#8592; 返回搜索结果</button>
+  </div>
+</div>
 </div>
 
 <div id="srbar2" class="srbar2">
@@ -437,15 +450,20 @@ function switchTab(btn,cid){
 }
 
 // 从URL读关键词
-
 (function(){
-
   var p=new URLSearchParams(window.location.search);
-
-  _kw2=p.get('q')||'';
-
-  if(_kw2)setTimeout(function(){hlSearch2(_kw2);},300);
-
+  _kw2=p.get('q')||sessionStorage.getItem('lastSearch')||'';
+  if(_kw2){
+    // 显示"返回搜索结果"按钮
+    var btn=document.getElementById('btnBackSearch');
+    if(btn){btn.classList.remove('hidden');btn.textContent='\u2190 返回搜索结果\uff1a\u201c'+_kw2+'\u201d';}
+    // 上一篇/下一篇链接携带关键词
+    document.querySelectorAll('.doc-nav-btns a').forEach(function(a){
+      var base=a.getAttribute('href').split('?')[0];
+      a.href=base+'?q='+encodeURIComponent(_kw2);
+    });
+    setTimeout(function(){hlSearch2(_kw2);},300);
+  }
 })();
 
 // 懒加载
