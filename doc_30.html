@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>2026年翻牌店政策与提成方案</title>
+<style>
+:root{--primary:#1a5fa8;--pl:#e8f0fb;--text:#222;--border:#ddd;--bg:#f5f7fa;--white:#fff;--shadow:0 2px 8px rgba(0,0,0,.10);--r:8px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px;color:var(--text);background:var(--bg);padding:16px;max-width:900px;margin:0 auto;}
+.doc-header{background:linear-gradient(135deg,var(--primary) 0%,#2d7fd3 100%);color:#fff;padding:24px 20px;border-radius:var(--r);margin-bottom:20px;box-shadow:0 4px 12px rgba(26,95,168,0.3);}
+.doc-header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.doc-header p{font-size:13px;opacity:.9;}
+.nav-bar{position:sticky;top:0;background:var(--white);padding:12px 16px;margin-bottom:16px;border-radius:var(--r);box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:100;}
+.nav-bar input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:14px;}
+.policy-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);margin-bottom:20px;}
+.policy-table th{background:var(--primary);color:#fff;padding:12px 14px;font-size:13px;font-weight:600;text-align:left;}
+.policy-table td{padding:12px 14px;border-bottom:1px solid #eee;font-size:13px;line-height:1.6;vertical-align:top;}
+.policy-table tr:last-child td{border-bottom:none;}
+.policy-table tr:nth-child(even){background:var(--pl);}
+.highlight{background:#fff3cd;padding:2px 4px;border-radius:3px;}
+.no-result{background:var(--white);padding:20px;text-align:center;border-radius:var(--r);color:#888;display:none;}
+@media(max-width:600px){
+  .policy-table{display:block;overflow-x:auto;}
+  .policy-table th,.policy-table td{padding:10px 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>📋 2026年翻牌店政策与提成方案</h1>
+  <p>市场开发部 · 内部政策文件</p>
+</div>
+
+<div class="nav-bar">
+  <input type="text" id="searchInput" placeholder="🔍 搜索政策内容..." onkeyup="filterTable()">
+</div>
+
+<div class="no-result" id="noResult">未找到相关内容</div>
+
+<table class="policy-table" id="policyTable">
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>基础店</th>
+      <th>普通店</th>
+      <th>优质店</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>合作方式</strong></td>
+      <td>不提点，收管理费1000元/月</td>
+      <td>提点：非烟销售额的1.5%;按周结算</td>
+      <td>提点：非烟销售额的1.5%;按周结算</td>
+    </tr>
+    <tr>
+      <td><strong>适用对象</strong></td>
+      <td>立地标准符合公司翻牌标准</td>
+      <td>1、面积50平以上，有烟证<br>2、原店翻牌之前三个月平均除烟日销>4000元<br>3、经开发部负责人、总经办逐层级面试通过的客户</td>
+      <td>1、面积70平以上，有烟证<br>2、原店翻牌之前三个月平均除烟日销>5000元<br>3、经开发部负责人、总经办逐层级面试通过的客户</td>
+    </tr>
+    <tr>
+      <td><strong>开放名额</strong></td>
+      <td>/</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>加盟费</strong></td>
+      <td>12500元</td>
+      <td>12500元</td>
+      <td>12500元</td>
+    </tr>
+    <tr>
+      <td><strong>保证金</strong></td>
+      <td>10000元</td>
+      <td>30000元</td>
+      <td>30000元</td>
+    </tr>
+    <tr>
+      <td><strong>装修</strong></td>
+      <td>门店可自行装修</td>
+      <td>公司统一装修</td>
+      <td>公司统一装修</td>
+    </tr>
+    <tr>
+      <td><strong>新店服务费</strong></td>
+      <td>参考下面"其它额外补贴"中的第5条</td>
+      <td>正常收取</td>
+      <td>减免</td>
+    </tr>
+    <tr>
+      <td><strong>系统使用费<br>(1.5万元)</strong></td>
+      <td>参考下面"其它额外补贴"中的第7条</td>
+      <td>减免</td>
+      <td>减免</td>
+    </tr>
+    <tr>
+      <td><strong>设备投放</strong></td>
+      <td>无</td>
+      <td>设备全投(不含陈列道具、装饰物料)<br>金额上限10万</td>
+      <td>设备全投(不含陈列道具、装饰物料)<br>金额上限15万</td>
+    </tr>
+    <tr>
+      <td><strong>优质点位补贴</strong></td>
+      <td>1、赠送企业文化及VI装饰(3000元以内)<br>2、按需赠送全店陈列道具5000元以内<br>3、赠送招牌(不含打底；15000元以内)<br>4、减免工程服务费3000元<br>5、减免部分开业筹办费<br>6、赠送一次盘点<br>7、系统使用费按日销阶梯收取</td>
+      <td>1、赠送招牌(不含打底；15000元以内)<br>2、减免工程服务费3000元<br>3、赠送一次盘点(自翻牌筹备期间陈列日算起，3个月内有效)</td>
+      <td>与普通店相同</td>
+    </tr>
+    <tr>
+      <td><strong>备注</strong></td>
+      <td>标准设备及货架：可按公司标准申请保留，不达标或缺少设备需在公司购买/门店回收；无特殊原因，以公司现有政策标配风幕柜及子母柜；达到公司标准的收银机可保留，不达标需在公司采购/门店回收。<br><br>卖场装修及收银台：按公司标准自行改造，工程验收，免工程服务费。<br><br>首批商品：根据门店实际货架组数和陈列需求，按需配置。</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="background:var(--white);padding:16px;border-radius:var(--r);box-shadow:var(--shadow);margin-top:20px;">
+  <h3 style="font-size:15px;color:var(--primary);margin-bottom:12px;">💡 政策说明</h3>
+  <p style="line-height:1.8;color:#555;">
+    <strong>基础店：</strong>立地标准符合公司翻牌标准，不提点，收管理费1000元/月，门店可自行装修，无设备投放。<br><br>
+    <strong>普通店：</strong>面积50平以上，有烟证，原店翻牌之前三个月平均除烟日销>4000元，提点1.5%，公司统一装修，设备全投(上限10万)。<br><br>
+    <strong>优质店：</strong>面积70平以上，有烟证，原店翻牌之前三个月平均除烟日销>5000元，提点1.5%，公司统一装修，设备全投(上限15万)，减免新店服务费和系统使用费。<br><br>
+    <strong>开放名额：</strong>普通店10名，优质店10名，先到先得。
+  </p>
+</div>
+
+<script>
+function filterTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("policyTable");
+  tr = table.getElementsByTagName("tr");
+  var hasResult = false;
+
+  for (i = 0; i < tr.length; i++) {
+    var hasMatch = false;
+    var tds = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < tds.length; j++) {
+      if (tds[j]) {
+        txtValue = tds[j].textContent || tds[j].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          hasMatch = true;
+          break;
+        }
+      }
+    }
+    if (hasMatch) {
+      tr[i].style.display = "";
+      hasResult = true;
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+  
+  document.getElementById("noResult").style.display = hasResult ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
