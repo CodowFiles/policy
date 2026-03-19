@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>2026年限时新开店政策及提成</title>
+<style>
+:root{--primary:#1a5fa8;--pl:#e8f0fb;--text:#222;--border:#ddd;--bg:#f5f7fa;--white:#fff;--shadow:0 2px 8px rgba(0,0,0,.10);--r:8px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px;color:var(--text);background:var(--bg);padding:16px;max-width:900px;margin:0 auto;}
+.doc-header{background:linear-gradient(135deg,var(--primary) 0%,#2d7fd3 100%);color:#fff;padding:24px 20px;border-radius:var(--r);margin-bottom:20px;box-shadow:0 4px 12px rgba(26,95,168,0.3);}
+.doc-header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.doc-header p{font-size:13px;opacity:.9;}
+.nav-bar{position:sticky;top:0;background:var(--white);padding:12px 16px;margin-bottom:16px;border-radius:var(--r);box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:100;}
+.nav-bar input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:14px;}
+.info-card{background:var(--white);padding:20px;border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:16px;}
+.info-card h3{font-size:15px;color:var(--primary);margin-bottom:12px;}
+.info-card p{line-height:1.8;color:#555;margin-bottom:8px;}
+.info-card ul{margin-left:20px;line-height:1.8;color:#555;}
+.policy-box{background:var(--white);padding:20px;border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:16px;}
+.policy-box h3{font-size:15px;color:var(--primary);margin-bottom:16px;}
+.subsidy-table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+.subsidy-table th{background:var(--primary);color:#fff;padding:12px 14px;font-size:13px;font-weight:600;text-align:left;}
+.subsidy-table td{padding:12px 14px;border-bottom:1px solid #eee;font-size:13px;line-height:1.6;}
+.subsidy-table tr:last-child td{border-bottom:none;}
+.subsidy-table tr:nth-child(even){background:var(--pl);}
+.highlight{background:#fff3cd;padding:2px 4px;border-radius:3px;}
+.badge{display:inline-block;background:var(--primary);color:#fff;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:600;margin-right:8px;}
+.no-result{background:var(--white);padding:20px;text-align:center;border-radius:var(--r);color:#888;display:none;}
+@media(max-width:600px){
+  .subsidy-table{display:block;overflow-x:auto;}
+  .subsidy-table th,.subsidy-table td{padding:10px 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>🚀 2026年限时新开店政策及提成</h1>
+  <p>市场开发部 · 内部政策文件</p>
+</div>
+
+<div class="nav-bar">
+  <input type="text" id="searchInput" placeholder="🔍 搜索政策内容..." onkeyup="filterContent()">
+</div>
+
+<div class="no-result" id="noResult">未找到相关内容</div>
+
+<div class="info-card">
+  <h3>📌 政策概览</h3>
+  <p><span class="badge">合作方式</span>收管理费1000元/月</p>
+  <p><span class="badge">适用对象</span>新开可多</p>
+  <p><span class="badge">开放名额</span>10名(只针对优质点位，按照标准评定)</p>
+  <p><span class="badge">加盟费</span>25000元</p>
+  <p><span class="badge">保证金</span>30000元</p>
+</div>
+
+<div class="policy-box">
+  <h3>💰 优质点位补贴方案</h3>
+  <p><strong>补贴金额：3.75万~4.75万</strong></p>
+  <p style="margin-top:12px;">具体补贴标准如下：</p>
+  
+  <table class="subsidy-table">
+    <thead>
+      <tr>
+        <th>装修补贴</th>
+        <th>补贴金额</th>
+        <th>适用条件</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>装修补贴(只能找咱们公司装修，决算后直减)</td>
+        <td><strong>补贴3000元</strong></td>
+        <td>总价&lt;5万元</td>
+      </tr>
+      <tr>
+        <td>装修补贴(只能找咱们公司装修，决算后直减)</td>
+        <td><strong>补贴5000元</strong></td>
+        <td>5万元≤总价&lt;8万元</td>
+      </tr>
+      <tr>
+        <td>装修补贴(只能找咱们公司装修，决算后直减)</td>
+        <td><strong>补贴8000元</strong></td>
+        <td>8万元≤总价</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="policy-box">
+  <h3>🏷️ 招牌赠送政策</h3>
+  <p><span class="badge">补贴4500元</span></p>
+  <p>赠送招牌：如果是自带铺，本身就送15000元以内的招牌；如果不是自带铺，就用这个政策，招牌总价值减免4500元的费用。</p>
+</div>
+
+<div class="policy-box">
+  <h3>📋 政策说明</h3>
+  <ul>
+    <li><strong>装修要求：</strong>公司统一装修，享受装修补贴政策，补贴金额根据装修总价分级。</li>
+    <li><strong>装修补贴：</strong>必须找公司装修，决算后直接减免补贴金额。</li>
+    <li><strong>招牌政策：</strong>自带铺客户享受15000元以内招牌赠送，非自带铺客户享受4500元招牌费用减免。</li>
+    <li><strong>开放名额：</strong>仅限10名优质点位，按照标准评定，先到先得。</li>
+    <li><strong>合作方式：</strong>收管理费1000元/月，不提点。</li>
+    <li><strong>适用对象：</strong>新开可多门店，需经开发部评定为优质点位。</li>
+  </ul>
+</div>
+
+<div class="policy-box">
+  <h3>⚠️ 注意事项</h3>
+  <ul>
+    <li>本政策为限时政策，开放名额有限，请开发员及时跟进优质点位。</li>
+    <li>装修补贴必须在公司统一装修的情况下享受，决算后直接减免。</li>
+    <li>优质点位评定标准需经开发部审核通过。</li>
+    <li>本政策如有调整，以最新通知为准。</li>
+  </ul>
+</div>
+
+<script>
+function filterContent() {
+  var input, filter, cards, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  cards = document.querySelectorAll(".info-card, .policy-box");
+  var hasResult = false;
+
+  for (i = 0; i < cards.length; i++) {
+    txtValue = cards[i].textContent || cards[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      cards[i].style.display = "";
+      hasResult = true;
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+  
+  var tables = document.querySelectorAll(".subsidy-table");
+  for (i = 0; i < tables.length; i++) {
+    var rows = tables[i].getElementsByTagName("tr");
+    var tableHasMatch = false;
+    for (var j = 0; j < rows.length; j++) {
+      var cells = rows[j].getElementsByTagName("td");
+      var rowHasMatch = false;
+      for (var k = 0; k < cells.length; k++) {
+        if (cells[k].textContent.toUpperCase().indexOf(filter) > -1) {
+          rowHasMatch = true;
+          break;
+        }
+      }
+      rows[j].style.display = rowHasMatch ? "" : "none";
+      if (rowHasMatch) tableHasMatch = true;
+    }
+    tables[i].style.display = tableHasMatch ? "table" : "none";
+    if (tableHasMatch) hasResult = true;
+  }
+  
+  document.getElementById("noResult").style.display = hasResult ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
