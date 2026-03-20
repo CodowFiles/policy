@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<title>2026年市场开发部开发员绩效标准及评比规则1.0 - 2026年政策文件汇编</title>
+<style>
+/* ============================================
+   设计系统 - CSS变量
+   ============================================ */
+:root {
+  /* 主色调 - 专业蓝色系 */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  
+  /* 辅助色 */
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --success-dark: #065f46;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --warning-dark: #92400e;
+  --error: #ef4444;
+  --info: #06b6d4;
+  
+  /* 中性色 - 文字 */
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+  
+  /* 中性色 - 背景 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --bg-active: #dbeafe;
+  
+  /* 中性色 - 边框 */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+  
+  /* 间距系统 - 8点网格 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  
+  /* 阴影系统 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-colored: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  
+  /* 圆角系统 */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+  
+  /* 字体 */
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  
+  /* 过渡 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ============================================
+   基础样式重置
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+/* ============================================
+   顶部导航栏 - 新UI设计
+   ============================================ */
+.doc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-600) 100%);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+}
+
+.doc-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: all var(--transition-fast);
+}
+
+.doc-back:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-2px);
+}
+
+.doc-topbar-title {
+  flex: 1;
+  margin: 0 var(--space-3);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-nav-btns {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.doc-nav-btns a,
+.doc-nav-btns span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.doc-nav-btns a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.doc-nav-btns span {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   搜索栏
+   ============================================ */
+.srbar2 {
+  display: none;
+  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-600) 100%);
+  padding: var(--space-2) var(--space-4);
+  font-size: 13px;
+  color: white;
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-md);
+}
+
+.srbar2.on {
+  display: flex;
+}
+
+.srbar2 .sr-label {
+  flex: 1;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.srbar2 button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.srbar2 button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   文档内容区域
+   ============================================ */
+.doc-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) 80px;
+}
+
+/* ============================================
+   政策卡片
+   ============================================ */
+.policy-section {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.policy-section:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.section-header {
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--bg-primary) 100%);
+  border-bottom: 2px solid var(--primary-100);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-800);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+}
+
+.section-tags {
+  margin-bottom: var(--space-2);
+}
+
+.section-meta {
+  display: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-right: var(--space-2);
+}
+
+.tag-both {
+  background: linear-gradient(135deg, var(--success-light) 0%, #dcfce7 100%);
+  color: var(--success-dark);
+}
+
+.tag-pdf {
+  background: linear-gradient(135deg, var(--warning-light) 0%, #fef9c3 100%);
+  color: var(--warning-dark);
+}
+
+.tag-word {
+  background: linear-gradient(135deg, var(--primary-100) 0%, #e0e7ff 100%);
+  color: var(--primary-800);
+}
+
+/* ============================================
+   标签页
+   ============================================ */
+.section-tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  padding: var(--space-2) var(--space-4) 0;
+  gap: var(--space-1);
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.tab-btn:hover {
+  color: var(--primary-600);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--primary-600);
+  border-bottom-color: var(--primary-500);
+  font-weight: 600;
+  background: var(--bg-primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ============================================
+   文字内容区域
+   ============================================ */
+.word-content {
+  padding: var(--space-5);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.word-content h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-800);
+  text-align: center;
+  margin: var(--space-4) 0 var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--primary-100);
+}
+
+.word-content h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-700);
+  margin: var(--space-6) 0 var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 4px solid var(--primary-500);
+}
+
+.word-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-600);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.word-content h4,
+.word-content h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.word-content p,
+.word-content .body-text,
+.word-content .list-para {
+  margin: var(--space-2) 0;
+}
+
+.word-content span[style*="font-size"] {
+  font-size: 14px !important;
+}
+
+.word-content span[style*="font-size:20pt"],
+.word-content span[style*="font-size:18pt"],
+.word-content span[style*="font-size:16pt"],
+.word-content span[style*="font-size:14pt"] {
+  font-size: 15px !important;
+}
+
+/* ============================================
+   表格样式
+   ============================================ */
+.table-wrap {
+  margin: var(--space-4) 0;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  background: var(--bg-primary);
+}
+
+.doc-table th,
+.doc-table td {
+  border: 1px solid var(--border-light);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.doc-table th {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+  font-weight: 600;
+  color: var(--primary-800);
+  border-bottom: 2px solid var(--primary-200);
+}
+
+.doc-table tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+.doc-table tr:hover td {
+  background: var(--primary-50);
+}
+
+/* ============================================
+   扫描版图片
+   ============================================ */
+.scan-content {
+  padding: var(--space-4);
+}
+
+.scan-page {
+  margin-bottom: var(--space-4);
+  text-align: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.scan-page:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.scan-page img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-num {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-secondary);
+}
+
+.doc-img {
+  text-align: center;
+  margin: var(--space-4) 0;
+}
+
+.doc-img img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.img-err {
+  color: var(--error);
+  font-size: 13px;
+  padding: var(--space-4);
+  background: #fef2f2;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   高亮样式
+   ============================================ */
+.doc-highlight {
+  background: #fef08a;
+  color: var(--text-primary);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.doc-highlight.current {
+  background: #fbbf24;
+  outline: 2px solid #f59e0b;
+  outline-offset: 1px;
+}
+
+/* ============================================
+   回到顶部按钮
+   ============================================ */
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg), var(--shadow-colored);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: all var(--transition-fast);
+}
+
+.back-top.on {
+  display: flex;
+}
+
+.back-top:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl), var(--shadow-colored);
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+@media (min-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .doc-topbar {
+    height: 64px;
+    padding: 0 var(--space-6);
+  }
+  
+  .doc-back {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .doc-topbar-title {
+    font-size: 16px;
+    margin: 0 var(--space-4);
+  }
+  
+  .doc-nav-btns a,
+  .doc-nav-btns span {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .srbar2 {
+    top: 64px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  .doc-wrap {
+    padding: var(--space-6) var(--space-6) 100px;
+  }
+  
+  .section-header {
+    padding: var(--space-6) var(--space-6) var(--space-5);
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-tabs {
+    padding: var(--space-2) var(--space-6) 0;
+  }
+  
+  .tab-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+  
+  .word-content {
+    padding: var(--space-6);
+    font-size: 15px;
+  }
+  
+  .word-content h1 {
+    font-size: 22px;
+  }
+  
+  .word-content h2 {
+    font-size: 18px;
+  }
+  
+  .word-content h3 {
+    font-size: 16px;
+  }
+  
+  .scan-content {
+    padding: var(--space-6);
+  }
+  
+  .doc-table {
+    font-size: 14px;
+  }
+  
+  .doc-table th,
+  .doc-table td {
+    padding: 12px 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .doc-wrap {
+    max-width: 1000px;
+  }
+}
+
+/* ============================================
+   打印样式
+   ============================================ */
+@media print {
+  .doc-topbar,
+  .srbar2,
+  .back-top {
+    display: none !important;
+  }
+  
+  .policy-section {
+    box-shadow: none;
+    border: 1px solid var(--border-light);
+    break-inside: avoid;
+  }
+  
+  .tab-content {
+    display: block !important;
+  }
+  
+  .section-tabs {
+    display: none;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="doc-topbar">
+<a class="doc-back" href="index.html">←</a>
+<span class="doc-topbar-title">市场开发部开发员绩效标准及评比规则1.0</span>
+<div class="doc-nav-btns">
+<a href="doc_13.html">← 上一篇</a>
+<a href="doc_15.html">下一篇 →</a>
+</div>
+</div>
+<div class="srbar2" id="srbar2">
+<span class="sr-label" id="srtext2"></span>
+<button onclick="goPrev2()">↑ 上一个</button>
+<button onclick="goNext2()">↓ 下一个</button>
+<button onclick="clearSearch2()">✕ 清除</button>
+</div>
+<div class="doc-wrap">
+<section class="policy-section" id="doc_14">
+<div class="section-header">
+<h1 class="section-title">市场开发部开发员绩效标准及评比规则1.0</h1>
+<div class="section-tags"><span class="tag tag-both">图文版</span></div>
+<div class="section-meta">
+
+      PDF：JL-2026市场开发部开发员绩效标准及评比规则1.0.pdf　Word：2026市场开发部开发员绩效标准及评比规则1.0.docx
+
+    </div>
+</div>
+<div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_14-word')">文字版</button><button class="tab-btn" onclick="switchTab(this,'doc_14-scan')">扫描版</button></div>
+<div class="tab-content active" id="doc_14-word">
+<div class="word-content">
+<div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:316px;"/><col style="width:50.6%;min-width:324px;"/></colgroup><tr><th><span style="font-size:15pt">发件编号：</span><span style="font-size:15pt">SCKF</span><span style="font-size:15pt">/TZ/</span><span style="font-size:15pt">202</span><span style="font-size:15pt">6/03</span><span style="font-size:15pt">-</span><span style="font-size:15pt">01</span></th><th rowspan="3"><span style="font-size:15pt">部门会签：</span></th></tr><tr><td><span style="font-size:15pt">发件部门：</span><span style="font-size:15pt">市场开发</span><span style="font-size:15pt">部</span></td></tr><tr><td><span style="font-size:15pt">发件日期：20</span><span style="font-size:15pt">26</span><span style="font-size:15pt">-</span><span style="font-size:15pt">03</span><span style="font-size:15pt">-</span><span style="font-size:15pt">09</span></td></tr><tr><td><span style="font-size:15pt">收件部门：</span><span style="font-size:15pt">市场开发部</span></td><td><span style="font-size:15pt">轮值副总签字：</span></td></tr><tr><td><span style="font-size:15pt">存档地址：</span><span style="font-size:15pt">市场开发部</span></td><td><span style="font-size:15pt">总经理签发：</span></td></tr></table></div>
+<h1 style="margin:3px 0;"><span style="font-weight:bold">2026年</span><span style="font-weight:bold">市场开发部开发员绩效标准及评比规则</span><span style="font-weight:bold">1.0</span></h1>
+<h2 style="margin:3px 0;">一、开发员绩效标准</h2>
+<h3 style="margin:3px 0;">1、目标店：</h3>
+<h4 style="margin:3px 0;">① 基础标准：</h4>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">a、商铺照片4张（商铺正面，商铺左边，商铺右边，商铺对面）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">b、商铺视频2个（360度解说视频，360度环绕视频）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">c、基础信息（伙伴云基础信息及推荐理由）。</p>
+<h4 style="margin:3px 0;">② 合规原则：</h4>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">a、同一客群的同一客流动线上，同一个开发员不能同时录入2个及以上目标店。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">b、同一目标店在商铺可租的情况下，开发员不能重复录入。</p>
+<h3 style="margin:3px 0;">2、竞争店/老店：</h3>
+<h4 style="margin:3px 0;">① 基础标准：</h4>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">a、照片3张（入店前门店正面，单页在收银台上或老板手里的照片，出店后门店门口自拍照）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">b、门店老板微信主页截图（能看到微信号的页面）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">c、老板微信名片推送至招商部指定微信号。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">d、基础信息（伙伴云基础信息）。</p>
+<h4 style="margin:3px 0;">② 合规原则：</h4>
+<p class="body-text" style="margin:3px 0;">a、同一竞争店/老店绩效，同一开发员不能在2个月内重复录入。</p>
+<h3 style="margin:3px 0;">3、带看/复看绩效：</h3>
+<h4 style="margin:3px 0;">① 基础标准：</h4>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">a、带看照片（开发员与加盟商合影）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">b、伙伴云填写带看反馈。 </p>
+<h4 style="margin:3px 0;">② 合规原则：</h4>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">a、带看/复看照片中背景为所带看的商铺。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">b、带看/复看日期与绩效填写日期对应。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">c、同一张带看/复看照片不能重复使用到同项目的其他目标店。</p>
+<h3 style="margin:3px 0;">4、检核标准：</h3>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 开发员所有绩效中所使用的照片及视频，非手机系统等客观原因必须使用今日水印相机拍摄。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 开发员过程指标的必须在各自战区内或有开发权限的公共区域内完成。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 招商部检核绩效时发现不合规绩效应对开发员予以提醒，非传错照片等客观原因，不合规绩效不计入开发员完成数据中。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 招商组长应定期对招商助理及推广营销专员检核过的绩效进行抽查，并在评判真实有效性后订正检核结果。</p>
+<h3 style="margin:3px 0;">5、开发员绩效数量标准（月度）：</h3>
+<div class="table-wrap"><table class="doc-table"><colgroup><col style="width:8.7%;min-width:57px;"/><col style="width:16.4%;min-width:108px;"/><col style="width:21.6%;min-width:143px;"/><col style="width:25.4%;min-width:168px;"/><col style="width:28.0%;min-width:185px;"/></colgroup><tr><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">战区</span></th><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">岗位</span></th><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">目标店铺（个）</span></th><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">竞争店/老店（个）</span></th><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">带看/复看（人次）</span></th></tr><tr><td rowspan="2" style="text-align:center;"><span style="font-size:12pt">本埠</span></td><td style="text-align:center;"><span style="font-size:12pt">正式开发</span></td><td style="text-align:center;"><span style="font-size:12pt">3</span></td><td style="text-align:center;"><span style="font-size:12pt">20</span></td><td style="text-align:center;"><span style="font-size:12pt">20</span></td></tr><tr><td style="text-align:center;"><span style="font-size:12pt">见习开发</span></td><td style="text-align:center;"><span style="font-size:12pt">2</span></td><td style="text-align:center;"><span style="font-size:12pt">45</span></td><td style="text-align:center;"><span style="font-size:12pt">10</span></td></tr><tr><td rowspan="2" style="text-align:center;"><span style="font-size:12pt">外埠</span></td><td style="text-align:center;"><span style="font-size:12pt">正式开发</span></td><td style="text-align:center;"><span style="font-size:12pt">3</span></td><td style="text-align:center;"><span style="font-size:12pt">30</span></td><td style="text-align:center;"><span style="font-size:12pt">10</span></td></tr><tr><td style="text-align:center;"><span style="font-size:12pt">见习开发</span></td><td style="text-align:center;"><span style="font-size:12pt">2</span></td><td style="text-align:center;"><span style="font-size:12pt">45</span></td><td style="text-align:center;"><span style="font-size:12pt">10</span></td></tr></table></div>
+<h2 style="margin:3px 0;">6、开发绩效公布标准：</h2>
+<p style="margin:3px 0;"> <span style="font-size:12pt"> 每月月初公布上月数据及评比结果。</span></p>
+<h2 style="margin:3px 0;">二、月度季度年度冠军及蜗牛评比规则</h2>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">1、<span style="font-weight:bold">月度季度年度冠军评比维度优先级：</span></p>
+<p class="body-text" style="padding-left:2.0em;margin:3px 0;">（开发员和开发分部均按照①②③④评比）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 当期绩效完成率100%方可参与冠军评比。（核算绩效总数，上限100%）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 按全款进度会的开店数排名，开店数多的排名靠前。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 按全款进度会的最后时间排名，时间靠前则排名靠前（进度会和全款的时间中取最迟完成的时间）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 按当期绩效完成时间排名，完成时间靠前的排名靠前。（取最后一个合格绩效数据的录入时间）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">2、<span style="font-weight:bold">蜗牛评比维度优先级：</span></p>
+<p class="body-text" style="padding-left:2.0em;margin:3px 0;">（开发员按照①④评比，开发分部按照①②③④评比）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 按当期绩效完成率排名，完成率低的排名靠前。（核算绩效总数，上限100%）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 按全款进度会的开店数排名，开店数少的排名靠前。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 按全款进度会的最后时间排名，时间靠后的则排名靠前（进度会和全款的时间中取最迟的时间）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 按当期总绩效完成时间排名，完成时间靠后的排名靠前。（取最后一个合格绩效数据的录入时间）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">⑤ 开发员个人每旬绩效分不能为0，如果有一旬数据为0的则认定本月绩效完成率最高为90%。</p>
+<h2 style="margin:3px 0;">二、PK评比维度及优先级</h2>
+<h3 style="margin:3px 0;">1、见习开发员：</h3>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 按当期绩效完成率PK，完成率高的获胜。（核算绩效总数，上限100%）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 按当期绩效完成时间PK，完成时间靠前的获胜。(取最后一个合格绩效数据的录入时间）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 按照 竞争店/总绩效 占比PK，竞争店占比高的获胜。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 按照 带看/总绩效 占比PK，带看占比高的获胜。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">⑤ 打平。</p>
+<h3 style="margin:3px 0;">2、正式开发员：</h3>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 按当期绩效完成率PK，完成率高的获胜。（核算绩效总数，上限100%）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 按当期绩效完成时间PK，完成时间靠前的获胜。（取最后一个合格绩效数据的录入时间）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 按照 带看/总绩效 占比PK，带看占比高的获胜。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 按照 竞争店/总绩效 占比PK，竞争店占比高的获胜。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">⑤ 打平。</p>
+<h3 style="margin:3px 0;">3、开发分部：</h3>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">① 按当期绩效完成率PK，完成率高的获胜。（核算绩效总数，上限100%）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">② 按全款进度会的开店数PK，开店数多的排名获胜。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">③ 按全款进度会的最后时间PK，时间靠前则排名获胜（进度会和全款的时间中取最迟的时间）。</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">④ 按当期绩效完成时间PK，完成时间靠前的排名获胜。（取最后一个合格绩效数据的录入时间）</p>
+<p class="body-text" style="text-indent:2.0em;margin:3px 0;">⑤ 打平。</p>
+<h3 style="margin:3px 0;">4、招商小组：</h3>
+<p class="body-text" style="margin:3px 0;">营销专员考核直访转意向率，高者获胜；</p>
+<p class="body-text" style="margin:3px 0;">新媒体运营考核视频平均播放量；</p>
+<p class="body-text" style="margin:3px 0;">推广专员考核咨询达成率。</p>
+<p class="body-text" style="margin:3px 0;">考核数据一致时则打平。</p>
+<p class="body-text" style="margin:3px 0;"><span style="font-size:15pt">※PK金额：</span></p>
+<p class="body-text" style="margin:3px 0;">开发专员、营销专员、新媒体小组、推广小组100元/人，</p>
+<p class="body-text" style="margin:3px 0;">开发主管200元/人。</p>
+<p class="body-text" style="text-indent:2.01em;margin:3px 0;"><span style="font-weight:bold;font-size:12pt">本方案自202</span><span style="font-weight:bold;font-size:12pt">6</span><span style="font-weight:bold;font-size:12pt">年</span><span style="font-weight:bold;font-size:12pt">03</span><span style="font-weight:bold;font-size:12pt">月</span><span style="font-weight:bold;font-size:12pt">01</span><span style="font-weight:bold;font-size:12pt">日生效，试行三个月，到期如无调整则继续延用。</span></p>
+<p class="body-text" style="text-align:right;margin:3px 0;"><span style="font-size:12pt">市场开发部</span></p>
+<p class="body-text" style="text-align:right;margin:3px 0;"><span style="font-size:12pt">2026年3月9日</span></p>
+</div>
+</div>
+<div class="tab-content" id="doc_14-scan">
+<div class="scan-content">
+<div class="scan-page"><img alt="第1页" src="images/doc_14_p1.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 1 / 4 页</div></div>
+<div class="scan-page"><img alt="第2页" src="images/doc_14_p2.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 2 / 4 页</div></div>
+<div class="scan-page"><img alt="第3页" src="images/doc_14_p3.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 3 / 4 页</div></div>
+<div class="scan-page"><img alt="第4页" src="images/doc_14_p4.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 4 / 4 页</div></div>
+</div>
+</div>
+</section>
+</div>
+<button class="back-top" id="backTop2" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+
+
+
+// 行内搜索（从首页跳转携带关键词）—— 支持跨span合并匹配
+
+var _m2=[],_i2=-1;
+
+function hlSearch2(kw){
+
+  if(!kw)return;
+
+  var terms=kw.split(/[\s,，]+/).filter(Boolean);
+
+  var regs=terms.map(function(t){return new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');});
+
+  var wrap=document.querySelector('.doc-wrap');
+
+  var leafSel='p,td,th,li,h1,h2,h3,h4,h5,h6,caption';
+
+  var containers=Array.prototype.slice.call(wrap.querySelectorAll(leafSel));
+
+  containers=containers.filter(function(el){
+
+    return !containers.some(function(other){return other!==el&&el.contains(other);});
+
+  });
+
+  _m2=[];
+
+  containers.forEach(function(container){
+
+    var fullText=container.innerText||container.textContent||'';
+
+    var hit=regs.every(function(re){re.lastIndex=0;return re.test(fullText);});
+
+    if(!hit)return;
+
+    regs.forEach(function(re){
+
+      var walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);
+
+      var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+
+      nodes.forEach(function(node){
+
+        if(node.parentNode&&node.parentNode.classList&&node.parentNode.classList.contains('doc-highlight'))return;
+
+        var v=node.nodeValue;
+
+        re.lastIndex=0;
+
+        if(!re.test(v))return;
+
+        var frag=document.createDocumentFragment(),last=0,matches=[];
+
+        re.lastIndex=0;var m;
+
+        while((m=re.exec(v))!==null)matches.push({s:m.index,e:m.index+m[0].length});
+
+        matches.forEach(function(seg){
+
+          if(seg.s>last)frag.appendChild(document.createTextNode(v.slice(last,seg.s)));
+
+          var sp=document.createElement('span');sp.className='doc-highlight';sp.textContent=v.slice(seg.s,seg.e);
+
+          frag.appendChild(sp);_m2.push(sp);last=seg.e;
+
+        });
+
+        if(last<v.length)frag.appendChild(document.createTextNode(v.slice(last)));
+
+        if(node.parentNode)node.parentNode.replaceChild(frag,node);
+
+      });
+
+    });
+
+  });
+
+  if(_m2.length>0){
+
+    _i2=0;scrollTo2(0);
+
+    document.getElementById('srbar2').classList.add('on');
+
+  } else {
+
+    var bar=document.getElementById('srbar2');
+
+    var lbl=document.getElementById('srtext2');
+
+    if(bar&&lbl){bar.classList.add('on');lbl.textContent='"'+kw+'" 在文字版中未找到，可切换至扫描版查看';}
+
+  }
+
+}
+
+
+
+function scrollTo2(i){
+
+
+
+  _m2.forEach(function(el){el.classList.remove('current');});
+
+
+
+  _m2[i].classList.add('current');
+
+
+
+  _m2[i].scrollIntoView({behavior:'smooth',block:'center'});
+
+
+
+  // 激活所在Tab
+
+
+
+  var tc=_m2[i].closest('.tab-content');
+
+
+
+  if(tc&&!tc.classList.contains('active')){
+
+
+
+    var sec=tc.closest('.policy-section');
+
+
+
+    var btn=sec&&sec.querySelector('[onclick*="'+tc.id+'"]');
+
+
+
+    if(btn)switchTab(btn,tc.id);
+
+
+
+  }
+
+
+
+  document.getElementById('srtext2').textContent='"'+_kw2+'" '+(_i2+1)+'/'+_m2.length;
+
+
+
+}
+
+
+
+var _kw2='';
+
+
+
+function goPrev2(){if(!_m2.length)return;_i2=(_i2-1+_m2.length)%_m2.length;scrollTo2(_i2);}
+
+
+
+function goNext2(){if(!_m2.length)return;_i2=(_i2+1)%_m2.length;scrollTo2(_i2);}
+
+
+
+function clearSearch2(){
+
+
+
+  document.querySelectorAll('.doc-highlight').forEach(function(sp){
+
+
+
+    var p=sp.parentNode;if(!p)return;p.replaceChild(document.createTextNode(sp.textContent),sp);p.normalize();
+
+
+
+  });
+
+
+
+  _m2=[];_i2=-1;document.getElementById('srbar2').classList.remove('on');
+
+
+
+}
+
+
+
+function _loadTabImgs(container){
+
+  if(!container)return;
+
+  var imgs=container.querySelectorAll('img[data-src]');
+
+  imgs.forEach(function(img){
+
+    if(img.getAttribute('src')!==img.dataset.src){
+
+      img.src=img.dataset.src;
+
+    }
+
+  });
+
+}
+
+function switchTab(btn,cid){
+
+  var sec=btn.closest('.policy-section');
+
+  sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+
+  sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+
+  btn.classList.add('active');
+
+  var tc=document.getElementById(cid);
+
+  tc.classList.add('active');
+
+  _loadTabImgs(tc);
+
+}
+
+
+
+// 从URL读关键词
+
+
+
+(function(){
+
+
+
+  var p=new URLSearchParams(window.location.search);
+
+
+
+  _kw2=p.get('q')||'';
+
+
+
+  if(_kw2)setTimeout(function(){hlSearch2(_kw2);},300);
+
+
+
+})();
+
+
+
+// 懒加载
+
+
+
+if('IntersectionObserver' in window){
+
+
+
+  var _io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){var img=x.target;if(img.dataset.src){img.src=img.dataset.src;_io.unobserve(img);}}})},{rootMargin:'300px'});
+
+
+
+  document.querySelectorAll('img[loading="lazy"]').forEach(function(img){_io.observe(img);});
+
+
+
+}
+
+
+
+// 回到顶部
+
+
+
+window.addEventListener('scroll',function(){document.getElementById('backTop2').classList.toggle('on',window.scrollY>300);});
+
+
+
+// 手机端默认扫描版Tab
+
+
+
+(function(){
+
+
+
+  if(window.innerWidth>=700)return;
+
+
+
+  document.querySelectorAll('.policy-section').forEach(function(sec){
+
+
+
+    var scanTab=sec.querySelector('.tab-btn[onclick*="-scan"]');
+
+
+
+    if(!scanTab)return;
+
+
+
+    sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+
+
+
+    sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+
+
+
+    scanTab.classList.add('active');
+
+
+
+    var m=scanTab.getAttribute('onclick').match(/switchTab\(this,'([^']+)'\)/);
+
+
+
+    if(m){var tc=document.getElementById(m[1]);tc.classList.add('active');_loadTabImgs(tc);}
+
+
+
+  });
+
+
+
+})();
+
+
+
+</script>
+</body>
+</html>
