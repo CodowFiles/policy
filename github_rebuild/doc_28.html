@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<title>2026年市场开发部开发评级方案1.0 - 2026年政策文件汇编</title>
+<style>
+/* ============================================
+   设计系统 - CSS变量
+   ============================================ */
+:root {
+  /* 主色调 - 专业蓝色系 */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  
+  /* 辅助色 */
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --success-dark: #065f46;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --warning-dark: #92400e;
+  --error: #ef4444;
+  --info: #06b6d4;
+  
+  /* 中性色 - 文字 */
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+  
+  /* 中性色 - 背景 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --bg-active: #dbeafe;
+  
+  /* 中性色 - 边框 */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+  
+  /* 间距系统 - 8点网格 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  
+  /* 阴影系统 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-colored: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  
+  /* 圆角系统 */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+  
+  /* 字体 */
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  
+  /* 过渡 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ============================================
+   基础样式重置
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+/* ============================================
+   顶部导航栏 - 新UI设计
+   ============================================ */
+.doc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-600) 100%);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+}
+
+.doc-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: all var(--transition-fast);
+}
+
+.doc-back:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-2px);
+}
+
+.doc-topbar-title {
+  flex: 1;
+  margin: 0 var(--space-3);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-nav-btns {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.doc-nav-btns a,
+.doc-nav-btns span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.doc-nav-btns a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.doc-nav-btns span {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   搜索栏
+   ============================================ */
+.srbar2 {
+  display: none;
+  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-600) 100%);
+  padding: var(--space-2) var(--space-4);
+  font-size: 13px;
+  color: white;
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-md);
+}
+
+.srbar2.on {
+  display: flex;
+}
+
+.srbar2 .sr-label {
+  flex: 1;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.srbar2 button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.srbar2 button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   文档内容区域
+   ============================================ */
+.doc-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) 80px;
+}
+
+/* ============================================
+   政策卡片
+   ============================================ */
+.policy-section {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.policy-section:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.section-header {
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--bg-primary) 100%);
+  border-bottom: 2px solid var(--primary-100);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-800);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+}
+
+.section-tags {
+  margin-bottom: var(--space-2);
+}
+
+.section-meta {
+  display: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-right: var(--space-2);
+}
+
+.tag-both {
+  background: linear-gradient(135deg, var(--success-light) 0%, #dcfce7 100%);
+  color: var(--success-dark);
+}
+
+.tag-pdf {
+  background: linear-gradient(135deg, var(--warning-light) 0%, #fef9c3 100%);
+  color: var(--warning-dark);
+}
+
+.tag-word {
+  background: linear-gradient(135deg, var(--primary-100) 0%, #e0e7ff 100%);
+  color: var(--primary-800);
+}
+
+/* ============================================
+   标签页
+   ============================================ */
+.section-tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  padding: var(--space-2) var(--space-4) 0;
+  gap: var(--space-1);
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.tab-btn:hover {
+  color: var(--primary-600);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--primary-600);
+  border-bottom-color: var(--primary-500);
+  font-weight: 600;
+  background: var(--bg-primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ============================================
+   文字内容区域
+   ============================================ */
+.word-content {
+  padding: var(--space-5);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.word-content h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-800);
+  text-align: center;
+  margin: var(--space-4) 0 var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--primary-100);
+}
+
+.word-content h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-700);
+  margin: var(--space-6) 0 var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 4px solid var(--primary-500);
+}
+
+.word-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-600);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.word-content h4,
+.word-content h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.word-content p,
+.word-content .body-text,
+.word-content .list-para {
+  margin: var(--space-2) 0;
+}
+
+.word-content span[style*="font-size"] {
+  font-size: 14px !important;
+}
+
+.word-content span[style*="font-size:20pt"],
+.word-content span[style*="font-size:18pt"],
+.word-content span[style*="font-size:16pt"],
+.word-content span[style*="font-size:14pt"] {
+  font-size: 15px !important;
+}
+
+/* ============================================
+   表格样式
+   ============================================ */
+.table-wrap {
+  margin: var(--space-4) 0;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  background: var(--bg-primary);
+}
+
+.doc-table th,
+.doc-table td {
+  border: 1px solid var(--border-light);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.doc-table th {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+  font-weight: 600;
+  color: var(--primary-800);
+  border-bottom: 2px solid var(--primary-200);
+}
+
+.doc-table tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+.doc-table tr:hover td {
+  background: var(--primary-50);
+}
+
+/* ============================================
+   扫描版图片
+   ============================================ */
+.scan-content {
+  padding: var(--space-4);
+}
+
+.scan-page {
+  margin-bottom: var(--space-4);
+  text-align: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.scan-page:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.scan-page img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-num {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-secondary);
+}
+
+.doc-img {
+  text-align: center;
+  margin: var(--space-4) 0;
+}
+
+.doc-img img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.img-err {
+  color: var(--error);
+  font-size: 13px;
+  padding: var(--space-4);
+  background: #fef2f2;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   高亮样式
+   ============================================ */
+.doc-highlight {
+  background: #fef08a;
+  color: var(--text-primary);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.doc-highlight.current {
+  background: #fbbf24;
+  outline: 2px solid #f59e0b;
+  outline-offset: 1px;
+}
+
+/* ============================================
+   回到顶部按钮
+   ============================================ */
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg), var(--shadow-colored);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: all var(--transition-fast);
+}
+
+.back-top.on {
+  display: flex;
+}
+
+.back-top:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl), var(--shadow-colored);
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+@media (min-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .doc-topbar {
+    height: 64px;
+    padding: 0 var(--space-6);
+  }
+  
+  .doc-back {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .doc-topbar-title {
+    font-size: 16px;
+    margin: 0 var(--space-4);
+  }
+  
+  .doc-nav-btns a,
+  .doc-nav-btns span {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .srbar2 {
+    top: 64px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  .doc-wrap {
+    padding: var(--space-6) var(--space-6) 100px;
+  }
+  
+  .section-header {
+    padding: var(--space-6) var(--space-6) var(--space-5);
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-tabs {
+    padding: var(--space-2) var(--space-6) 0;
+  }
+  
+  .tab-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+  
+  .word-content {
+    padding: var(--space-6);
+    font-size: 15px;
+  }
+  
+  .word-content h1 {
+    font-size: 22px;
+  }
+  
+  .word-content h2 {
+    font-size: 18px;
+  }
+  
+  .word-content h3 {
+    font-size: 16px;
+  }
+  
+  .scan-content {
+    padding: var(--space-6);
+  }
+  
+  .doc-table {
+    font-size: 14px;
+  }
+  
+  .doc-table th,
+  .doc-table td {
+    padding: 12px 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .doc-wrap {
+    max-width: 1000px;
+  }
+}
+
+/* ============================================
+   打印样式
+   ============================================ */
+@media print {
+  .doc-topbar,
+  .srbar2,
+  .back-top {
+    display: none !important;
+  }
+  
+  .policy-section {
+    box-shadow: none;
+    border: 1px solid var(--border-light);
+    break-inside: avoid;
+  }
+  
+  .tab-content {
+    display: block !important;
+  }
+  
+  .section-tabs {
+    display: none;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="doc-topbar">
+<a class="doc-back" href="index.html">←</a>
+<span class="doc-topbar-title">市场开发部开发评级方案1.0</span>
+<div class="doc-nav-btns">
+<a href="doc_27.html">← 上一篇</a>
+<a href="doc_29.html">下一篇 →</a>
+</div>
+</div>
+<div class="srbar2" id="srbar2">
+<span class="sr-label" id="srtext2"></span>
+<button onclick="goPrev2()">↑ 上一个</button>
+<button onclick="goNext2()">↓ 下一个</button>
+<button onclick="clearSearch2()">✕ 清除</button>
+</div>
+<div class="doc-wrap">
+<section class="policy-section" id="doc_28">
+<div class="section-header">
+<h1 class="section-title">市场开发部开发评级方案1.0</h1>
+<div class="section-tags"><span class="tag tag-both">图文版</span></div>
+<div class="section-meta">
+
+      PDF：ZC-2026年市场开发部开发评级方案1.0.pdf　Word：2026年市场开发部开发评级方案1.0.docx
+
+    </div>
+</div>
+<div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_28-word')">文字版</button><button class="tab-btn" onclick="switchTab(this,'doc_28-scan')">扫描版</button></div>
+<div class="tab-content active" id="doc_28-word">
+<div class="word-content">
+<div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:315px;"/><col style="width:50.6%;min-width:322px;"/></colgroup><tr><th><div style="padding-left:0.43em;">发件编号：SCKF/TZ/2025/12-02</div></th><th rowspan="3"><div style="padding-left:0.43em;">部门会签：</div></th></tr><tr><td><div style="padding-left:0.43em;">发件部门：市场开发部</div></td></tr><tr><td><div style="padding-left:0.43em;">发件日期：2025-12-05</div></td></tr><tr><td><div style="padding-left:0.43em;">收件部门：总经办</div></td><td><div style="padding-left:0.43em;">轮值副总签字：      </div></td></tr><tr><td><div style="padding-left:0.43em;">存档地址：市场开发部</div></td><td><div style="padding-left:0.43em;">总经理签发：        </div></td></tr></table></div>
+<h1 style="margin:3px 0;">2026年市场开发部开发评级方案1.0</h1>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">一、方案目的与意义</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）核心目的</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">为响应公司战略发展部署，建立以“开店业绩为核心、兼顾团队协作”的评级体系，通过科学量化的评价标准与差异化激励措施，精准衡量开发员及各开发分部的工作成效，充分激发团队内生动力，推动部门2026年度拓店任务高质量完成。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（二）核心意义</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">1.</span><span style="font-size:12pt">明确价值导向：以开店数为核心评级指标，引导开发员及各分部将工作重心聚焦于高效拓店与优质加盟</span><span style="font-size:12pt">商</span><span style="font-size:12pt">开发。</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">2.</span><span style="font-size:12pt">激发个体与团队活力：通过分级分类的评级规则与阶梯式激励，打破“平均主义”，</span><span style="font-size:12pt">以奋斗者为本</span><span style="font-size:12pt">，同时促进分部内部协作与战区间良性竞争。</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">3.</span><span style="font-size:12pt">优化人才管理：以评级结果为依据，精准识别优秀开发人才与高效管理团队，为人才晋升、培训赋能提供数据支撑。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">二、评级范围与周期</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）评级范围</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">本方案覆盖市场开发部全体在职开发员，以及按战区划分的所有开发分部</span><span style="font-size:12pt">。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（二）评级周期</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">年度评级</span><span style="font-size:12pt">，</span><span style="font-size:12pt">以全年开店业绩为核心依据，结合年度综合表现，确定最终评级结果，作为年度评优、晋升、奖金核算的核心参考。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">三、评级核心依据与标准</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">评级以“开店数”为核心量化指标，同时兼顾加盟门店质量（如加盟方资质、门店选址等级、签约年限等）与团队协作表现，具体评级方式严格参照以下规则执行</span><span style="font-size:12pt">：</span></p>
+<div class="doc-img"><img alt="文档图片" src="data:image/png;base64,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" style="max-width:100%;height:auto;display:block;margin:8px auto;"/></div>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）核心指标定义</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">本方案所指“开店数”，为经公司审核确认的“正式开业加盟门店数”，需满足以下条件：加盟</span><span style="font-size:12pt">合同</span><span style="font-size:12pt">已签署、</span><span style="font-size:12pt">进度会已开、</span><span style="font-size:12pt">门店完成装修验收、设备及首批商品已上架、通过公司开业审核并正式营业。未达上述标准的意向门店、筹备中门店不计入统计。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（二）评级标准</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">根据开店数区间，分别评级为：卓越（五星）、优秀（四星）、良好（三星）、合格（二星）、加油（一星）。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">四、评级流程与执行细则</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）组织架构</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">成立“评级工作小组”，由部门负责人担任组长，各战区</span><span style="font-size:12pt">主管</span><span style="font-size:12pt">为</span><span style="font-size:12pt">成员</span><span style="font-size:12pt">，负责评级规则解读、数据统计、结果审核、异议处理等工作。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（二）执行流程</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">1.</span><span style="font-size:12pt">数据统计阶段：</span><span style="font-size:12pt">次年1月5日前</span><span style="font-size:12pt">，各</span><span style="font-size:12pt">战区主管</span><span style="font-size:12pt">需将本分部及下属开发员的</span><span style="font-size:12pt">当年</span><span style="font-size:12pt">开店数据（含门店名称、开业时间、加盟方信息、门店等级等）报送至</span><span style="font-size:12pt">部门文员处</span><span style="font-size:12pt">，</span><span style="font-size:12pt">文员汇总后交于部门负责人</span><span style="font-size:12pt">，</span><span style="font-size:12pt">多重确认</span><span style="font-size:12pt">确保数据真实准确。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">2.</span><span style="font-size:12pt">评选阶段</span><span style="font-size:12pt">：</span><span style="font-size:12pt">次年1月10日前</span><span style="font-size:12pt">，工作小组根据评级标准，完成开发员及分部的初评打分与等级划分，</span><span style="font-size:12pt">将结果</span><span style="font-size:12pt">反馈至各分部及开发员本人。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">4.</span><span style="font-size:12pt">公示阶段：</span><span style="font-size:12pt">次年1月</span><span style="font-size:12pt">12日前，工作小组发布终评结果，在部门内部公示3个工作日，公示无异议后正式生效。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">五、评级结果激励</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">评级结果与开发员及分部的激励、发展直接挂钩，实行“正向激励为主、反向约束为辅”的原则，具体应用如下：</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）开发员激励与约束</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">1.</span><span style="font-size:12pt">年度激励：年度</span><span style="font-size:12pt">卓越</span><span style="font-size:12pt">级</span><span style="font-size:12pt">、</span><span style="font-size:12pt">优秀级</span><span style="font-size:12pt">开发员</span><span style="font-size:12pt">可</span><span style="font-size:12pt">获</span><span style="font-size:12pt">部门</span><span style="font-size:12pt">年度</span><span style="font-size:12pt">相关</span><span style="font-size:12pt">荣誉称号</span><span style="font-size:12pt">、</span><span style="font-size:12pt">奖牌</span><span style="font-size:12pt">及专项</span><span style="font-size:12pt">奖励</span><span style="font-size:12pt">，优先参与公司年度评优。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">2</span><span style="font-size:12pt">.</span><span style="font-size:12pt">职业发展：年度</span><span style="font-size:12pt">卓越</span><span style="font-size:12pt">级开发员纳入“部门核心人才库”，优先获得晋升机会（如晋升分部主管、战区经理助理等）；优先参与公司组织的外部行业交流、高端培训等资源倾斜。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">3</span><span style="font-size:12pt">.</span><span style="font-size:12pt">约束措施：</span><span style="font-size:12pt">年</span><span style="font-size:12pt">度评级为</span><span style="font-size:12pt">加油</span><span style="font-size:12pt">级的开发员，由</span><span style="font-size:12pt">战区主管和部门负责人</span><span style="font-size:12pt">进行</span><span style="font-size:12pt">绩效面谈</span><span style="font-size:12pt">，制定绩效改进计划。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（二）开发分部激励与约束</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">1.</span><span style="font-size:12pt">年度激励：年度</span><span style="font-size:12pt">卓越</span><span style="font-size:12pt">分部获</span><span style="font-size:12pt">部门</span><span style="font-size:12pt">年度</span><span style="font-size:12pt">相关</span><span style="font-size:12pt">荣誉称号及专项</span><span style="font-size:12pt">奖励</span><span style="font-size:12pt">，优先参与公司年度评优。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">2</span><span style="font-size:12pt">.</span><span style="font-size:12pt">资源倾斜：年度</span><span style="font-size:12pt">卓越级、优秀级</span><span style="font-size:12pt">分部，优先获得优质铺源信息、公司品牌推广资源支持</span><span style="font-size:12pt">；</span><span style="font-size:12pt">外埠优秀分部可优先拓展新的区域市场</span><span style="font-size:12pt">的</span><span style="font-size:12pt">。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">3</span><span style="font-size:12pt">.</span><span style="font-size:12pt">约束措施：</span><span style="font-size:12pt">年</span><span style="font-size:12pt">度评级为</span><span style="font-size:12pt">合格级、加油</span><span style="font-size:12pt">级的开发</span><span style="font-size:12pt">分部</span><span style="font-size:12pt">，由</span><span style="font-size:12pt">战区主管</span><span style="font-size:12pt">牵头复盘，需向部门提交整改报告。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">六、保障措施</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（一）规则透明化</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">本方案正式发布后，组织全体开发员及分部负责人开展专项宣导会，详细解读评级标准、流程、激励规则等内容，确保每位员工清晰理解；方案内容及后续调整需在部门微信群公示，保障规则透明。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:12pt">（</span><span style="font-weight:bold;font-size:12pt">二</span><span style="font-weight:bold;font-size:12pt">）过程支持化</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">针对评级靠后的开发员及分部，部门需提供针对性支持：为开发员匹配资深导师进行一对一指导，协助优化拓店策略；为分部组织专题复盘会，分析问题并协调资源解决拓店难点，避免只评不帮。</span></p>
+<p style="margin:3px 0;"><span style="font-weight:bold;font-size:16pt">七、附则</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">1.</span><span style="font-size:12pt">本方案自2026年1月1日起正式实施，</span><span style="font-size:12pt">试行三个月，到期如无调整则继续延用。</span></p>
+<p style="margin:3px 0;"><span style="font-size:12pt">2.</span><span style="font-size:12pt">如遇市场环境重大变化（如行业政策调整、区域经济波动等），评级工作小组可结合实际情况，对评级标准、调节系数等进行合理调整，调整方案需</span><span style="font-size:12pt">总经办</span><span style="font-size:12pt">审批后公示执行。</span></p>
+<p style="text-align:right;margin:3px 0;"><span style="font-size:12pt">市场开发部</span></p>
+<p style="text-align:right;margin:3px 0;"><span style="font-size:12pt">2025年1</span><span style="font-size:12pt">2</span><span style="font-size:12pt">月</span><span style="font-size:12pt">05</span><span style="font-size:12pt">日</span></p>
+</div>
+</div>
+<div class="tab-content" id="doc_28-scan">
+<div class="scan-content">
+<div class="scan-page"><img alt="第1页" src="images/doc_28_p1.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 1 / 3 页</div></div>
+<div class="scan-page"><img alt="第2页" src="images/doc_28_p2.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 2 / 3 页</div></div>
+<div class="scan-page"><img alt="第3页" src="images/doc_28_p3.jpg" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 3 / 3 页</div></div>
+</div>
+</div>
+</section>
+</div>
+<button class="back-top" id="backTop2" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+
+
+
+// 行内搜索（从首页跳转携带关键词）—— 支持跨span合并匹配
+
+var _m2=[],_i2=-1;
+
+function hlSearch2(kw){
+
+  if(!kw)return;
+
+  var terms=kw.split(/[\s,，]+/).filter(Boolean);
+
+  var regs=terms.map(function(t){return new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');});
+
+  var wrap=document.querySelector('.doc-wrap');
+
+  var leafSel='p,td,th,li,h1,h2,h3,h4,h5,h6,caption';
+
+  var containers=Array.prototype.slice.call(wrap.querySelectorAll(leafSel));
+
+  containers=containers.filter(function(el){
+
+    return !containers.some(function(other){return other!==el&&el.contains(other);});
+
+  });
+
+  _m2=[];
+
+  containers.forEach(function(container){
+
+    var fullText=container.innerText||container.textContent||'';
+
+    var hit=regs.every(function(re){re.lastIndex=0;return re.test(fullText);});
+
+    if(!hit)return;
+
+    regs.forEach(function(re){
+
+      var walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);
+
+      var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+
+      nodes.forEach(function(node){
+
+        if(node.parentNode&&node.parentNode.classList&&node.parentNode.classList.contains('doc-highlight'))return;
+
+        var v=node.nodeValue;
+
+        re.lastIndex=0;
+
+        if(!re.test(v))return;
+
+        var frag=document.createDocumentFragment(),last=0,matches=[];
+
+        re.lastIndex=0;var m;
+
+        while((m=re.exec(v))!==null)matches.push({s:m.index,e:m.index+m[0].length});
+
+        matches.forEach(function(seg){
+
+          if(seg.s>last)frag.appendChild(document.createTextNode(v.slice(last,seg.s)));
+
+          var sp=document.createElement('span');sp.className='doc-highlight';sp.textContent=v.slice(seg.s,seg.e);
+
+          frag.appendChild(sp);_m2.push(sp);last=seg.e;
+
+        });
+
+        if(last<v.length)frag.appendChild(document.createTextNode(v.slice(last)));
+
+        if(node.parentNode)node.parentNode.replaceChild(frag,node);
+
+      });
+
+    });
+
+  });
+
+  if(_m2.length>0){
+
+    _i2=0;scrollTo2(0);
+
+    document.getElementById('srbar2').classList.add('on');
+
+  } else {
+
+    var bar=document.getElementById('srbar2');
+
+    var lbl=document.getElementById('srtext2');
+
+    if(bar&&lbl){bar.classList.add('on');lbl.textContent='"'+kw+'" 在文字版中未找到，可切换至扫描版查看';}
+
+  }
+
+}
+
+
+
+function scrollTo2(i){
+
+
+
+  _m2.forEach(function(el){el.classList.remove('current');});
+
+
+
+  _m2[i].classList.add('current');
+
+
+
+  _m2[i].scrollIntoView({behavior:'smooth',block:'center'});
+
+
+
+  // 激活所在Tab
+
+
+
+  var tc=_m2[i].closest('.tab-content');
+
+
+
+  if(tc&&!tc.classList.contains('active')){
+
+
+
+    var sec=tc.closest('.policy-section');
+
+
+
+    var btn=sec&&sec.querySelector('[onclick*="'+tc.id+'"]');
+
+
+
+    if(btn)switchTab(btn,tc.id);
+
+
+
+  }
+
+
+
+  document.getElementById('srtext2').textContent='"'+_kw2+'" '+(_i2+1)+'/'+_m2.length;
+
+
+
+}
+
+
+
+var _kw2='';
+
+
+
+function goPrev2(){if(!_m2.length)return;_i2=(_i2-1+_m2.length)%_m2.length;scrollTo2(_i2);}
+
+
+
+function goNext2(){if(!_m2.length)return;_i2=(_i2+1)%_m2.length;scrollTo2(_i2);}
+
+
+
+function clearSearch2(){
+
+
+
+  document.querySelectorAll('.doc-highlight').forEach(function(sp){
+
+
+
+    var p=sp.parentNode;if(!p)return;p.replaceChild(document.createTextNode(sp.textContent),sp);p.normalize();
+
+
+
+  });
+
+
+
+  _m2=[];_i2=-1;document.getElementById('srbar2').classList.remove('on');
+
+
+
+}
+
+
+
+function _loadTabImgs(container){
+
+  if(!container)return;
+
+  var imgs=container.querySelectorAll('img[data-src]');
+
+  imgs.forEach(function(img){
+
+    if(img.getAttribute('src')!==img.dataset.src){
+
+      img.src=img.dataset.src;
+
+    }
+
+  });
+
+}
+
+function switchTab(btn,cid){
+
+  var sec=btn.closest('.policy-section');
+
+  sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+
+  sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+
+  btn.classList.add('active');
+
+  var tc=document.getElementById(cid);
+
+  tc.classList.add('active');
+
+  _loadTabImgs(tc);
+
+}
+
+
+
+// 从URL读关键词
+
+
+
+(function(){
+
+
+
+  var p=new URLSearchParams(window.location.search);
+
+
+
+  _kw2=p.get('q')||'';
+
+
+
+  if(_kw2)setTimeout(function(){hlSearch2(_kw2);},300);
+
+
+
+})();
+
+
+
+// 懒加载
+
+
+
+if('IntersectionObserver' in window){
+
+
+
+  var _io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){var img=x.target;if(img.dataset.src){img.src=img.dataset.src;_io.unobserve(img);}}})},{rootMargin:'300px'});
+
+
+
+  document.querySelectorAll('img[loading="lazy"]').forEach(function(img){_io.observe(img);});
+
+
+
+}
+
+
+
+// 回到顶部
+
+
+
+window.addEventListener('scroll',function(){document.getElementById('backTop2').classList.toggle('on',window.scrollY>300);});
+
+
+
+// 手机端默认扫描版Tab
+
+
+
+(function(){
+
+
+
+  if(window.innerWidth>=700)return;
+
+
+
+  document.querySelectorAll('.policy-section').forEach(function(sec){
+
+
+
+    var scanTab=sec.querySelector('.tab-btn[onclick*="-scan"]');
+
+
+
+    if(!scanTab)return;
+
+
+
+    sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+
+
+
+    sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+
+
+
+    scanTab.classList.add('active');
+
+
+
+    var m=scanTab.getAttribute('onclick').match(/switchTab\(this,'([^']+)'\)/);
+
+
+
+    if(m){var tc=document.getElementById(m[1]);tc.classList.add('active');_loadTabImgs(tc);}
+
+
+
+  });
+
+
+
+})();
+
+
+
+</script>
+</body>
+</html>
