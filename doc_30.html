@@ -714,7 +714,7 @@ function hlSearch2(kw){
 
     var lbl=document.getElementById('srtext2');
 
-    if(bar&&lbl){bar.classList.add('on');lbl.textContent='"'+kw+'" 在文字版中未找到，可切换至扫描版查看';}
+    if(bar&&lbl){bar.classList.add('on');lbl.textContent='"'+kw+'" 未找到';}
 
   }
 
@@ -897,54 +897,6 @@ if('IntersectionObserver' in window){
 
 
 window.addEventListener('scroll',function(){document.getElementById('backTop2').classList.toggle('on',window.scrollY>300);});
-
-
-
-// 手机端默认扫描版Tab
-
-
-
-(function(){
-
-
-
-  if(window.innerWidth>=700)return;
-
-
-
-  document.querySelectorAll('.policy-section').forEach(function(sec){
-
-
-
-    var scanTab=sec.querySelector('.tab-btn[onclick*="-scan"]');
-
-
-
-    if(!scanTab)return;
-
-
-
-    sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
-
-
-
-    sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
-
-
-
-    scanTab.classList.add('active');
-
-
-
-    var m=scanTab.getAttribute('onclick').match(/switchTab\(this,'([^']+)'\)/);
-
-
-
-    if(m){var tc=document.getElementById(m[1]);tc.classList.add('active');_loadTabImgs(tc);}
-
-
-
-  });
 
 
 
