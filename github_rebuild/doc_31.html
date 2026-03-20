@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
 <meta name="format-detection" content="telephone=no">
 <title>2026年限时新开店政策及提成 - 2026年政策文件汇编</title>
 <style>
@@ -1107,311 +1107,569 @@ body {
   }
 }
 
+
+/* 文档页额外样式 */
+.doc-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-8)) var(--space-6);
+}
+
+.doc-nav a {
+  color: var(--primary-600);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.doc-nav a:hover {
+  background: var(--primary-50);
+}
+
+@media (max-width: 767px) {
+  .doc-nav {
+    margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) var(--space-4);
+    padding: var(--space-3) var(--space-4);
+  }
+}
 </style>
 </head>
 <body>
-<div class="navbar">
-  <div class="navbar-brand">
-    <a href="index.html" class="navbar-brand-icon">←</a>
-    <span class="navbar-brand-text">2026年限时新开店政策及提成</span>
-  </div>
-  <div class="doc-nav-btns">
-    <a href="doc_30.html">← 上一篇</a>
-    <span>下一篇 →</span>
-  </div>
-</div>
-<div class="srbar2" id="srbar2">
-  <span class="sr-label" id="srtext2"></span>
-  <button onclick="goPrev2()">↑ 上一个</button>
-  <button onclick="goNext2()">↓ 下一个</button>
-  <button onclick="clearSearch2()">✕ 清除</button>
-</div>
-<div class="doc-wrap">
 
+<!-- 顶部导航栏 -->
+<header class="navbar">
+  <div class="navbar-brand">
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="打开菜单">&#9776;</button>
+    <div class="navbar-brand-icon">&#128196;</div>
+    <div>
+      <div class="navbar-brand-text">政策文件汇编</div>
+      <div class="navbar-brand-subtitle">2026年度 · 市场开发部</div>
+    </div>
+  </div>
+  
+  <div class="search-box">
+    <div class="search-input-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索政策文件关键词..." onkeydown="if(event.key==='Enter')doSearch()">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">&#10005;</button>
+    </div>
+  </div>
+</header>
+
+<!-- 搜索结果提示条 -->
+<div class="search-toast" id="searchToast">
+  <span class="search-toast-text">
+    找到 <span class="search-toast-count" id="searchCount">0</span> 个匹配项
+  </span>
+  <div class="search-nav">
+    <button class="search-nav-btn" onclick="goPrev()" id="prevBtn" title="上一个">&#8593;</button>
+    <button class="search-nav-btn" onclick="goNext()" id="nextBtn" title="下一个">&#8595;</button>
+  </div>
+  <button class="search-clear-btn" onclick="clearSearch()">清除搜索</button>
 </div>
-<button class="back-top" id="backTop2" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- 侧边栏遮罩 -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- 页面布局 -->
+<div class="layout">
+  <!-- 侧边栏导航 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);">
+        <div class="sidebar-title">&#128196; 政策文件目录</div>
+        <button class="sidebar-close" onclick="closeSidebar()" style="display:none;">&#10005;</button>
+      </div>
+      <div class="sidebar-stats">
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-value">31</div>
+          <div class="sidebar-stat-label">份文件</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-value">2</div>
+          <div class="sidebar-stat-label">种格式</div>
+        </div>
+      </div>
+    </div>
+    
+    <nav>
+      <ul class="nav-list" id="navList">
+        <!-- 导航项将通过JS动态生成 -->
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- 主内容区 -->
+  <main class="main-content">
+    <!-- 文档导航 -->
+    <div class="doc-nav">
+      <a href="doc_01.html">← 上一篇</a>
+      <a href="../index.html">返回首页</a>
+      <a href="doc_03.html">下一篇 →</a>
+    </div>
+    
+    <section class="policy-card" id="policyCard">
+
+  <div class="section-header">
+
+    <h1 class="section-title">2026年限时新开店政策及提成</h1>
+
+    <div class="section-tags"><span class="tag tag-both">图文版</span></div>
+
+    <div class="section-meta">
+
+      PDF：ZC-2026年2026年限时新开店政策及提成.pdf　Word：2026年2026年限时新开店政策及提成（定）.docx
+
+    </div>
+
+  </div>
+
+  <div class="section-tabs"><button class="tab-btn active" onclick="switchTab(this,'doc_1-word')">文字版</button></div>
+
+  <div id="doc_1-word" class="tab-content active">
+
+    <div class="word-content"><div class="table-wrap"><table class="doc-table"><colgroup><col style="width:20%;min-width:132px;"><col style="width:20%;min-width:132px;"><col style="width:20%;min-width:132px;"><col style="width:20%;min-width:132px;"><col style="width:20%;min-width:132px;"></colgroup><tr><th colspan="5" style="font-weight:bold"><span style="font-size:12pt">2026年限时新开店政策</span></th></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">合作方式</span></td><td colspan="4"><span style="font-size:12pt">收管理费1000元/月</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">适用对象</span></td><td colspan="4"><span style="font-size:12pt">新开可多</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">开放名额</span></td><td colspan="4"><span style="font-size:12pt">10(只针对优质点位，按照标准评定)</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">加盟费</span></td><td colspan="4"><span style="font-size:12pt">25000</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">保证金</span></td><td colspan="4"><span style="font-size:12pt">30000</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">装修</span></td><td colspan="4"><span style="font-size:12pt">公司统一装修</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">新店服务费</span></td><td colspan="4"><span style="font-size:12pt">正常收取</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">系统使用费<br>(1.5万元)</span></td><td colspan="4"><span style="font-size:12pt">正常收取</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">设备投放</span></td><td colspan="4"><span style="font-size:12pt">无</span></td></tr><tr><td rowspan="8" style="font-weight:bold"><span style="font-size:12pt">优质点位补贴</span></td><td rowspan="8"><span style="font-size:12pt">补贴金额：<br>3.75万~4.75万</span></td><td><span style="font-size:12pt">补贴3000</span></td><td><span style="font-size:12pt">总价<5万元</span></td><td rowspan="3"><span style="font-size:12pt">装修补贴(只能找咱们公司装修，决算<br>后直减)</span></td></tr><tr><td><span style="font-size:12pt">补贴5000</span></td><td><span style="font-size:12pt">5万元≤总价<8万元</span></td></tr><tr><td><span style="font-size:12pt">补贴8000</span></td><td><span style="font-size:12pt">8万元≤总价</span></td></tr><tr><td colspan="2"><span style="font-size:12pt">补贴4500</span></td><td><span style="font-size:12pt">赠送招牌(如果是自带铺，本身就送<br>15000元以内的招牌；如果不是自带铺，<br>就用这个政策，招牌总价值减免4500元<br>的费用)</span></td></tr><tr><td><span style="font-size:12pt">补贴15000</span></td><td><span style="font-size:12pt">总价<8万元</span></td><td rowspan="3"><span style="font-size:12pt">设备补贴(全部公司必须公司新配，总费用直减)</span></td></tr><tr><td><span style="font-size:12pt">补贴18000</span></td><td><span style="font-size:12pt">8万元≤总价<10万元</span></td></tr><tr><td><span style="font-size:12pt">补贴20000</span></td><td><span style="font-size:12pt">10万元≤总价</span></td></tr><tr><td colspan="2"><span style="font-size:12pt">减免15000</span></td><td><span style="font-size:12pt">赠送系统使用权(签协议，有约束，信<br>息系统免费用。违反协议，随时收回)</span></td></tr><tr><td style="font-weight:bold"><span style="font-size:12pt">备注</span></td><td colspan="4"><span style="font-size:12pt">1、普通新开店维持原开店政策执行，补贴政策只向优质项目和优质加盟商倾斜。<br>2、享受公司优质点位补贴的门店签订禁止外采，合同中做规范要求。<br>3、复数店政策可同享：第2家加盟费20000/保证金20000;第3家加盟费15000/保证金10000;第4家及4家以上加盟费10000/保证金0。</span></td></tr><tr><td colspan="5" style="font-weight:bold"><span style="font-size:12pt"></span></td></tr><tr><td colspan="5" style="font-weight:bold"><span style="font-size:12pt">2026年限时新开店提成</span></td></tr><tr><td rowspan="8" style="font-weight:bold"><span style="font-size:12pt">新开店开发员提成</span></td><td colspan="4"><span style="font-size:12pt">※普通新开店维持原提成方案，即按照《2026年市场开发部开店提成方案2.0》执行；</span></td></tr><tr><td colspan="4"><span style="font-size:12pt">※使用了优质点位补贴的门店，开发员开店提成核算方式按照《2026年市场开发部开店提成方案2.0》算得提成总额，分两次发 放 ：<br>1、第一次发放是在开店当月(全款)发放6000元/店；。<br>2、剩余部分在第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下：</span></td></tr><tr><td><span style="font-size:12pt">非烟日商<3500</span></td><td colspan="3"><span style="font-size:12pt">剩余部分*0</span></td></tr><tr><td><span style="font-size:12pt">3500≤非烟日商<4000</span></td><td colspan="3"><span style="font-size:12pt">剩余部分*1</span></td></tr><tr><td><span style="font-size:12pt">4000≤非烟日商<5000</span></td><td colspan="3"><span style="font-size:12pt">剩余部分*1.1</span></td></tr><tr><td><span style="font-size:12pt">5000≤非烟日商<6000</span></td><td colspan="3"><span style="font-size:12pt">剩余部分*1.2</span></td></tr><tr><td><span style="font-size:12pt">6000≤非烟日商</span></td><td colspan="3"><span style="font-size:12pt">剩余部分*1.3(封顶)</span></td></tr><tr><td colspan="4"><span style="font-size:12pt">举 例 ：某店通过了使用优质点位补贴，客户来源是“推广渠道”,商铺来源是“开发推荐”,立地评级是“BA”,开业后三个自然月核算平均营业额是“非烟4500元/日”,则该店开发员提成发放方式：开店当月(全款)发放6000+第四个自然月发放(4000+9000-6000)*1.1=最终合计13700元。</span></td></tr></table></div></div>
+
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">此方案自签批之日起开始执行，试行三个月，到期如无调整则继续延用。</span></p>
+
+<p style="text-align:right;margin:3px 0;"><span style="font-weight:bold;font-size:12pt">市场开发部</span></p>
+
+<p style="text-align:right;margin:3px 0;"><span style="font-weight:bold;font-size:12pt">2025年12月10</span><span style="font-weight:bold;font-size:12pt">日</span><span style="font-size:14pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+    </div>
+
+  </div>
+
+</section>
+  </main>
+</div>
+
+<!-- 返回顶部按钮 -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="返回顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
 <script>
 
+// ============================================
+// 政策文件数据
+// ============================================
+const policyData = [
+  { id: 1, title: "新可多标准店紧密型加盟模式3.0版", hasWord: true, hasScan: true },
+  { id: 2, title: "新可多鲜食店紧密型加盟模式3.0版", hasWord: true, hasScan: true },
+  { id: 3, title: "可多新开带铺加盟方案3.0", hasWord: true, hasScan: true },
+  { id: 4, title: "可多新开店加盟优惠政策3.0", hasWord: true, hasScan: true },
+  { id: 5, title: "可多员工加盟开店指导方案2.0", hasWord: true, hasScan: true },
+  { id: 6, title: "可多加盟意向定金缴纳标准2.0", hasWord: true, hasScan: true },
+  { id: 7, title: "门店迁址方案3.0", hasWord: true, hasScan: true },
+  { id: 8, title: "新开门店首年异动处理方案2.0", hasWord: true, hasScan: true },
+  { id: 9, title: "市场开发部开店提成方案2.0", hasWord: true, hasScan: true },
+  { id: 10, title: "市场开发部历史开店提成方案2.0", hasWord: true, hasScan: true },
+  { id: 11, title: "可多全民开发奖励方案4.0", hasWord: true, hasScan: true },
+  { id: 12, title: "大客户服务方案1.0", hasWord: true, hasScan: true },
+  { id: 13, title: "开发人员晋升降级内控标准优化3.0", hasWord: true, hasScan: true },
+  { id: 14, title: "市场开发部开发员绩效标准及评比规则1.0", hasWord: true, hasScan: true },
+  { id: 15, title: "市场开发部开店阶段达成激励方案2.0", hasWord: true, hasScan: true },
+  { id: 16, title: "市场开发部新人培养期激励方案2.0", hasWord: true, hasScan: true },
+  { id: 17, title: "关于外埠市场开发设备支持方案2.0", hasWord: true, hasScan: true },
+  { id: 18, title: "市场开发部光谷东片区阶段性激励方案1.0", hasWord: true, hasScan: true },
+  { id: 19, title: "市场开发部原东部战区方案1.0", hasWord: true, hasScan: true },
+  { id: 20, title: "场地评估流程标准4.0", hasWord: true, hasScan: true },
+  { id: 21, title: "招投标方案2.0", hasWord: true, hasScan: true },
+  { id: 22, title: "市场开发部招标项目办理流程2.0", hasWord: true, hasScan: true },
+  { id: 23, title: "可多优质加盟商访谈方案1.0", hasWord: true, hasScan: true },
+  { id: 24, title: "市场开发部本埠外埠区域划分规定2.0", hasWord: true, hasScan: true },
+  { id: 25, title: "市场开发部黄区培训及会议机制3.0", hasWord: true, hasScan: true },
+  { id: 26, title: "市场开发部各岗位参会管理细则1.0", hasWord: true, hasScan: true },
+  { id: 27, title: "市场开发部会议管理机制2.0", hasWord: true, hasScan: true },
+  { id: 28, title: "市场开发部开发评级方案1.0", hasWord: true, hasScan: true },
+  { id: 29, title: "可多市场开发部招聘标准及要求2.0", hasWord: true, hasScan: true }
+];
 
+// ============================================
+// 初始化页面
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+  renderNavList();
+  renderPolicyCards();
+  initScrollListener();
+  initSearchInput();
+});
 
-// 行内搜索（从首页跳转携带关键词）—— 支持跨span合并匹配
-
-var _m2=[],_i2=-1;
-
-function hlSearch2(kw){
-
-  if(!kw)return;
-
-  var terms=kw.split(/[\s,，]+/).filter(Boolean);
-
-  var regs=terms.map(function(t){return new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');});
-
-  var wrap=document.querySelector('.doc-wrap');
-
-  var leafSel='p,td,th,li,h1,h2,h3,h4,h5,h6,caption';
-
-  var containers=Array.prototype.slice.call(wrap.querySelectorAll(leafSel));
-
-  containers=containers.filter(function(el){
-
-    return !containers.some(function(other){return other!==el&&el.contains(other);});
-
-  });
-
-  _m2=[];
-
-  containers.forEach(function(container){
-
-    var fullText=container.innerText||container.textContent||'';
-
-    var hit=regs.every(function(re){re.lastIndex=0;return re.test(fullText);});
-
-    if(!hit)return;
-
-    regs.forEach(function(re){
-
-      var walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);
-
-      var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-
-      nodes.forEach(function(node){
-
-        if(node.parentNode&&node.parentNode.classList&&node.parentNode.classList.contains('doc-highlight'))return;
-
-        var v=node.nodeValue;
-
-        re.lastIndex=0;
-
-        if(!re.test(v))return;
-
-        var frag=document.createDocumentFragment(),last=0,matches=[];
-
-        re.lastIndex=0;var m;
-
-        while((m=re.exec(v))!==null)matches.push({s:m.index,e:m.index+m[0].length});
-
-        matches.forEach(function(seg){
-
-          if(seg.s>last)frag.appendChild(document.createTextNode(v.slice(last,seg.s)));
-
-          var sp=document.createElement('span');sp.className='doc-highlight';sp.textContent=v.slice(seg.s,seg.e);
-
-          frag.appendChild(sp);_m2.push(sp);last=seg.e;
-
-        });
-
-        if(last<v.length)frag.appendChild(document.createTextNode(v.slice(last)));
-
-        if(node.parentNode)node.parentNode.replaceChild(frag,node);
-
-      });
-
-    });
-
-  });
-
-  if(_m2.length>0){
-
-    _i2=0;scrollTo2(0);
-
-    document.getElementById('srbar2').classList.add('on');
-
-  } else {
-
-    var bar=document.getElementById('srbar2');
-
-    var lbl=document.getElementById('srtext2');
-
-    if(bar&&lbl){bar.classList.add('on');lbl.textContent='"'+kw+'" 未找到';}
-
-  }
-
+// ============================================
+// 渲染导航列表
+// ============================================
+function renderNavList() {
+  const navList = document.getElementById('navList');
+  navList.innerHTML = policyData.map((policy, index) => `
+    <li>
+      <a href="#doc_${policy.id}" class="nav-item" data-id="${policy.id}" onclick="handleNavClick(${policy.id})">
+        <span class="nav-item-number">${String(index + 1).padStart(2, '0')}</span>
+        <span class="nav-item-text">${policy.title}</span>
+      </a>
+    </li>
+  `).join('');
 }
 
-
-
-function scrollTo2(i){
-
-
-
-  _m2.forEach(function(el){el.classList.remove('current');});
-
-
-
-  _m2[i].classList.add('current');
-
-
-
-  _m2[i].scrollIntoView({behavior:'smooth',block:'center'});
-
-
-
-  // 激活所在Tab
-
-
-
-  var tc=_m2[i].closest('.tab-content');
-
-
-
-  if(tc&&!tc.classList.contains('active')){
-
-
-
-    var sec=tc.closest('.policy-section');
-
-
-
-    var btn=sec&&sec.querySelector('[onclick*="'+tc.id+'"]');
-
-
-
-    if(btn)switchTab(btn,tc.id);
-
-
-
-  }
-
-
-
-  document.getElementById('srtext2').textContent='"'+_kw2+'" '+(_i2+1)+'/'+_m2.length;
-
-
-
+// ============================================
+// 渲染政策卡片
+// ============================================
+function renderPolicyCards() {
+  const container = document.getElementById('policyContainer');
+  container.innerHTML = policyData.map(policy => `
+    <article class="policy-card" id="doc_${policy.id}" data-title="${policy.title}">
+      <header class="policy-card-header">
+        <h2 class="policy-card-title">${policy.title}</h2>
+        <div class="policy-card-meta">
+          <div class="policy-card-tags">
+            ${policy.hasWord ? '<span class="tag tag-word"><span class="tag-icon">&#128196;</span>Word版</span>' : ''}
+            ${policy.hasScan ? '<span class="tag tag-scan"><span class="tag-icon">&#128247;</span>扫描版</span>' : ''}
+          </div>
+          <span class="policy-card-id">#${String(policy.id).padStart(2, '0')}</span>
+        </div>
+      </header>
+      
+      <div class="policy-tabs">
+        ${policy.hasWord ? `<button class="tab-btn active" onclick="switchTab(${policy.id}, 'word')" data-tab="word-${policy.id}"><span class="tab-icon">&#128196;</span>文字版</button>` : ''}
+        ${policy.hasScan ? `<button class="tab-btn ${!policy.hasWord ? 'active' : ''}" onclick="switchTab(${policy.id}, 'scan')" data-tab="scan-${policy.id}"><span class="tab-icon">&#128247;</span>扫描版</button>` : ''}
+      </div>
+      
+      ${policy.hasWord ? `
+      <div class="tab-content active" id="word-${policy.id}">
+        <div class="document-content">
+          <p style="color:var(--text-tertiary);text-align:center;padding:var(--space-8);">
+            <span style="font-size:48px;display:block;margin-bottom:var(--space-4);">&#128196;</span>
+            Word文字版内容加载中...<br>
+            <small>请稍后或联系管理员</small>
+          </p>
+        </div>
+      </div>
+      ` : ''}
+      
+      ${policy.hasScan ? `
+      <div class="tab-content ${!policy.hasWord ? 'active' : ''}" id="scan-${policy.id}">
+        <div class="scan-content">
+          <div class="scan-page">
+            <img src="policy_images/doc${policy.id}_page1.png" alt="${policy.title} - 第1页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div style="display:none;min-height:200px;align-items:center;justify-content:center;color:var(--text-muted);">
+              <span>扫描版图片加载中...</span>
+            </div>
+            <div class="page-num">第 1 页</div>
+          </div>
+        </div>
+      </div>
+      ` : ''}
+    </article>
+  `).join('');
 }
 
-
-
-var _kw2='';
-
-
-
-function goPrev2(){if(!_m2.length)return;_i2=(_i2-1+_m2.length)%_m2.length;scrollTo2(_i2);}
-
-
-
-function goNext2(){if(!_m2.length)return;_i2=(_i2+1)%_m2.length;scrollTo2(_i2);}
-
-
-
-function clearSearch2(){
-
-
-
-  document.querySelectorAll('.doc-highlight').forEach(function(sp){
-
-
-
-    var p=sp.parentNode;if(!p)return;p.replaceChild(document.createTextNode(sp.textContent),sp);p.normalize();
-
-
-
-  });
-
-
-
-  _m2=[];_i2=-1;document.getElementById('srbar2').classList.remove('on');
-
-
-
-}
-
-
-
-function _loadTabImgs(container){
-
-  if(!container)return;
-
-  var imgs=container.querySelectorAll('img[data-src]');
-
-  imgs.forEach(function(img){
-
-    if(img.getAttribute('src')!==img.dataset.src){
-
-      img.src=img.dataset.src;
-
+// ============================================
+// Tab 切换
+// ============================================
+function switchTab(policyId, type) {
+  const card = document.getElementById(`doc_${policyId}`);
+  
+  // 切换按钮状态
+  card.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.tab === `${type}-${policyId}`) {
+      btn.classList.add('active');
     }
-
   });
-
+  
+  // 切换内容
+  card.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  document.getElementById(`${type}-${policyId}`).classList.add('active');
 }
 
-function switchTab(btn,cid){
+// ============================================
+// 侧边栏控制
+// ============================================
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+}
 
-  var sec=btn.closest('.policy-section');
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  sec.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+function handleNavClick(policyId) {
+  if (window.innerWidth <= 767) {
+    closeSidebar();
+  }
+  
+  // 更新导航激活状态
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  document.querySelector(`.nav-item[data-id="${policyId}"]`).classList.add('active');
+}
 
-  sec.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+// ============================================
+// 搜索功能
+// ============================================
+let searchResults = [];
+let currentSearchIndex = -1;
+let currentSearchTerm = '';
 
-  btn.classList.add('active');
+function initSearchInput() {
+  const input = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('searchClear');
+  
+  input.addEventListener('input', function() {
+    clearBtn.classList.toggle('visible', this.value.length > 0);
+  });
+}
 
-  var tc=document.getElementById(cid);
+function doSearch() {
+  const term = document.getElementById('searchInput').value.trim();
+  if (!term) return;
+  
+  // 清除之前的高亮
+  clearHighlights();
+  
+  currentSearchTerm = term;
+  searchResults = [];
+  currentSearchIndex = -1;
+  
+  // 搜索政策标题
+  let matchCount = 0;
+  policyData.forEach(policy => {
+    const card = document.getElementById(`doc_${policy.id}`);
+    const title = card.querySelector('.policy-card-title');
+    
+    if (policy.title.toLowerCase().includes(term.toLowerCase())) {
+      // 高亮标题
+      const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+      title.innerHTML = policy.title.replace(regex, '<span class="highlight">$1</span>');
+      
+      searchResults.push({
+        element: card,
+        type: 'title'
+      });
+      matchCount++;
+      
+      // 确保卡片可见
+      card.style.display = '';
+    } else {
+      // 检查内容中是否有匹配
+      const content = card.querySelector('.document-content');
+      if (content && content.textContent.toLowerCase().includes(term.toLowerCase())) {
+        // 高亮内容
+        highlightText(content, term);
+        
+        searchResults.push({
+          element: card,
+          type: 'content'
+        });
+        matchCount++;
+        
+        card.style.display = '';
+      } else {
+        // 无匹配，隐藏卡片
+        card.style.display = 'none';
+      }
+    }
+  });
+  
+  // 显示搜索结果提示
+  showSearchToast(matchCount);
+  
+  // 显示/隐藏空状态
+  document.getElementById('emptyState').style.display = matchCount === 0 ? 'block' : 'none';
+  
+  // 如果有结果，跳转到第一个
+  if (searchResults.length > 0) {
+    currentSearchIndex = 0;
+    highlightCurrentResult();
+    scrollToResult(0);
+  }
+}
 
-  tc.classList.add('active');
+function highlightText(element, term) {
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let node;
+  
+  while (node = walker.nextNode()) {
+    if (node.nodeValue.toLowerCase().includes(term.toLowerCase())) {
+      textNodes.push(node);
+    }
+  }
+  
+  textNodes.forEach(node => {
+    const span = document.createElement('span');
+    const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+    span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+    node.parentNode.replaceChild(span, node);
+  });
+}
 
-  _loadTabImgs(tc);
+function clearHighlights() {
+  // 恢复标题
+  policyData.forEach(policy => {
+    const card = document.getElementById(`doc_${policy.id}`);
+    const title = card.querySelector('.policy-card-title');
+    title.textContent = policy.title;
+    card.style.display = '';
+  });
+  
+  // 移除所有高亮span
+  document.querySelectorAll('.highlight').forEach(el => {
+    const parent = el.parentNode;
+    parent.replaceChild(document.createTextNode(el.textContent), el);
+    parent.normalize();
+  });
+  
+  // 隐藏提示
+  hideSearchToast();
+  document.getElementById('emptyState').style.display = 'none';
+}
 
+function escapeRegex(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function showSearchToast(count) {
+  const toast = document.getElementById('searchToast');
+  document.getElementById('searchCount').textContent = count;
+  toast.classList.add('visible');
+  updateNavButtons();
+}
+
+function hideSearchToast() {
+  document.getElementById('searchToast').classList.remove('visible');
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').classList.remove('visible');
+  clearHighlights();
+  searchResults = [];
+  currentSearchIndex = -1;
+  currentSearchTerm = '';
+}
+
+function goNext() {
+  if (searchResults.length === 0) return;
+  currentSearchIndex = (currentSearchIndex + 1) % searchResults.length;
+  highlightCurrentResult();
+  scrollToResult(currentSearchIndex);
+  updateNavButtons();
+}
+
+function goPrev() {
+  if (searchResults.length === 0) return;
+  currentSearchIndex = (currentSearchIndex - 1 + searchResults.length) % searchResults.length;
+  highlightCurrentResult();
+  scrollToResult(currentSearchIndex);
+  updateNavButtons();
+}
+
+function highlightCurrentResult() {
+  // 移除之前的高亮
+  document.querySelectorAll('.highlight.current').forEach(el => {
+    el.classList.remove('current');
+  });
+  
+  // 高亮当前结果
+  if (searchResults[currentSearchIndex]) {
+    const highlights = searchResults[currentSearchIndex].element.querySelectorAll('.highlight');
+    if (highlights.length > 0) {
+      highlights[0].classList.add('current');
+    }
+  }
+}
+
+function scrollToResult(index) {
+  if (searchResults[index]) {
+    searchResults[index].element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function updateNavButtons() {
+  document.getElementById('prevBtn').disabled = searchResults.length <= 1;
+  document.getElementById('nextBtn').disabled = searchResults.length <= 1;
+}
+
+// ============================================
+// 滚动监听
+// ============================================
+function initScrollListener() {
+  const backToTop = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', function() {
+    // 显示/隐藏返回顶部按钮
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+    
+    // 更新导航激活状态
+    updateActiveNav();
+  }, { passive: true });
+}
+
+function updateActiveNav() {
+  const scrollPos = window.pageYOffset + 100;
+  
+  policyData.forEach(policy => {
+    const card = document.getElementById(`doc_${policy.id}`);
+    const navItem = document.querySelector(`.nav-item[data-id="${policy.id}"]`);
+    
+    if (card && navItem) {
+      const offsetTop = card.offsetTop;
+      const offsetBottom = offsetTop + card.offsetHeight;
+      
+      if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        navItem.classList.add('active');
+        navItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  });
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 
+// 当前文档信息
+const currentDocNum = "02";
+const currentDocTitle = "2026年限时新开店政策及提成";
 
-// 从URL读关键词
-
-
-
-(function(){
-
-
-
-  var p=new URLSearchParams(window.location.search);
-
-
-
-  _kw2=p.get('q')||'';
-
-
-
-  if(_kw2)setTimeout(function(){hlSearch2(_kw2);},300);
-
-
-
-})();
-
-
-
-// 懒加载
-
-
-
-if('IntersectionObserver' in window){
-
-
-
-  var _io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){var img=x.target;if(img.dataset.src){img.src=img.dataset.src;_io.unobserve(img);}}})},{rootMargin:'300px'});
-
-
-
-  document.querySelectorAll('img[loading="lazy"]').forEach(function(img){_io.observe(img);});
-
-
-
-}
-
-
-
-// 回到顶部
-
-
-
-window.addEventListener('scroll',function(){document.getElementById('backTop2').classList.toggle('on',window.scrollY>300);});
-
-
-
-})();
-
-
-
+// 页面加载完成后高亮当前文档
+window.addEventListener('load', function() {
+  // 高亮当前导航项
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    if (item.dataset.num === currentDocNum) {
+      item.classList.add('active');
+      item.scrollIntoView({ block: 'center' });
+    }
+  });
+});
 </script>
 </body>
 </html>
