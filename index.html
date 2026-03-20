@@ -2,7 +2,15 @@
 
 
 
+
+
+
+
 <html lang="zh-CN">
+
+
+
+
 
 
 
@@ -10,7 +18,15 @@
 
 
 
+
+
+
+
 <meta charset="UTF-8">
+
+
+
+
 
 
 
@@ -18,7 +34,15 @@
 
 
 
+
+
+
+
 <title>2026年政策文件汇编</title>
+
+
+
+
 
 
 
@@ -26,7 +50,15 @@
 
 
 
+
+
+
+
 :root{--primary:#1a5fa8;--pl:#e8f0fb;--text:#222;--border:#ddd;--bg:#f5f7fa;--white:#fff;--shadow:0 2px 8px rgba(0,0,0,.10);--r:8px;}
+
+
+
+
 
 
 
@@ -34,7 +66,15 @@
 
 
 
+
+
+
+
 html{scroll-behavior:smooth;}
+
+
+
+
 
 
 
@@ -42,7 +82,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .top-bar{position:sticky;top:0;z-index:100;background:var(--primary);color:#fff;padding:0 12px;height:52px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+
+
+
+
 
 
 
@@ -50,7 +98,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.18);border-radius:20px;padding:4px 10px;}
+
+
+
+
 
 
 
@@ -58,7 +114,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 #searchInput::placeholder{color:rgba(255,255,255,.7);}
+
+
+
+
 
 
 
@@ -66,7 +130,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .hero{background:linear-gradient(135deg,var(--primary) 0%,#2d7fd3 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+
+
+
+
 
 
 
@@ -74,7 +146,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .hero p{font-size:12px;opacity:.85;}
+
+
+
+
 
 
 
@@ -82,7 +162,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .stat-item{text-align:center;}
+
+
+
+
 
 
 
@@ -90,7 +178,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .stat-label{font-size:11px;opacity:.8;}
+
+
+
+
 
 
 
@@ -98,7 +194,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .section-label{font-size:12px;color:#888;padding:8px 4px 6px;font-weight:600;letter-spacing:.5px;}
+
+
+
+
 
 
 
@@ -106,7 +210,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .doc-card:active{box-shadow:0 1px 3px rgba(0,0,0,.1);transform:scale(.99);}
+
+
+
+
 
 
 
@@ -114,7 +226,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .doc-card-body{flex:1;min-width:0;}
+
+
+
+
 
 
 
@@ -122,7 +242,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .doc-card-snippet{font-size:11px;color:#888;line-height:1.5;margin-top:3px;display:none;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+
+
+
+
 
 
 
@@ -130,7 +258,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .doc-card-snippet mark{background:#ffe066;color:#333;font-style:normal;border-radius:2px;padding:0 1px;}
+
+
+
+
 
 
 
@@ -138,11 +274,23 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 .doc-card.hidden{display:none!important;}
 
 
 
+
+
+
+
 .no-result{text-align:center;padding:40px 16px;color:#999;font-size:14px;display:none;}
+
+
+
+
 
 
 
@@ -152,49 +300,101 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
+
+
 /* 搜索提示条 */
+
+
 
 .search-hint{display:none;background:#fff8e1;border-left:3px solid #ffc107;padding:8px 12px;font-size:12px;color:#666;margin-bottom:8px;border-radius:4px;}
 
+
+
 .search-hint.on{display:block;}
+
+
 
 /* 搜索状态卡片右侧提示 */
 
+
+
 .doc-card.has-kw .doc-arrow::after{content:"进入";font-size:10px;color:#1a5fa8;font-weight:600;display:block;line-height:1;}
+
+
 
 /* 搜索栏清空按钮 */
 
+
+
 .search-clear{background:none;border:none;color:rgba(255,255,255,.7);font-size:16px;cursor:pointer;padding:0 2px;display:none;line-height:1;}
+
+
 
 .search-clear.on{display:inline;}
 
+
+
 /* 搜索历史 */
+
+
 
 .search-hist{background:#fff;border-radius:0 0 10px 10px;box-shadow:0 4px 12px rgba(0,0,0,.15);position:absolute;top:52px;left:0;right:0;z-index:200;display:none;padding:6px 0;max-height:240px;overflow-y:auto;}
 
+
+
 .search-hist.on{display:block;}
+
+
 
 .hist-header{display:flex;justify-content:space-between;align-items:center;padding:4px 14px 6px;border-bottom:1px solid #f0f0f0;}
 
+
+
 .hist-header span{font-size:11px;color:#999;}
+
+
 
 .hist-header button{font-size:11px;color:#1a5fa8;background:none;border:none;cursor:pointer;padding:0;}
 
+
+
 .hist-item{display:flex;align-items:center;padding:9px 14px;cursor:pointer;gap:8px;font-size:13px;color:#333;}
+
+
 
 .hist-item:active{background:#f5f7fa;}
 
+
+
 .hist-item .hist-icon{color:#bbb;font-size:14px;flex-shrink:0;}
+
+
 
 .hist-item .hist-del{margin-left:auto;color:#ccc;font-size:16px;padding:0 4px;background:none;border:none;cursor:pointer;flex-shrink:0;}
 
+
+
 /* result-stat 优化 */
+
+
 
 .result-stat{font-size:12px;color:#1a5fa8;padding:4px 4px 8px;display:none;font-weight:600;display:flex;align-items:center;gap:8px;}
 
+
+
 .result-stat .clear-btn{background:none;border:none;color:#999;font-size:12px;cursor:pointer;padding:0;text-decoration:underline;white-space:nowrap;}
 
+
+
 .top-bar{position:relative;}
+
+
+
+
 
 
 
@@ -202,7 +402,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 </head>
+
+
+
+
 
 
 
@@ -210,31 +418,63 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 <div class="top-bar">
+
+
 
   <span class="top-title">&#128196; 政策文件汇编</span>
 
+
+
   <div class="search-wrap">
+
+
 
     <input id="searchInput" type="text" placeholder="搜索标题或内容…" autocomplete="off">
 
+
+
     <button class="search-clear" id="searchClear" onclick="clearSearch()" title="清空">&#10005;</button>
+
+
 
     <button class="search-btn" onclick="doSearch()">&#128269;</button>
 
+
+
   </div>
+
+
 
   <!-- 搜索历史下拉 -->
 
+
+
   <div class="search-hist" id="searchHist">
+
+
 
     <div class="hist-header"><span>搜索历史</span><button onclick="clearAllHist()">全部清除</button></div>
 
+
+
     <div id="histList"></div>
+
+
 
   </div>
 
+
+
 </div>
+
+
+
+
 
 
 
@@ -242,7 +482,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
   <h2>2026年政策文件汇编</h2>
+
+
+
+
 
 
 
@@ -250,7 +498,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
   <div class="stat-row">
+
+
+
+
 
 
 
@@ -258,7 +514,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
     <div class="stat-item"><div class="stat-num">31</div><div class="stat-label">年度版</div></div>
+
+
+
+
 
 
 
@@ -266,7 +530,15 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 </div>
+
+
+
+
 
 
 
@@ -274,11 +546,21 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
   <div id="sectionLabel" class="section-label">全部文件（点击查看详情）</div>
 
 
 
+
+
+
+
   <div id="resultStat" class="result-stat"></div>
+
+
 
   <div id="searchHint" class="search-hint">&#128269; 点击文件进入后，关键词将自动高亮显示，可用导航条快速跳转</div>
 
@@ -290,501 +572,1009 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
-<a class="doc-card" href="doc_30.html" data-title="2026年翻牌店政策与提成方案" data-text="项目 2026年翻牌店政策 基础店 普通店 优质店 合作方式 不提点，收管理费1000元/月 提 点 ：非烟销售额的1.5%;按周结算 提点：非烟销售额的1.5%;按周结算 适用对象 立地标准符合公司翻牌标准 1、面积50平以上，有烟证； 2、原店翻牌之前三个月平均除烟日销>4000元； 3、经开发部负责人、总经办逐层级面试通过的客户。 1、面积70平以上，有烟证； 2、原店翻牌之前三个月平均除烟日销>5000元； 3、经开发部负责人、总经办逐层级面试通过的客户。 开放名额 / 10 10 加盟费 12500 12500 12500 保证金 10000 30000 30000 装修 门店可自行装修 公司统一装修 公司统一装修 新店服务费 参考下面“其它额外补贴”中的第5条 正常收取 减免 系统使用费 (1.5万元) 参考下面“其它额外补贴”中的第7条 减免 减免 设备投放 无 设备全投(不含陈列道具、装饰物料); 金额上限10万 设备全投(不含陈列道具、装饰物料); 金额上限15万 优质点位补贴 1、赠送企业文化及VI装饰(3000元以内)。 2、按需赠送全店陈列道具5000元以内。 3、赠送招牌(不含打底；15000元以内)。支持吸塑灯箱(不超过10米)或艾力膜招牌(面积不超过15m²)或发光字；招牌材质视项目具体情况而定，超出以上部分由加盟商出资；招牌打底视情况保留，无法保留沿用的，由加盟商出资。 4、减免工程服务费3000元。 5、减免部分开业筹办费：本埠仅收取2000元(原价5226)/外埠仅收取2500元(原5726元)。 6、赠送一次盘点(自翻牌筹备期间陈列日算起，3个月内有效)。 7、系统使用费： A.翻牌之前，原店三个月平均除烟日销2000元以上按照5000元收取； B.翻牌之前，原店三个月平均除烟日销2000元以下按照10000元收取。 1、赠送招牌(不含打底；15000元以内)。支持吸塑灯箱(不超过10米)或艾力膜招牌(面积不超过15m²)或发光字；招牌材质视项目具体情况而定，超出以上部分由加盟商出资；招牌打底视情况保留，无法保留沿用的，由加盟商出资。 2、减免工程服务费3000元。 3、赠送一次盘点(自翻牌筹备期间陈列日算起，3个月内有效)。 备注 标准设备及货架： 1.可按公司标准申请保留，不达标或缺少设备需在公司购买/门店回收； 2.无特殊">
+
+
+
+
+
+
+
+
+
+
+<a class="doc-card" href="doc_30.html" data-title="2026年翻牌店政策与提成方案" 项目 2026年翻牌店政策 基础店 普通店 优质店 合作方式 不提点，收管理费1000元/月 提 点 ：非烟销售额的1.5%;按周结算 提点：非烟销售额的1.5%;按周结算 适用对象 立地标准符合公司翻牌标准 1、面积50平以上，有烟证； 2、原店翻牌之前三个月平均除烟日销&gt;4000元； 3、经开发部负责人、总经办逐层级面试通过的客户。 1、面积70平以上，有烟证； 2、原店翻牌之前三个月平均除烟日销&gt;5000元； 3、经开发部负责人、总经办逐层级面试通过的客户。 开放名额 / 10 10 加盟费 12500 12500 12500 保证金 10000 30000 30000 装修 门店可自行装修 公司统一装修 公司统一装修 新店服务费 参考下面“其它额外补贴”中的第5条 正常收取 减免 系统使用费 (1.5万元) 参考下面“其它额外补贴”中的第7条 减免 减免 设备投放 无 设备全投(不含陈列道具、装饰物料); 金额上限10万 设备全投(不含陈列道具、装饰物料); 金额上限15万 优质点位补贴 1、赠送企业文化及VI装饰(3000元以内)。 2、按需赠送全店陈列道具5000元以内。 3、赠送招牌(不含打底；15000元以内)。支持吸塑灯箱(不超过10米)或艾力膜招牌(面积不超过15m²)或发光字；招牌材质视项目具体情况而定，超出以上部分由加盟商出资；招牌打底视情况保留，无法保留沿用的，由加盟商出资。 4、减免工程服务费3000元。 5、减免部分开业筹办费：本埠仅收取2000元(原价5226)/外埠仅收取2500元(原5726元)。 6、赠送一次盘点(自翻牌筹备期间陈列日算起，3个月内有效)。 7、系统使用费： A.翻牌之前，原店三个月平均除烟日销2000元以上按照5000元收取； B.翻牌之前，原店三个月平均除烟日销2000元以下按照10000元收取。 1、赠送招牌(不含打底；15000元以内)。支持吸塑灯箱(不超过10米)或艾力膜招牌(面积不超过15m²)或发光字；招牌材质视项目具体情况而定，超出以上部分由加盟商出资；招牌打底视情况保留，无法保留沿用的，由加盟商出资。 2、减免工程服务费3000元。 3、赠送一次盘点(自翻牌筹备期间陈列日算起，3个月内有效)。 备注 标准设备及货架： 1.可按公司标准申请保留，不达标或缺少设备需在公司购买/门店回收； 2.无特殊原因，以公司现有政策标配风幕柜及子母柜； 3.达到公司标准的收银机可保留，不达标需在公司采购/门店回收。 卖场装修及收银台：按公司标准自行改造，工程验收，免工程服务费，详见《门店改造标准》。 首批商品：根据门店实际货架组数和陈列需求，按需配置。 真正的“强管控”,签订紧密型合同。 从开业起，所有的设备、装修、商品都是从公司走。 针对“普通店”和“优质店”:如有老加盟商推荐，推荐奖励现金为2000元/店；两种店型开店的不参与复数店累积。 翻牌政策不可与其它政策同享。 翻牌店认定标准： 1.原便利店/超市/烟酒副食/零食店转换为可多便利店，需先提报总经办确认通过，方可认定为翻牌店，并享受翻牌店加盟政策。 2.门店营业时间或营业执照时间需在6个 月以上。 3.转让门店：需证明转让关系，转让 方营业时间需满足上条标准。 4.指定品牌门店的装修、设备等，经公司审核通过后，可以视情况保留沿用。 优质门店奖励： 1.门店首年净配送额(减退货)超过72万元，且首年每2个月一次的超额进货奖励积分累积不足1万元的，按1万元标准补齐，以进货积分形式在首年计算周期截止后30天内一次性返至门店账户。 2.门店首年净配送额(减退货)超过98万元，且首年每2个月一次的超额进货奖励积分累积已达1万元的，按1.5万元标准补齐，以进货积分形式在首年计算周期截止后30天内一次性返至门店账户。 3.门店首年净配送额(减退货)超过144万元，且首年每2个月一次的超额进货奖励积分累积已达1万元的，按2万元标准补齐，以进货积分形式在首年计算周期截止后30天内一次性返至门店账户。 4.本政策中“首年净配送额”计算周期为门店首次配货日起的365个自然日。“进货奖励”仅核算门店每2个月一次的超额进货奖励积分，其他类型门店奖励不纳入核算范围。 5.若翻牌门店在首年内存在商品外采的行为且有实证，则公司有权取消该门店的优质门店奖励资格。 项目 2026年翻牌店提成 基础店 普通店 优质店 翻牌店开发员提成 同之前方案(即按照《2026年市场开发部开店提成方案2.0》执行) 分两部分构成，基础薪资+提成： 1、开发员基础薪资(按最新签批的绩效方案执行)(另扣社保、扣公积金)。 2、提成分两个部分(A和B): A.开店提成分两次：开店当月(全款)先发2000元/店；另外 2000元在第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： A.开店提成分两次：开店当月(全款)先发2000元/店；另外 3000元在第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： 非烟日商 0 非烟日商 0 3500≤非烟日商 2000 3500≤非烟日商 3000 B.店质奖： 第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： B.店质奖： 第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： 非烟日商 0 非烟日商 0 3500≤非烟日商 2000 3500≤非烟日商 2000 4000≤非烟日商 6000 4000≤非烟日商 6000 5000≤非烟日商 8000 5000≤非烟日商 8000 6000≤非烟日商 10000 6000≤非烟日商 10000 7000≤非烟日商 12000 7000≤非烟日商 12000 8000≤非烟日商 14000 8000≤非烟日商 14000 9000≤非烟日商 16000( 封顶) 9000≤非烟日商 16000(封顶)">
+
+
 
   <span class="doc-num">01</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年翻牌店政策与提成方案</span>
 
+
+
     <span class="doc-card-snippet" id="snip_01"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_31.html" data-title="2026年限时新开店政策及提成" data-text="2026年限时新开店政策 合作方式 收管理费1000元/月 适用对象 新开可多 开放名额 10(只针对优质点位，按照标准评定) 加盟费 25000 保证金 30000 装修 公司统一装修 新店服务费 正常收取 系统使用费 (1.5万元) 正常收取 设备投放 无 优质点位补贴 补贴金额： 3.75万~4.75万 补贴3000 总价 装修补贴(只能找咱们公司装修，决算 后直减) 补贴5000 5万元≤总价 补贴8000 8万元≤总价 补贴4500 赠送招牌(如果是自带铺，本身就送 15000元以内的招牌；如果不是自带铺， 就用这个政策，招牌总价值减免4500元 的费用) 补贴15000 总价 设备补贴(全部公司必须公司新配，总费用直减) 补贴18000 8万元≤总价 补贴20000 10万元≤总价 减免15000 赠送系统使用权(签协议，有约束，信 息系统免费用。违反协议，随时收回) 备注 1、普通新开店维持原开店政策执行，补贴政策只向优质项目和优质加盟商倾斜。 2、享受公司优质点位补贴的门店签订禁止外采，合同中做规范要求。 3、复数店政策可同享：第2家加盟费20000/保证金20000;第3家加盟费15000/保证金10000;第4家及4家以上加盟费10000/保证金0。 2026年限时新开店提成 新开店开发员提成 ※普通新开店维持原提成方案，即按照《2026年市场开发部开店提成方案2.0》执行； ※使用了优质点位补贴的门店，开发员开店提成核算方式按照《2026年市场开发部开店提成方案2.0》算得提成总额，分两次发 放 ： 1、第一次发放是在开店当月(全款)发放6000元/店；。 2、剩余部分在第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： 非烟日商 剩余部分*0 3500≤非烟日商 剩余部分*1 4000≤非烟日商 剩余部分*1.1 5000≤非烟日商 剩余部分*1.2 6000≤非烟日商 剩余部分*1.3(封顶) 举 例 ：某店通过了使用优质点位补贴，客户来源是“推广渠道”,商铺来源是“开发推荐”,立地评级是“BA”,开业后三个自然月核算平均营业额是“非烟4500元/日”,则该店开发员提成发放方式：开店当月(全款)发放6000+第四个自然月发放(4000+9000-6000)*1.1=最终合计13700元。">
+
+
+<a class="doc-card" href="doc_31.html" data-title="2026年限时新开店政策及提成" 2026年限时新开店政策 合作方式 收管理费1000元/月 适用对象 新开可多 开放名额 10(只针对优质点位，按照标准评定) 加盟费 25000 保证金 30000 装修 公司统一装修 新店服务费 正常收取 系统使用费 (1.5万元) 正常收取 设备投放 无 优质点位补贴 补贴金额： 3.75万~4.75万 补贴3000 总价 装修补贴(只能找咱们公司装修，决算 后直减) 补贴5000 5万元≤总价 补贴8000 8万元≤总价 补贴4500 赠送招牌(如果是自带铺，本身就送 15000元以内的招牌；如果不是自带铺， 就用这个政策，招牌总价值减免4500元 的费用) 补贴15000 总价 设备补贴(全部公司必须公司新配，总费用直减) 补贴18000 8万元≤总价 补贴20000 10万元≤总价 减免15000 赠送系统使用权(签协议，有约束，信 息系统免费用。违反协议，随时收回) 备注 1、普通新开店维持原开店政策执行，补贴政策只向优质项目和优质加盟商倾斜。 2、享受公司优质点位补贴的门店签订禁止外采，合同中做规范要求。 3、复数店政策可同享：第2家加盟费20000/保证金20000;第3家加盟费15000/保证金10000;第4家及4家以上加盟费10000/保证金0。 2026年限时新开店提成 新开店开发员提成 ※普通新开店维持原提成方案，即按照《2026年市场开发部开店提成方案2.0》执行； ※使用了优质点位补贴的门店，开发员开店提成核算方式按照《2026年市场开发部开店提成方案2.0》算得提成总额，分两次发 放 ： 1、第一次发放是在开店当月(全款)发放6000元/店；。 2、剩余部分在第四个自然月发放，核算前三个自然月(自开业日次月1日算起)的平均营业额，核算方式如下： 非烟日商 剩余部分*0 3500≤非烟日商 剩余部分*1 4000≤非烟日商 剩余部分*1.1 5000≤非烟日商 剩余部分*1.2 6000≤非烟日商 剩余部分*1.3(封顶) 举 例 ：某店通过了使用优质点位补贴，客户来源是“推广渠道”,商铺来源是“开发推荐”,立地评级是“BA”,开业后三个自然月核算平均营业额是“非烟4500元/日”,则该店开发员提成发放方式：开店当月(全款)发放6000+第四个自然月发放(4000+9000-6000)*1.1=最终合计13700元。">
+
+
 
   <span class="doc-num">02</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年限时新开店政策及提成</span>
 
+
+
     <span class="doc-card-snippet" id="snip_02"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_01.html" data-title="2026年新可多标准店紧密型加盟模式3.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 05 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_01.html" data-title="2026年新可多标准店紧密型加盟模式3.0" 发件编号： SCKF /TZ/ 202 5/12 - 05 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">03</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年新可多标准店紧密型加盟模式3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_03"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_02.html" data-title="2026年新可多鲜食店紧密型加盟模式3.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 06 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_02.html" data-title="2026年新可多鲜食店紧密型加盟模式3.0" 发件编号： SCKF /TZ/ 202 5/12 - 06 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">04</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年新可多鲜食店紧密型加盟模式3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_04"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_03.html" data-title="可多新开带铺加盟方案3.0" data-text="通知编号 ： SCKF/TZ/202 5/12 - 19 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_03.html" data-title="可多新开带铺加盟方案3.0" 通知编号 ： SCKF/TZ/202 5/12 - 19 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">05</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多新开带铺加盟方案3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_05"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_04.html" data-title="可多新开店加盟优惠政策3.0" data-text="通知编号：SCKF/TZ/202 5 / 12 - 18 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_04.html" data-title="可多新开店加盟优惠政策3.0" 通知编号：SCKF/TZ/202 5 / 12 - 18 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">06</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多新开店加盟优惠政策3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_06"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_08.html" data-title="新开门店首年异动处理方案2.0" data-text="发件 编号： SCKF /TZ/ 202 5/12 - 22 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 人事行政部/财务部/市场开发部/营运部/商品部/ 教培部 总经理签发：">
+
+
+<a class="doc-card" href="doc_08.html" data-title="新开门店首年异动处理方案2.0" 发件 编号： SCKF /TZ/ 202 5/12 - 22 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 人事行政部/财务部/市场开发部/营运部/商品部/ 教培部 总经理签发：">
+
+
 
   <span class="doc-num">07</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">新开门店首年异动处理方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_07"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_07.html" data-title="门店迁址方案3.0" data-text="发件 编号： SCKF/TZ/2025/12-07 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_07.html" data-title="门店迁址方案3.0" 发件 编号： SCKF/TZ/2025/12-07 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">08</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">门店迁址方案3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_08"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_24.html" data-title="市场开发部本埠外埠区域划分规定2.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 12 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_24.html" data-title="市场开发部本埠外埠区域划分规定2.0" 发件编号： SCKF /TZ/ 202 5/12 - 12 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">09</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部本埠外埠区域划分规定2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_09"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_17.html" data-title="关于外埠市场开发设备支持方案2.0" data-text="发件编号： SCKF /TZ/ 202 5/12 -0 4 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_17.html" data-title="关于外埠市场开发设备支持方案2.0" 发件编号： SCKF /TZ/ 202 5/12 -0 4 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">10</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">关于外埠市场开发设备支持方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_10"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_19.html" data-title="市场开发部原东部战区方案1.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 23 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_19.html" data-title="市场开发部原东部战区方案1.0" 发件编号： SCKF /TZ/ 202 5/12 - 23 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">11</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部原东部战区方案1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_11"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_18.html" data-title="市场开发部光谷东片区阶段性激励方案1.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 31 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 23 收件部门： 总经办及各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_18.html" data-title="市场开发部光谷东片区阶段性激励方案1.0" 发件编号： SCKF /TZ/ 202 5/12 - 31 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 23 收件部门： 总经办及各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">12</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部光谷东片区阶段性激励方案1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_12"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_15.html" data-title="市场开发部开店阶段达成激励方案2.0" data-text="发件 编号: SCKF/TZ/ 202 5/12 - 13 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_15.html" data-title="市场开发部开店阶段达成激励方案2.0" 发件 编号: SCKF/TZ/ 202 5/12 - 13 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">13</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部开店阶段达成激励方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_13"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_16.html" data-title="市场开发部新人培养期激励方案2.0" data-text="发件 编号: SCKF/TZ/ 202 5/12 - 25 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_16.html" data-title="市场开发部新人培养期激励方案2.0" 发件 编号: SCKF/TZ/ 202 5/12 - 25 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">14</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部新人培养期激励方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_14"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_13.html" data-title="2026年开发人员晋升降级内控标准优化3.0" data-text="发件 编号： SCKF/TZ/2025/12-14 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_13.html" data-title="2026年开发人员晋升降级内控标准优化3.0" 发件 编号： SCKF/TZ/2025/12-14 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">15</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年开发人员晋升降级内控标准优化3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_15"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_14.html" data-title="2026年市场开发部开发员绩效标准及评比规则1.0" data-text="发件编号： SCKF /TZ/ 202 6/03 - 01 部门会签： 发件部门： 市场开发 部 发件日期：20 26 - 03 - 09 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_14.html" data-title="2026年市场开发部开发员绩效标准及评比规则1.0" 发件编号： SCKF /TZ/ 202 6/03 - 01 部门会签： 发件部门： 市场开发 部 发件日期：20 26 - 03 - 09 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">16</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年市场开发部开发员绩效标准及评比规则1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_16"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_09.html" data-title="市场开发部开店提成方案2.0" data-text="">
+
+
+<a class="doc-card" href="doc_09.html" data-title="市场开发部开店提成方案2.0" 第 1 / 2 页">
+
+
 
   <span class="doc-num">17</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部开店提成方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_17"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_10.html" data-title="市场开发部历史开店提成方案2.0" data-text="发件 编号: SCKF/TZ/ 202 5/12 - 26 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门： 人事部、财务部 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_10.html" data-title="市场开发部历史开店提成方案2.0" 发件 编号: SCKF/TZ/ 202 5/12 - 26 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门： 人事部、财务部 轮值副总签发： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">18</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部历史开店提成方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_18"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_20.html" data-title="场地评估流程标准4.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 29 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_20.html" data-title="场地评估流程标准4.0" 发件编号： SCKF /TZ/ 202 5/12 - 29 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">19</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">场地评估流程标准4.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_19"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_11.html" data-title="可多全民开发奖励方案4.0" data-text="发件 编号：SCKF/TZ/202 5/12 - 21 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_11.html" data-title="可多全民开发奖励方案4.0" 发件 编号：SCKF/TZ/202 5/12 - 21 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">20</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多全民开发奖励方案4.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_20"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_21.html" data-title="招投标方案2.0" data-text="发件 编号 ： SCKF/TZ/202 5/12 - 17 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_21.html" data-title="招投标方案2.0" 发件 编号 ： SCKF/TZ/202 5/12 - 17 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">21</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">招投标方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_21"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_22.html" data-title="市场开发部招标项目办理流程2.0" data-text="发件 编号： SCKF/TZ/2025/12-16 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_22.html" data-title="市场开发部招标项目办理流程2.0" 发件 编号： SCKF/TZ/2025/12-16 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-10 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">22</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部招标项目办理流程2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_22"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_25.html" data-title="市场开发部黄区培训及会议机制3.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 11 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_25.html" data-title="市场开发部黄区培训及会议机制3.0" 发件编号： SCKF /TZ/ 202 5/12 - 11 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 市场开发部 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">23</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部黄区培训及会议机制3.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_23"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_26.html" data-title="市场开发部各岗位参会管理细则1.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 24 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_26.html" data-title="市场开发部各岗位参会管理细则1.0" 发件编号： SCKF /TZ/ 202 5/12 - 24 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">24</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部各岗位参会管理细则1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_24"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_27.html" data-title="市场开发部会议管理机制2.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 03 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_27.html" data-title="市场开发部会议管理机制2.0" 发件编号： SCKF /TZ/ 202 5/12 - 03 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">25</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">市场开发部会议管理机制2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_25"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_28.html" data-title="2026年市场开发部开发评级方案1.0" data-text="发件编号：SCKF/TZ/2025/12-02">
+
+
+<a class="doc-card" href="doc_28.html" data-title="2026年市场开发部开发评级方案1.0" 发件编号：SCKF/TZ/2025/12-02">
+
+
 
   <span class="doc-num">26</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">2026年市场开发部开发评级方案1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_26"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_29.html" data-title="可多市场开发部招聘标准及要求2.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 10 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_29.html" data-title="可多市场开发部招聘标准及要求2.0" 发件编号： SCKF /TZ/ 202 5/12 - 10 部门会签： 发件部门： 市场开发 部 发件日期：20 25 - 12 - 10 收件部门： 各相关部门 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">27</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多市场开发部招聘标准及要求2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_27"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_05.html" data-title="可多员工加盟开店指导方案2.0" data-text="发件 编号: SCKF/TZ/ 202 5/12 - 20 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址：OA—公司公告 总经理签发：">
+
+
+<a class="doc-card" href="doc_05.html" data-title="可多员工加盟开店指导方案2.0" 发件 编号: SCKF/TZ/ 202 5/12 - 20 部门汇签： 发件部门： 市场开发 部 发件日期：202 5 - 12 - 10 收件部门：各部门 轮值副总签发： 存档地址：OA—公司公告 总经理签发：">
+
+
 
   <span class="doc-num">28</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多员工加盟开店指导方案2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_28"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_06.html" data-title="可多加盟意向定金缴纳标准2.0" data-text="发件编号： SCKF /TZ/ 202 5/12 - 09 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_06.html" data-title="可多加盟意向定金缴纳标准2.0" 发件编号： SCKF /TZ/ 202 5/12 - 09 部门会签： 发件部门： 市场开发部 发件日期：20 25 - 12 - 10 收件部门： 总经办 轮值副总签字： 存档地址： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">29</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多加盟意向定金缴纳标准2.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_29"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_12.html" data-title="大客户服务方案1.0" data-text="发件编号：SCKF/TZ/2025/12-01">
+
+
+<a class="doc-card" href="doc_12.html" data-title="大客户服务方案1.0" 发件编号：SCKF/TZ/2025/12-01">
+
+
 
   <span class="doc-num">30</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">大客户服务方案1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_30"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
+
+
 
 </a>
 
-<a class="doc-card" href="doc_23.html" data-title="可多优质加盟商访谈方案1.0" data-text="发件 编号： SCKF/TZ/2025/12-30 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-18 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
+<a class="doc-card" href="doc_23.html" data-title="可多优质加盟商访谈方案1.0" 发件 编号： SCKF/TZ/2025/12-30 部门汇签： 发件部门： 市场开发部 发件日期： 2025-12-18 收件部门： 各相关部门 轮值副总 签 字 ： 存档 地址 ： 市场开发部 总经理签发：">
+
+
 
   <span class="doc-num">31</span>
 
+
+
   <div class="doc-card-body">
+
+
 
     <span class="doc-card-title">可多优质加盟商访谈方案1.0</span>
 
+
+
     <span class="doc-card-snippet" id="snip_31"></span>
+
+
 
   </div>
 
+
+
   <span class="doc-arrow">&#8250;</span>
 
+
+
 </a>
+
+
+
+
 
 
 
@@ -792,199 +1582,399 @@ body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px
 
 
 
+
+
+
+
 </div>
+
+
+
+
 
 
 
 <script>
 
+
+
 // ── 搜索历史（存 sessionStorage，最多8条）──────────────────────────────────
+
+
 
 var HIST_KEY = 'searchHist';
 
+
+
 function getHist(){try{return JSON.parse(sessionStorage.getItem(HIST_KEY)||'[]');}catch(e){return[];}}
+
+
 
 function saveHist(kw){
 
+
+
   if(!kw)return;
 
+
+
   var h=getHist().filter(function(x){return x!==kw;});
+
+
 
   h.unshift(kw);
 
+
+
   if(h.length>8)h=h.slice(0,8);
 
+
+
   sessionStorage.setItem(HIST_KEY,JSON.stringify(h));
+
+
 
   sessionStorage.setItem('lastSearch',kw);
 
+
+
 }
+
+
 
 function delHist(kw){
 
+
+
   var h=getHist().filter(function(x){return x!==kw;});
+
+
 
   sessionStorage.setItem(HIST_KEY,JSON.stringify(h));
 
+
+
 }
+
+
 
 function clearAllHist(){sessionStorage.removeItem(HIST_KEY);renderHist();hideHist();}
 
+
+
 function renderHist(){
 
+
+
   var h=getHist();
+
+
 
   var ul=document.getElementById('histList');
 
+
+
   ul.innerHTML='';
+
+
 
   h.forEach(function(kw){
 
+
+
     var li=document.createElement('div');li.className='hist-item';
+
+
 
     li.innerHTML='<span class="hist-icon">&#128336;</span><span class="hist-text">'+kw+'</span><button class="hist-del" onclick="event.stopPropagation();delHistAndRender(\''+kw.replace(/'/g,"\\'")+'\')" title="删除">&#215;</button>';
 
+
+
     li.addEventListener('click',function(){pickHist(kw);});
+
+
 
     ul.appendChild(li);
 
+
+
   });
 
+
+
 }
+
+
 
 function delHistAndRender(kw){delHist(kw);renderHist();}
 
+
+
 function pickHist(kw){
+
+
 
   document.getElementById('searchInput').value=kw;
 
+
+
   hideHist();
+
+
 
   doSearch();
 
+
+
 }
+
+
 
 function showHist(){
 
+
+
   var h=getHist();
+
+
 
   if(!h.length)return;
 
+
+
   renderHist();
+
+
 
   document.getElementById('searchHist').classList.add('on');
 
+
+
 }
+
+
 
 function hideHist(){document.getElementById('searchHist').classList.remove('on');}
 
 
 
+
+
+
+
 // ── 清空搜索 ─────────────────────────────────────────────────────────────────
+
+
 
 function clearSearch(){
 
+
+
   document.getElementById('searchInput').value='';
+
+
 
   document.getElementById('searchClear').classList.remove('on');
 
+
+
   sessionStorage.removeItem('lastSearch');
+
+
 
   doSearch();
 
+
+
 }
+
+
+
+
 
 
 
 // ── 工具函数 ─────────────────────────────────────────────────────────────────
 
+
+
 function escRe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+
+
 
 function getSnippet(text, kw, maxLen){
 
+
+
   maxLen = maxLen||100;
+
+
 
   var idx = text.indexOf(kw);
 
+
+
   if(idx<0)return '';
+
+
 
   var start = Math.max(0, idx-20);
 
+
+
   var end = Math.min(text.length, start+maxLen);
+
+
 
   var snip = (start>0?'…':'')+text.slice(start,end)+(end<text.length?'…':'');
 
+
+
   return snip.replace(new RegExp(escRe(kw),'gi'),function(m){return '<mark>'+m+'</mark>';});
+
+
 
 }
 
 
 
+
+
+
+
 // ── 核心搜索 ─────────────────────────────────────────────────────────────────
+
+
 
 function doSearch(){
 
+
+
   var kw = document.getElementById('searchInput').value.trim();
+
+
 
   var cards = document.querySelectorAll('.doc-card');
 
+
+
   var shown = 0;
+
+
 
   var label = document.getElementById('sectionLabel');
 
+
+
   var stat  = document.getElementById('resultStat');
+
+
 
   var hint  = document.getElementById('searchHint');
 
 
 
+
+
+
+
   // 清空按钮显隐
+
+
 
   document.getElementById('searchClear').classList.toggle('on', !!kw);
 
 
 
+
+
+
+
   // 保存搜索历史
+
+
 
   if(kw) saveHist(kw);
 
 
 
+
+
+
+
   cards.forEach(function(card){
+
+
 
     var title  = card.getAttribute('data-title')||'';
 
+
+
     var text   = card.getAttribute('data-text')||'';
+
+
 
     var snipEl = card.querySelector('.doc-card-snippet');
 
 
 
+
+
+
+
     if(!kw){
+
+
 
       card.classList.remove('hidden');
 
+
+
       if(snipEl){snipEl.innerHTML='';snipEl.classList.remove('on');}
+
+
 
       var base=(card.getAttribute('href')||'').split('?')[0];
 
+
+
       card.href=base;
+
+
 
       shown++;
 
+
+
       return;
+
+
 
     }
 
 
 
+
+
+
+
     var terms    = kw.split(/[\s,，]+/).filter(Boolean);
+
+
 
     var titleHit = terms.every(function(t){return title.toLowerCase().indexOf(t.toLowerCase())>=0;});
 
+
+
     var textHit  = terms.every(function(t){return text.toLowerCase().indexOf(t.toLowerCase())>=0;});
 
+
+
     var match    = titleHit || textHit;
+
+
+
+
 
 
 
@@ -992,31 +1982,63 @@ function doSearch(){
 
 
 
+
+
+
+
     if(match){
+
+
 
       shown++;
 
+
+
       if(snipEl){
+
+
 
         var snippet='';
 
+
+
         if(textHit&&!titleHit){snippet=getSnippet(text, terms[0], 100);}
+
+
 
         if(snippet){snipEl.innerHTML=snippet;snipEl.classList.add('on');}
 
+
+
         else{snipEl.innerHTML='';snipEl.classList.remove('on');}
+
+
 
       }
 
+
+
       // 携带关键词进入文档页自动高亮
+
+
 
       var base=(card.getAttribute('href')||'').split('?')[0];
 
+
+
       card.href=base+'?q='+encodeURIComponent(kw);
+
+
 
     }
 
+
+
   });
+
+
+
+
 
 
 
@@ -1024,77 +2046,155 @@ function doSearch(){
 
 
 
+
+
+
+
   if(kw){
+
+
 
     label.textContent='搜索结果';
 
+
+
     stat.style.display='flex';
+
+
 
     stat.innerHTML='找到 <strong>'+shown+'</strong> 份相关文件（含"'+kw+'"）&nbsp;<button class="clear-btn" onclick="clearSearch()">清空搜索</button>';
 
+
+
     if(hint)hint.classList.add('on');
+
+
 
   } else {
 
+
+
     label.textContent='全部文件（点击查看详情）';
+
+
 
     stat.style.display='none';
 
+
+
     if(hint){hint.classList.remove('on');}
 
+
+
   }
+
+
 
 }
 
 
 
+
+
+
+
 // ── 输入框事件 ────────────────────────────────────────────────────────────────
+
+
 
 var _inp = document.getElementById('searchInput');
 
+
+
 _inp.addEventListener('input', function(){doSearch();});
+
+
 
 _inp.addEventListener('focus', function(){if(!this.value.trim())showHist();});
 
+
+
 _inp.addEventListener('keydown', function(e){
+
+
 
   if(e.key==='Enter'){hideHist();doSearch();}
 
+
+
   if(e.key==='Escape'){clearSearch();hideHist();}
 
+
+
 });
+
+
 
 document.addEventListener('click', function(e){
 
+
+
   if(!e.target.closest('.top-bar'))hideHist();
 
+
+
 });
+
+
+
+
 
 
 
 // ── 页面加载：从 URL ?q= 或 sessionStorage 恢复搜索状态 ─────────────────────
 
+
+
 (function(){
+
+
 
   var p  = new URLSearchParams(window.location.search);
 
+
+
   var q  = p.get('q') || '';
+
+
 
   if(q){
 
+
+
     document.getElementById('searchInput').value = q;
+
+
 
     doSearch();
 
+
+
   }
 
+
+
 })();
+
+
 
 </script>
 
 
 
+
+
+
+
 </body>
+
+
+
+
 
 
 
