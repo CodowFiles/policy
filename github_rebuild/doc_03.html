@@ -9,7 +9,6 @@
    设计系统 - CSS变量
    ============================================ */
 :root {
-  /* 主色调 - 专业蓝色系 */
   --primary-50: #eff6ff;
   --primary-100: #dbeafe;
   --primary-200: #bfdbfe;
@@ -20,8 +19,6 @@
   --primary-700: #1d4ed8;
   --primary-800: #1e40af;
   --primary-900: #1e3a8a;
-  
-  /* 辅助色 */
   --success: #10b981;
   --success-light: #d1fae5;
   --success-dark: #065f46;
@@ -30,1064 +27,327 @@
   --warning-dark: #92400e;
   --error: #ef4444;
   --info: #06b6d4;
-  
-  /* 中性色 - 文字 */
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
   --text-tertiary: #6b7280;
   --text-muted: #9ca3af;
   --text-inverse: #ffffff;
-  
-  /* 中性色 - 背景 */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
   --bg-hover: #e2e8f0;
   --bg-active: #dbeafe;
-  
-  /* 中性色 - 边框 */
   --border-light: #e5e7eb;
   --border-medium: #d1d5db;
   --border-dark: #9ca3af;
-  
-  /* 间距系统 - 8点网格 */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  
-  /* 阴影系统 */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-  --shadow-colored: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
-  
-  /* 圆角系统 */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
-  --radius-full: 9999px;
-  
-  /* 字体 */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px;
+  --space-10: 40px; --space-12: 48px; --space-16: 64px;
+  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  --shadow-colored: 0 4px 14px 0 rgba(37,99,235,.25);
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px;
+  --radius-xl: 16px; --radius-2xl: 20px; --radius-full: 9999px;
   --font-sans: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
-  
-  /* 过渡 */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
-  --transition-slow: 350ms ease;
 }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-sans); font-size: 15px; line-height: 1.75;
+  color: var(--text-primary); background: var(--bg-secondary); }
 
-/* ============================================
-   基础样式重置
-   ============================================ */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-}
-
-/* ============================================
-   顶部导航栏
-   ============================================ */
+/* ===== 顶部导航栏 ===== */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 64px;
+  position: sticky; top: 0; z-index: 100; height: 64px;
   background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-600) 100%);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--space-6);
+  box-shadow: var(--shadow-lg); display: flex; align-items: center;
+  justify-content: space-between; padding: 0 var(--space-6);
 }
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  color: white;
-}
-
+.navbar-brand { display: flex; align-items: center; gap: var(--space-3); color: white; }
 .navbar-brand-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  backdrop-filter: blur(4px);
+  width: 40px; height: 40px; background: rgba(255,255,255,.15);
+  border-radius: var(--radius-md); display: flex; align-items: center;
+  justify-content: center; font-size: 22px; backdrop-filter: blur(4px);
 }
-
-.navbar-brand-text {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.navbar-brand-subtitle {
-  font-size: 12px;
-  opacity: 0.8;
-  font-weight: 400;
-}
-
-/* 搜索框 */
-.search-box {
-  position: relative;
-  width: 360px;
-  max-width: 100%;
-}
-
-.search-input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-icon {
-  position: absolute;
-  left: var(--space-4);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 18px;
-  pointer-events: none;
-}
-
+.navbar-brand-text { font-size: 18px; font-weight: 600; letter-spacing: .5px; }
+.navbar-brand-subtitle { font-size: 12px; opacity: .8; font-weight: 400; }
+.search-box { position: relative; width: 340px; max-width: 100%; }
+.search-input-wrapper { position: relative; display: flex; align-items: center; }
+.search-icon { position: absolute; left: var(--space-4); color: rgba(255,255,255,.7);
+  font-size: 18px; pointer-events: none; }
 .search-input {
-  width: 100%;
-  height: 44px;
-  padding: 0 var(--space-4) 0 var(--space-12);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-full);
-  color: white;
-  font-size: 14px;
+  width: 100%; height: 44px; padding: 0 var(--space-4) 0 var(--space-12);
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+  border-radius: var(--radius-full); color: white; font-size: 14px;
   transition: all var(--transition-fast);
 }
+.search-input::placeholder { color: rgba(255,255,255,.6); }
+.search-input:focus { background: rgba(255,255,255,.25); border-color: rgba(255,255,255,.4);
+  outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,.15); }
+.search-clear { position: absolute; right: var(--space-3); background: none; border: none;
+  color: rgba(255,255,255,.7); font-size: 18px; cursor: pointer; padding: var(--space-1); display: none; }
+.search-clear.visible { display: block; }
+.menu-btn { display: none; background: none; border: none; color: white; font-size: 24px;
+  cursor: pointer; padding: var(--space-2); border-radius: var(--radius-md);
+  transition: background var(--transition-fast); }
+.menu-btn:hover { background: rgba(255,255,255,.1); }
 
-.search-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.search-input:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.search-input:focus {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
-}
-
-.search-clear {
-  position: absolute;
-  right: var(--space-3);
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 18px;
-  cursor: pointer;
-  padding: var(--space-1);
-  display: none;
-}
-
-.search-clear.visible {
-  display: block;
-}
-
-/* 菜单按钮（移动端） */
-.menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: var(--space-2);
-  border-radius: var(--radius-md);
-  transition: background var(--transition-fast);
-}
-
-.menu-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ============================================
-   搜索结果提示条
-   ============================================ */
+/* ===== 搜索提示条 ===== */
 .search-toast {
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100px);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl);
-  padding: var(--space-3) var(--space-5);
-  box-shadow: var(--shadow-xl);
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  z-index: 90;
-  opacity: 0;
-  transition: all var(--transition-normal);
+  position: fixed; top: 80px; left: 50%; transform: translateX(-50%) translateY(-100px);
+  background: var(--bg-primary); border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl); padding: var(--space-3) var(--space-5);
+  box-shadow: var(--shadow-xl); display: flex; align-items: center;
+  gap: var(--space-4); z-index: 90; opacity: 0; transition: all var(--transition-normal);
+  white-space: nowrap;
 }
-
-.search-toast.visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.search-toast-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-.search-toast-count {
-  font-weight: 600;
-  color: var(--primary-600);
-}
-
-.search-nav {
-  display: flex;
-  gap: var(--space-2);
-}
-
+.search-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+.search-toast-text { font-size: 14px; color: var(--text-secondary); }
+.search-toast-count { font-weight: 600; color: var(--primary-600); }
+.search-nav { display: flex; gap: var(--space-2); }
 .search-nav-btn {
-  width: 32px;
-  height: 32px;
-  background: var(--primary-50);
-  border: none;
-  border-radius: var(--radius-md);
-  color: var(--primary-600);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  width: 32px; height: 32px; background: var(--primary-50); border: none;
+  border-radius: var(--radius-md); color: var(--primary-600); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
   transition: all var(--transition-fast);
 }
-
-.search-nav-btn:hover:not(:disabled) {
-  background: var(--primary-100);
-}
-
-.search-nav-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
+.search-nav-btn:hover:not(:disabled) { background: var(--primary-100); }
+.search-nav-btn:disabled { opacity: .4; cursor: not-allowed; }
 .search-clear-btn {
-  padding: var(--space-2) var(--space-3);
-  background: var(--bg-tertiary);
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: 13px;
-  color: var(--text-secondary);
-  cursor: pointer;
+  padding: var(--space-2) var(--space-3); background: var(--bg-tertiary); border: none;
+  border-radius: var(--radius-md); font-size: 13px; color: var(--text-secondary); cursor: pointer;
   transition: all var(--transition-fast);
 }
+.search-clear-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
 
-.search-clear-btn:hover {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-}
-
-/* ============================================
-   布局容器
-   ============================================ */
-.layout {
-  display: flex;
-  max-width: 1440px;
-  margin: 0 auto;
-  min-height: calc(100vh - 64px);
-}
-
-/* ============================================
-   侧边栏导航
-   ============================================ */
+/* ===== 布局 ===== */
+.layout { display: flex; max-width: 1440px; margin: 0 auto; min-height: calc(100vh - 64px); }
 .sidebar {
-  width: 300px;
-  height: calc(100vh - 64px);
-  background: var(--bg-primary);
-  border-right: 1px solid var(--border-light);
-  overflow-y: auto;
-  position: sticky;
-  top: 64px;
-  flex-shrink: 0;
+  width: 300px; height: calc(100vh - 64px); background: var(--bg-primary);
+  border-right: 1px solid var(--border-light); overflow-y: auto;
+  position: sticky; top: 64px; flex-shrink: 0;
 }
-
 .sidebar-header {
-  padding: var(--space-6);
-  border-bottom: 1px solid var(--border-light);
+  padding: var(--space-6); border-bottom: 1px solid var(--border-light);
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
-
-.sidebar-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sidebar-stats {
-  display: flex;
-  gap: var(--space-6);
-  margin-top: var(--space-3);
-  font-size: 13px;
-}
-
-.sidebar-stat {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.sidebar-stat-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary-600);
-  line-height: 1;
-}
-
-.sidebar-stat-label {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* 导航列表 */
-.nav-list {
-  list-style: none;
-  padding: var(--space-2) 0;
-}
-
+.sidebar-title { font-size: 13px; font-weight: 600; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 1px; }
+.sidebar-stats { display: flex; gap: var(--space-6); margin-top: var(--space-3); }
+.sidebar-stat { display: flex; flex-direction: column; gap: var(--space-1); }
+.sidebar-stat-value { font-size: 24px; font-weight: 700; color: var(--primary-600); line-height: 1; }
+.sidebar-stat-label { font-size: 12px; color: var(--text-muted); }
+.nav-list { list-style: none; padding: var(--space-2) 0; }
 .nav-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-5);
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 1.5;
-  transition: all var(--transition-fast);
-  border-left: 3px solid transparent;
+  display: flex; align-items: flex-start; gap: var(--space-3);
+  padding: var(--space-3) var(--space-5); color: var(--text-secondary);
+  text-decoration: none; font-size: 14px; line-height: 1.5;
+  transition: all var(--transition-fast); border-left: 3px solid transparent;
 }
-
-.nav-item:hover {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-}
-
+.nav-item:hover { background: var(--bg-secondary); color: var(--text-primary); }
 .nav-item.active {
-  background: var(--primary-50);
-  color: var(--primary-700);
-  border-left-color: var(--primary-500);
-  font-weight: 500;
+  background: var(--primary-50); color: var(--primary-700);
+  border-left-color: var(--primary-500); font-weight: 500;
 }
-
 .nav-item-number {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  min-width: 24px;
-  text-align: center;
-  background: var(--bg-tertiary);
-  padding: 2px 6px;
-  border-radius: var(--radius-sm);
-  flex-shrink: 0;
+  font-size: 12px; font-weight: 600; color: var(--text-muted); min-width: 24px;
+  text-align: center; background: var(--bg-tertiary); padding: 2px 6px;
+  border-radius: var(--radius-sm); flex-shrink: 0;
 }
-
-.nav-item.active .nav-item-number {
-  background: var(--primary-100);
-  color: var(--primary-600);
-}
-
-.nav-item-text {
-  flex: 1;
-}
-
-/* 侧边栏遮罩（移动端） */
+.nav-item.active .nav-item-number { background: var(--primary-100); color: var(--primary-600); }
+.nav-item-text { flex: 1; }
 .sidebar-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 99; opacity: 0; transition: opacity var(--transition-normal);
 }
+.sidebar-overlay.open { opacity: 1; }
+.main { flex: 1; padding: var(--space-6); overflow-x: hidden; }
 
-.sidebar-overlay.open {
-  opacity: 1;
+/* ===== 面包屑 ===== */
+.breadcrumb { display: flex; align-items: center; gap: var(--space-2);
+  margin-bottom: var(--space-4); font-size: 14px; color: var(--text-secondary); }
+.breadcrumb a { color: var(--primary-600); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--text-muted); }
+
+/* ===== 文档页导航 ===== */
+.doc-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--space-5); padding: var(--space-4) var(--space-5);
+  background: var(--bg-primary); border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light); gap: var(--space-3);
 }
-
-/* ============================================
-   主内容区
-   ============================================ */
-.main {
-  flex: 1;
-  padding: var(--space-6);
-  overflow-x: auto;
+.doc-nav-link {
+  padding: var(--space-2) var(--space-4); background: var(--primary-50);
+  color: var(--primary-700); text-decoration: none; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500; transition: all var(--transition-fast);
+  white-space: nowrap;
 }
+.doc-nav-link:hover { background: var(--primary-100); }
+.doc-nav-link.disabled { background: var(--bg-tertiary); color: var(--text-muted); cursor: default; }
+.doc-nav-index { font-size: 14px; color: var(--text-secondary); }
 
-.main-header {
-  margin-bottom: var(--space-6);
-}
-
-.main-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--space-2);
-}
-
-.main-subtitle {
-  font-size: 15px;
-  color: var(--text-secondary);
-}
-
-/* ============================================
-   文档卡片（入口页面）
-   ============================================ */
-.doc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--space-5);
-}
-
-.doc-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  transition: all var(--transition-normal);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.doc-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-200);
-}
-
-.doc-card-header {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
-.doc-card-icon {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  flex-shrink: 0;
-}
-
-.doc-card-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.4;
-  flex: 1;
-}
-
-.doc-card-meta {
-  display: flex;
-  gap: var(--space-3);
-  font-size: 13px;
-  color: var(--text-tertiary);
-}
-
-.doc-card-tag {
-  padding: var(--space-1) var(--space-3);
-  background: var(--primary-50);
-  color: var(--primary-700);
-  border-radius: var(--radius-full);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-/* ============================================
-   政策卡片（详情页面）
-   ============================================ */
+/* ===== 政策卡片 ===== */
 .policy-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl);
-  margin-bottom: var(--space-6);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  background: var(--bg-primary); border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-normal);
 }
-
-.policy-card:hover {
-  box-shadow: var(--shadow-md);
-}
-
+.policy-card:hover { box-shadow: var(--shadow-md); }
 .policy-card-header {
   padding: var(--space-6);
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-bottom: 1px solid var(--border-light);
 }
+.policy-card-title { font-size: 22px; font-weight: 700; color: var(--text-primary);
+  margin-bottom: var(--space-3); line-height: 1.3; }
+.policy-card-meta { display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-3); }
+.policy-card-tags { display: flex; gap: var(--space-2); }
+.tag { display: inline-flex; align-items: center; gap: var(--space-1);
+  padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
+  font-size: 12px; font-weight: 500; }
+.tag-word { background: var(--success-light); color: var(--success-dark); }
+.tag-scan { background: var(--warning-light); color: var(--warning-dark); }
+.policy-card-id { font-size: 14px; color: var(--text-muted); font-weight: 600; }
 
-.policy-card-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--space-3);
-  line-height: 1.3;
-}
-
-.policy-card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.policy-card-tags {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.tag-word {
-  background: var(--success-light);
-  color: var(--success-dark);
-}
-
-.tag-scan {
-  background: var(--warning-light);
-  color: var(--warning-dark);
-}
-
-.tag-icon {
-  font-size: 14px;
-}
-
-.policy-card-id {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* Tab 切换 */
+/* ===== Tab切换 ===== */
 .policy-tabs {
-  display: flex;
-  gap: var(--space-1);
-  padding: var(--space-4) var(--space-6) 0;
-  border-bottom: 1px solid var(--border-light);
-  background: var(--bg-primary);
+  display: flex; gap: var(--space-1); padding: var(--space-4) var(--space-6) 0;
+  border-bottom: 1px solid var(--border-light); background: var(--bg-primary);
 }
-
 .tab-btn {
-  padding: var(--space-3) var(--space-5);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5); background: none; border: none;
+  border-bottom: 2px solid transparent; font-size: 14px; font-weight: 500;
+  color: var(--text-secondary); cursor: pointer; transition: all var(--transition-fast);
+  display: flex; align-items: center; gap: var(--space-2);
+}
+.tab-btn:hover { color: var(--text-primary); background: var(--bg-secondary); }
+.tab-btn.active { color: var(--primary-600); border-bottom-color: var(--primary-500); background: var(--primary-50); }
+.tab-content { display: none; padding: var(--space-6); }
+.tab-content.active { display: block; }
+
+/* ===== Word文档内容样式（兼容原始格式） ===== */
+.word-content {
+  font-size: 15px; line-height: 1.85; color: var(--text-primary);
+  overflow-x: auto;
+}
+.word-content h1 {
+  font-size: 22px; font-weight: 700; color: var(--primary-800);
+  text-align: center; margin: var(--space-6) 0 var(--space-5);
+  padding-bottom: var(--space-3); border-bottom: 2px solid var(--primary-200);
+}
+.word-content h2 {
+  font-size: 18px; font-weight: 600; color: var(--primary-700);
+  margin: var(--space-5) 0 var(--space-3); padding-left: var(--space-3);
+  border-left: 3px solid var(--primary-500);
+}
+.word-content h3 { font-size: 16px; font-weight: 600; color: var(--text-primary);
+  margin: var(--space-4) 0 var(--space-2); }
+.word-content h4, .word-content h5 { font-size: 15px; font-weight: 600; color: var(--text-secondary);
+  margin: var(--space-3) 0 var(--space-2); }
+.word-content p, .word-content .body-text, .word-content .list-para {
+  margin: var(--space-2) 0; text-align: justify;
+}
+/* 覆盖原始行内字体样式，统一大小 */
+.word-content span[style*="font-size"] { font-size: unset !important; }
+.word-content span[style*="font-size:20pt"], .word-content span[style*="font-size:18pt"] { font-size: 18px !important; }
+.word-content span[style*="font-size:16pt"], .word-content span[style*="font-size:14pt"] { font-size: 16px !important; }
+.word-content span[style*="font-size:13pt"], .word-content span[style*="font-size:12pt"],
+.word-content span[style*="font-size:11pt"] { font-size: 14px !important; }
+.word-content span[style*="font-size:10pt"], .word-content span[style*="font-size:9pt"] { font-size: 13px !important; }
+
+/* 表格 */
+.table-wrap { margin: var(--space-4) 0; overflow-x: auto; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm); }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.doc-table th { background: var(--primary-800); color: white; font-weight: 600;
+  padding: var(--space-3) var(--space-4); border: 1px solid var(--primary-700); text-align: left; }
+.doc-table td { padding: var(--space-3) var(--space-4); border: 1px solid var(--border-light); vertical-align: top; }
+.doc-table tr:nth-child(even) { background: var(--bg-secondary); }
+.doc-table tr:hover { background: var(--primary-50); }
+
+/* 高亮 */
+.word-content .doc-highlight, .word-content .highlight {
+  background: #fef08a; padding: 1px 3px; border-radius: 3px;
+}
+.word-content .doc-highlight.current, .word-content .highlight.current {
+  background: #facc15; box-shadow: 0 0 0 2px #facc15;
 }
 
-.tab-btn:hover {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-}
+/* ===== 扫描版 ===== */
+.scan-content { display: flex; flex-direction: column; gap: var(--space-4); }
+.scan-page { background: var(--bg-secondary); border-radius: var(--radius-lg);
+  padding: var(--space-4); text-align: center; }
+.scan-page img { max-width: 100%; height: auto; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md); }
+.page-num { margin-top: var(--space-3); font-size: 13px; color: var(--text-muted); }
+.scan-empty { text-align: center; padding: var(--space-12) var(--space-6); color: var(--text-muted); }
 
-.tab-btn.active {
-  color: var(--primary-600);
-  border-bottom-color: var(--primary-500);
-  background: var(--primary-50);
-}
-
-.tab-icon {
-  font-size: 16px;
-}
-
-.tab-content {
-  display: none;
-  padding: var(--space-6);
-}
-
-.tab-content.active {
-  display: block;
-}
-
-/* ============================================
-   文档内容样式
-   ============================================ */
-.document-content {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--text-primary);
-}
-
-.document-content h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: var(--space-6) 0 var(--space-4);
-  padding-bottom: var(--space-3);
-  border-bottom: 2px solid var(--primary-200);
-}
-
-.document-content h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--primary-700);
-  margin: var(--space-5) 0 var(--space-3);
-}
-
-.document-content h3 {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: var(--space-4) 0 var(--space-2);
-}
-
-.document-content p {
-  margin-bottom: var(--space-4);
-  text-align: justify;
-}
-
-.document-content ul, .document-content ol {
-  margin-bottom: var(--space-4);
-  padding-left: var(--space-6);
-}
-
-.document-content li {
-  margin-bottom: var(--space-2);
-}
-
-.document-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--space-4) 0;
-  font-size: 14px;
-}
-
-.document-content th, .document-content td {
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--border-light);
-  text-align: left;
-}
-
-.document-content th {
-  background: var(--bg-tertiary);
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.document-content tr:nth-child(even) {
-  background: var(--bg-secondary);
-}
-
-.document-content strong {
-  color: var(--primary-700);
-  font-weight: 600;
-}
-
-.document-content .highlight {
-  background: #fef08a;
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-.document-content .highlight.current {
-  background: #facc15;
-  box-shadow: 0 0 0 2px #facc15;
-}
-
-/* ============================================
-   扫描版图片样式
-   ============================================ */
-.scan-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.scan-page {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  text-align: center;
-}
-
-.scan-page img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-.page-num {
-  margin-top: var(--space-3);
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-/* ============================================
-   空状态
-   ============================================ */
-.empty-state {
-  text-align: center;
-  padding: var(--space-12) var(--space-6);
-  color: var(--text-muted);
-}
-
-.empty-state-icon {
-  font-size: 64px;
-  margin-bottom: var(--space-4);
-  opacity: 0.5;
-}
-
-.empty-state-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-2);
-}
-
-.empty-state-text {
-  font-size: 14px;
-}
-
-/* ============================================
-   返回顶部按钮
-   ============================================ */
+/* ===== 返回顶部 ===== */
 .back-to-top {
-  position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  width: 48px;
-  height: 48px;
-  background: var(--primary-600);
-  border: none;
-  border-radius: var(--radius-full);
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-lg);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all var(--transition-normal);
-  z-index: 80;
+  position: fixed; bottom: var(--space-6); right: var(--space-6);
+  width: 48px; height: 48px; background: var(--primary-600); border: none;
+  border-radius: var(--radius-full); color: white; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden;
+  transform: translateY(20px); transition: all var(--transition-normal); z-index: 80;
 }
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--primary-700); transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+.back-to-top svg { width: 24px; height: 24px; }
 
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.back-to-top:hover {
-  background: var(--primary-700);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
-}
-
-.back-to-top svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* ============================================
-   响应式设计
-   ============================================ */
+/* ===== 响应式 ===== */
 @media (max-width: 1024px) {
-  .sidebar {
-    width: 260px;
-  }
-  
-  .search-box {
-    width: 280px;
-  }
+  .sidebar { width: 260px; }
+  .search-box { width: 260px; }
 }
-
 @media (max-width: 767px) {
-  .navbar {
-    padding: 0 var(--space-4);
-    height: 56px;
-  }
-  
-  .navbar-brand-text {
-    font-size: 16px;
-  }
-  
-  .navbar-brand-subtitle {
-    display: none;
-  }
-  
-  .search-box {
-    width: auto;
-    flex: 1;
-    margin: 0 var(--space-3);
-  }
-  
-  .search-input {
-    height: 40px;
-  }
-  
-  .menu-btn {
-    display: block;
-  }
-  
+  .navbar { padding: 0 var(--space-4); height: 56px; }
+  .navbar-brand-text { font-size: 15px; }
+  .navbar-brand-subtitle { display: none; }
+  .search-box { width: auto; flex: 1; margin: 0 var(--space-2); }
+  .search-input { height: 38px; }
+  .menu-btn { display: block; }
   .sidebar {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    width: 280px;
-    height: calc(100vh - 56px);
-    transform: translateX(-100%);
-    transition: transform var(--transition-normal);
-    z-index: 100;
+    position: fixed; top: 56px; left: 0; width: 280px;
+    height: calc(100vh - 56px); transform: translateX(-100%);
+    transition: transform var(--transition-normal); z-index: 100;
   }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .sidebar-overlay {
-    display: block;
-  }
-  
-  .sidebar-overlay.open {
-    opacity: 1;
-  }
-  
-  .main {
-    padding: var(--space-4);
-  }
-  
-  .main-title {
-    font-size: 22px;
-  }
-  
-  .doc-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .policy-card-header {
-    padding: var(--space-4);
-  }
-  
-  .policy-card-title {
-    font-size: 18px;
-  }
-  
-  .policy-tabs {
-    padding: var(--space-3) var(--space-4) 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .tab-btn {
-    padding: var(--space-2) var(--space-4);
-    white-space: nowrap;
-  }
-  
-  .tab-content {
-    padding: var(--space-4);
-  }
-  
-  .search-toast {
-    left: var(--space-4);
-    right: var(--space-4);
-    transform: translateY(-100px);
-    flex-wrap: wrap;
-    gap: var(--space-3);
-  }
-  
-  .search-toast.visible {
-    transform: translateY(0);
-  }
-  
-  .back-to-top {
-    bottom: var(--space-4);
-    right: var(--space-4);
-    width: 44px;
-    height: 44px;
-  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay { display: block; }
+  .main { padding: var(--space-4); }
+  .policy-card-title { font-size: 18px; }
+  .policy-card-header { padding: var(--space-4); }
+  .tab-content { padding: var(--space-4); }
+  .policy-tabs { padding: var(--space-3) var(--space-4) 0; overflow-x: auto; }
+  .tab-btn { white-space: nowrap; }
+  .doc-nav { padding: var(--space-3); }
+  .doc-nav-link { padding: var(--space-2) var(--space-3); font-size: 13px; }
+  .search-toast { left: var(--space-4); right: var(--space-4); white-space: normal;
+    flex-wrap: wrap; gap: var(--space-2); }
+  .back-to-top { bottom: var(--space-4); right: var(--space-4); width: 44px; height: 44px; }
 }
-
-@media (max-width: 480px) {
-  .navbar-brand-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-  }
-  
-  .doc-card {
-    padding: var(--space-4);
-  }
-  
-  .doc-card-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-  
-  .doc-card-title {
-    font-size: 15px;
-  }
-}
-
-/* ============================================
-   打印样式
-   ============================================ */
 @media print {
-  .navbar,
-  .sidebar,
-  .back-to-top,
-  .search-toast {
-    display: none !important;
-  }
-  
-  .main {
-    padding: 0;
-    max-width: none;
-  }
-  
-  .policy-card {
-    break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #ddd;
-  }
-}
-
-
-/* 文档导航 */
-.doc-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-6);
-  padding: var(--space-4);
-  background: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-}
-
-.doc-nav-link {
-  padding: var(--space-3) var(--space-5);
-  background: var(--primary-50);
-  color: var(--primary-700);
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: all var(--transition-fast);
-}
-
-.doc-nav-link:hover {
-  background: var(--primary-100);
-}
-
-.doc-nav-link.disabled {
-  background: var(--bg-tertiary);
-  color: var(--text-muted);
-  cursor: not-allowed;
-}
-
-.doc-nav-index {
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-/* 面包屑导航 */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-.breadcrumb a {
-  color: var(--primary-600);
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  color: var(--text-muted);
+  .navbar, .sidebar, .back-to-top, .search-toast, .doc-nav { display: none !important; }
+  .main { padding: 0; }
+  .policy-card { box-shadow: none; border: 1px solid #ddd; }
 }
 </style>
 </head>
 <body>
 
-<!-- 顶部导航栏 -->
 <header class="navbar">
   <div class="navbar-brand">
     <div class="navbar-brand-icon">&#128196;</div>
     <div>
       <div class="navbar-brand-text">2026年政策文件汇编</div>
-      <div class="navbar-brand-subtitle">可多新开带铺加盟方案3.0...</div>
+      <div class="navbar-brand-subtitle">可多新开带铺加盟方案3.0</div>
     </div>
   </div>
-  
   <div class="search-box">
     <div class="search-input-wrapper">
       <span class="search-icon">&#128269;</span>
@@ -1095,11 +355,9 @@ body {
       <button class="search-clear" id="searchClear" onclick="clearSearch()">&#10005;</button>
     </div>
   </div>
-  
   <button class="menu-btn" onclick="toggleSidebar()" aria-label="打开菜单">&#9776;</button>
 </header>
 
-<!-- 搜索结果提示条 -->
 <div class="search-toast" id="searchToast">
   <span class="search-toast-text">找到 <span class="search-toast-count" id="searchCount">0</span> 个结果</span>
   <div class="search-nav">
@@ -1109,12 +367,9 @@ body {
   <button class="search-clear-btn" onclick="clearSearch()">清除</button>
 </div>
 
-<!-- 侧边栏遮罩 -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
-<!-- 布局容器 -->
 <div class="layout">
-  <!-- 侧边栏导航 -->
   <nav class="sidebar" id="sidebar" aria-label="文档导航">
     <div class="sidebar-header">
       <div class="sidebar-title">文档列表</div>
@@ -1124,295 +379,112 @@ body {
           <span class="sidebar-stat-label">份文件</span>
         </div>
         <div class="sidebar-stat">
-          <span class="sidebar-stat-value">03</span>
+          <span class="sidebar-stat-value">5</span>
           <span class="sidebar-stat-label">当前</span>
         </div>
       </div>
     </div>
-    <ul class="nav-list" id="navList">
-
-    <li>
-      <a href="doc_30.html" class="nav-item " data-id="1">
-        <span class="nav-item-number">01</span>
-        <span class="nav-item-text">2026年翻牌店政策与提成方案</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_31.html" class="nav-item " data-id="2">
-        <span class="nav-item-number">02</span>
-        <span class="nav-item-text">2026年限时新开店政策及提成</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_01.html" class="nav-item " data-id="3">
-        <span class="nav-item-number">03</span>
-        <span class="nav-item-text">新可多标准店紧密型加盟模式3.0版</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_02.html" class="nav-item " data-id="4">
-        <span class="nav-item-number">04</span>
-        <span class="nav-item-text">新可多鲜食店紧密型加盟模式3.0版</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_03.html" class="nav-item active" data-id="5">
-        <span class="nav-item-number">05</span>
-        <span class="nav-item-text">可多新开带铺加盟方案3.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_04.html" class="nav-item " data-id="6">
-        <span class="nav-item-number">06</span>
-        <span class="nav-item-text">可多新开店加盟优惠政策3.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_05.html" class="nav-item " data-id="7">
-        <span class="nav-item-number">07</span>
-        <span class="nav-item-text">可多员工加盟开店指导方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_06.html" class="nav-item " data-id="8">
-        <span class="nav-item-number">08</span>
-        <span class="nav-item-text">可多加盟意向定金缴纳标准2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_07.html" class="nav-item " data-id="9">
-        <span class="nav-item-number">09</span>
-        <span class="nav-item-text">门店迁址方案3.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_08.html" class="nav-item " data-id="10">
-        <span class="nav-item-number">10</span>
-        <span class="nav-item-text">新开门店首年异动处理方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_09.html" class="nav-item " data-id="11">
-        <span class="nav-item-number">11</span>
-        <span class="nav-item-text">市场开发部开店提成方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_10.html" class="nav-item " data-id="12">
-        <span class="nav-item-number">12</span>
-        <span class="nav-item-text">市场开发部历史开店提成方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_11.html" class="nav-item " data-id="13">
-        <span class="nav-item-number">13</span>
-        <span class="nav-item-text">可多全民开发奖励方案4.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_12.html" class="nav-item " data-id="14">
-        <span class="nav-item-number">14</span>
-        <span class="nav-item-text">大客户服务方案1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_13.html" class="nav-item " data-id="15">
-        <span class="nav-item-number">15</span>
-        <span class="nav-item-text">开发人员晋升降级内控标准优化3.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_14.html" class="nav-item " data-id="16">
-        <span class="nav-item-number">16</span>
-        <span class="nav-item-text">市场开发部开发员绩效标准及评比规则1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_15.html" class="nav-item " data-id="17">
-        <span class="nav-item-number">17</span>
-        <span class="nav-item-text">市场开发部开店阶段达成激励方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_16.html" class="nav-item " data-id="18">
-        <span class="nav-item-number">18</span>
-        <span class="nav-item-text">市场开发部新人培养期激励方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_17.html" class="nav-item " data-id="19">
-        <span class="nav-item-number">19</span>
-        <span class="nav-item-text">关于外埠市场开发设备支持方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_18.html" class="nav-item " data-id="20">
-        <span class="nav-item-number">20</span>
-        <span class="nav-item-text">市场开发部光谷东片区阶段性激励方案1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_19.html" class="nav-item " data-id="21">
-        <span class="nav-item-number">21</span>
-        <span class="nav-item-text">市场开发部原东部战区方案1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_20.html" class="nav-item " data-id="22">
-        <span class="nav-item-number">22</span>
-        <span class="nav-item-text">场地评估流程标准4.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_21.html" class="nav-item " data-id="23">
-        <span class="nav-item-number">23</span>
-        <span class="nav-item-text">招投标方案2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_22.html" class="nav-item " data-id="24">
-        <span class="nav-item-number">24</span>
-        <span class="nav-item-text">市场开发部招标项目办理流程2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_23.html" class="nav-item " data-id="25">
-        <span class="nav-item-number">25</span>
-        <span class="nav-item-text">可多优质加盟商访谈方案1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_24.html" class="nav-item " data-id="26">
-        <span class="nav-item-number">26</span>
-        <span class="nav-item-text">市场开发部本埠外埠区域划分规定2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_25.html" class="nav-item " data-id="27">
-        <span class="nav-item-number">27</span>
-        <span class="nav-item-text">市场开发部黄区培训及会议机制3.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_26.html" class="nav-item " data-id="28">
-        <span class="nav-item-number">28</span>
-        <span class="nav-item-text">市场开发部各岗位参会管理细则1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_27.html" class="nav-item " data-id="29">
-        <span class="nav-item-number">29</span>
-        <span class="nav-item-text">市场开发部会议管理机制2.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_28.html" class="nav-item " data-id="30">
-        <span class="nav-item-number">30</span>
-        <span class="nav-item-text">市场开发部开发评级方案1.0</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="doc_29.html" class="nav-item " data-id="31">
-        <span class="nav-item-number">31</span>
-        <span class="nav-item-text">可多市场开发部招聘标准及要求2.0</span>
-      </a>
-    </li>
+    <ul class="nav-list">
+<li><a href="doc_30.html" class="nav-item "><span class="nav-item-number">01</span><span class="nav-item-text">2026年翻牌店政策与提成方案</span></a></li>
+<li><a href="doc_31.html" class="nav-item "><span class="nav-item-number">02</span><span class="nav-item-text">2026年限时新开店政策及提成</span></a></li>
+<li><a href="doc_01.html" class="nav-item "><span class="nav-item-number">03</span><span class="nav-item-text">新可多标准店紧密型加盟模式3.0版</span></a></li>
+<li><a href="doc_02.html" class="nav-item "><span class="nav-item-number">04</span><span class="nav-item-text">新可多鲜食店紧密型加盟模式3.0版</span></a></li>
+<li><a href="doc_03.html" class="nav-item active"><span class="nav-item-number">05</span><span class="nav-item-text">可多新开带铺加盟方案3.0</span></a></li>
+<li><a href="doc_04.html" class="nav-item "><span class="nav-item-number">06</span><span class="nav-item-text">可多新开店加盟优惠政策3.0</span></a></li>
+<li><a href="doc_05.html" class="nav-item "><span class="nav-item-number">07</span><span class="nav-item-text">可多员工加盟开店指导方案2.0</span></a></li>
+<li><a href="doc_06.html" class="nav-item "><span class="nav-item-number">08</span><span class="nav-item-text">可多加盟意向定金缴纳标准2.0</span></a></li>
+<li><a href="doc_07.html" class="nav-item "><span class="nav-item-number">09</span><span class="nav-item-text">门店迁址方案3.0</span></a></li>
+<li><a href="doc_08.html" class="nav-item "><span class="nav-item-number">10</span><span class="nav-item-text">新开门店首年异动处理方案2.0</span></a></li>
+<li><a href="doc_09.html" class="nav-item "><span class="nav-item-number">11</span><span class="nav-item-text">市场开发部开店提成方案2.0</span></a></li>
+<li><a href="doc_10.html" class="nav-item "><span class="nav-item-number">12</span><span class="nav-item-text">市场开发部历史开店提成方案2.0</span></a></li>
+<li><a href="doc_11.html" class="nav-item "><span class="nav-item-number">13</span><span class="nav-item-text">可多全民开发奖励方案4.0</span></a></li>
+<li><a href="doc_12.html" class="nav-item "><span class="nav-item-number">14</span><span class="nav-item-text">大客户服务方案1.0</span></a></li>
+<li><a href="doc_13.html" class="nav-item "><span class="nav-item-number">15</span><span class="nav-item-text">开发人员晋升降级内控标准优化3.0</span></a></li>
+<li><a href="doc_14.html" class="nav-item "><span class="nav-item-number">16</span><span class="nav-item-text">市场开发部开发员绩效标准及评比规则1.0</span></a></li>
+<li><a href="doc_15.html" class="nav-item "><span class="nav-item-number">17</span><span class="nav-item-text">市场开发部开店阶段达成激励方案2.0</span></a></li>
+<li><a href="doc_16.html" class="nav-item "><span class="nav-item-number">18</span><span class="nav-item-text">市场开发部新人培养期激励方案2.0</span></a></li>
+<li><a href="doc_17.html" class="nav-item "><span class="nav-item-number">19</span><span class="nav-item-text">关于外埠市场开发设备支持方案2.0</span></a></li>
+<li><a href="doc_18.html" class="nav-item "><span class="nav-item-number">20</span><span class="nav-item-text">市场开发部光谷东片区阶段性激励方案1.0</span></a></li>
+<li><a href="doc_19.html" class="nav-item "><span class="nav-item-number">21</span><span class="nav-item-text">市场开发部原东部战区方案1.0</span></a></li>
+<li><a href="doc_20.html" class="nav-item "><span class="nav-item-number">22</span><span class="nav-item-text">场地评估流程标准4.0</span></a></li>
+<li><a href="doc_21.html" class="nav-item "><span class="nav-item-number">23</span><span class="nav-item-text">招投标方案2.0</span></a></li>
+<li><a href="doc_22.html" class="nav-item "><span class="nav-item-number">24</span><span class="nav-item-text">市场开发部招标项目办理流程2.0</span></a></li>
+<li><a href="doc_23.html" class="nav-item "><span class="nav-item-number">25</span><span class="nav-item-text">可多优质加盟商访谈方案1.0</span></a></li>
+<li><a href="doc_24.html" class="nav-item "><span class="nav-item-number">26</span><span class="nav-item-text">市场开发部本埠外埠区域划分规定2.0</span></a></li>
+<li><a href="doc_25.html" class="nav-item "><span class="nav-item-number">27</span><span class="nav-item-text">市场开发部黄区培训及会议机制3.0</span></a></li>
+<li><a href="doc_26.html" class="nav-item "><span class="nav-item-number">28</span><span class="nav-item-text">市场开发部各岗位参会管理细则1.0</span></a></li>
+<li><a href="doc_27.html" class="nav-item "><span class="nav-item-number">29</span><span class="nav-item-text">市场开发部会议管理机制2.0</span></a></li>
+<li><a href="doc_28.html" class="nav-item "><span class="nav-item-number">30</span><span class="nav-item-text">市场开发部开发评级方案1.0</span></a></li>
+<li><a href="doc_29.html" class="nav-item "><span class="nav-item-number">31</span><span class="nav-item-text">可多市场开发部招聘标准及要求2.0</span></a></li>
     </ul>
   </nav>
-  
-  <!-- 主内容区 -->
+
   <main class="main">
-    <!-- 面包屑 -->
-    <nav class="breadcrumb" aria-label="面包屑导航">
-      <a href="../index.html">首页</a>
-      <span class="breadcrumb-separator">/</span>
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="../index.html">&#127968; 首页</a>
+      <span class="breadcrumb-sep">/</span>
       <span>可多新开带铺加盟方案3.0</span>
     </nav>
-    
-    <!-- 文档导航 -->
+
     <div class="doc-nav">
-      <a href="doc_02.html" class="doc-nav-link prev">&#8592; 上一份</a>
+      <a href="doc_02.html" class="doc-nav-link">&#8592; 上一份</a>
       <span class="doc-nav-index">5 / 31</span>
-      <a href="doc_04.html" class="doc-nav-link next">下一份 &#8594;</a>
+      <a href="doc_04.html" class="doc-nav-link">下一份 &#8594;</a>
     </div>
-    
-    <!-- 政策卡片 -->
-    <article class="policy-card" id="policyCard">
+
+    <article class="policy-card">
       <header class="policy-card-header">
         <h1 class="policy-card-title">可多新开带铺加盟方案3.0</h1>
         <div class="policy-card-meta">
           <div class="policy-card-tags">
-            <span class="tag tag-word"><span class="tag-icon">&#128196;</span>文字版</span>
-            <span class="tag tag-scan"><span class="tag-icon">&#128247;</span>扫描版</span>
+            <span class="tag tag-word">&#128196; 文字版</span>
+            <span class="tag tag-scan">&#128247; 扫描版</span>
+            <span class="tag" style="background:#3b82f618;color:#3b82f6">开店政策</span>
           </div>
           <span class="policy-card-id">#03</span>
         </div>
       </header>
-      
+
       <div class="policy-tabs">
-        <button class="tab-btn active" onclick="switchTab('word')" data-tab="word"><span class="tab-icon">&#128196;</span>文字版</button>
-        <button class="tab-btn" onclick="switchTab('scan')" data-tab="scan"><span class="tab-icon">&#128247;</span>扫描版</button>
+        <button class="tab-btn active" onclick="switchTab('word')" data-tab="word">&#128196; 文字版</button>
+        <button class="tab-btn" onclick="switchTab('scan')" data-tab="scan">&#128247; 扫描版</button>
       </div>
-      
+
       <div class="tab-content active" id="word-content">
-        <div class="document-content">
-<p>文档内容加载中...</p>
+        <div class="word-content" id="docContent">
+<div class="table-wrap"><table class="doc-table"><colgroup><col style="width:49.4%;min-width:316px;"><col style="width:50.6%;min-width:324px;"></colgroup><tr><th><span style="font-size:14pt">发件编号：</span><span style="font-size:14pt">SCKF</span><span style="font-size:14pt">/TZ/</span><span style="font-size:14pt">202</span><span style="font-size:14pt">5/12</span><span style="font-size:14pt">-</span><span style="font-size:14pt">05</span></th><th rowspan="3"><span style="font-size:14pt">部门会签：</span></th></tr><tr><td><span style="font-size:14pt">发件部门：</span><span style="font-size:14pt">市场开发部</span></td></tr><tr><td><span style="font-size:14pt">发件日期：20</span><span style="font-size:14pt">25</span><span style="font-size:14pt">-</span><span style="font-size:14pt">12</span><span style="font-size:14pt">-</span><span style="font-size:14pt">10</span></td></tr><tr><td><span style="font-size:14pt">收件部门：</span><span style="font-size:14pt">相关部门</span></td><td><span style="font-size:14pt">轮值副总签字：</span></td></tr><tr><td><span style="font-size:14pt">存档地址：</span><span style="font-size:14pt">市场开发部</span></td><td><span style="font-size:14pt">总经理签发：</span></td></tr></table></div>
+<p style="text-align:center;margin:3px 0;"><span style="font-weight:bold;color:#FF0000;font-size:20pt">2026</span><span style="font-weight:bold;font-size:20pt">年新可多标准店紧密型加盟模式</span><span style="font-weight:bold;color:#FF0000;font-size:20pt">3</span><span style="font-weight:bold;color:#FF0000;font-size:20pt">.0</span></p>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">为继续贯彻找好铺、开好店的原则，</span><span style="font-size:12pt">坚持以客户为中心的服务准则，最大程度上降低公司现有老加盟商的新开店投资风险，同时给老加盟商多一个优质选择，现就打造新可多非鲜食店型制定以下紧密型加盟模式。</span></p>
+<div class="table-wrap"><table class="doc-table"><colgroup><col style="width:12.4%;min-width:81px;"><col style="width:87.6%;min-width:576px;"></colgroup><tr><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">加盟品牌</span></th><th style="text-align:center;"><span style="font-weight:bold;font-size:12pt">可多便利</span></th></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">适用群体</span></td><td style="text-align:center;"><span style="font-size:12pt">仅适用于公司现有可多品牌老加盟商新开店</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">立地要求</span></td><td style="text-align:center;"><span style="font-size:12pt">符合可多选址要求</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">店铺面积</span></td><td style="text-align:center;"><span style="font-size:12pt">社区型≥50平方，商业/写字楼/其它类型≥30平方，门店展面要求门头3米以上。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">合同周期</span></td><td style="text-align:center;"><span style="font-size:12pt">5年</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">品牌</span><br><span style="font-weight:bold;font-size:12pt">使用费</span></td><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">2.5万元（有复数店政策）</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">履约</span><br><span style="font-weight:bold;font-size:12pt">保证金</span></td><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">3万元（复数店不递减）</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">商品</span><br><span style="font-weight:bold;font-size:12pt">保证金</span></td><td><span style="font-size:12pt">1、商品保证金标准为10万元。</span><span style="font-weight:bold;font-size:12pt">前100家签约的加盟商，经审核确认后可减免该保证金</span><span style="font-size:12pt">。</span><br><span style="font-size:12pt">2、其它审批规则：当单次/单批货款金额超过10万元且不足20万元时，需提交审批表，经公司总经办审批通过后方可执行。</span><br><span style="font-size:12pt">3、商品保证金最高限额为20万元。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">设计</span><br><span style="font-weight:bold;font-size:12pt">监理费</span></td><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">0.3万元</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">招牌</span></td><td><span style="font-size:12pt">收费标准：吸塑灯箱1500元/米，招牌打底600元/米（超高超厚非标招牌的打底费用据实结算）。</span><span style="font-weight:bold;font-size:12pt">以10米为例，招牌预算约15000元，招牌打底预算约6000元。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">信息系统</span></td><td><span style="font-size:12pt">ERP系统、OA系统、帆软，</span><span style="font-weight:bold;font-size:12pt">合计1.44万元。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">监控设备费用</span><br><span style="font-weight:bold;font-size:12pt">（云值守）</span></td><td><span style="font-size:12pt">门店以KA价格栏为准, 可多享受微店全场减-3500的优惠政策,</span><span style="font-weight:bold;font-size:12pt">10路监控费用参考价格5530元</span><span style="font-size:12pt">(不包含仓库,室外摄像头,增设280元/个)。 门店具体路数由门店提供平面图后，微店进行点位预估后确认，最终以微店设备报价表为准。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">陈列</span><br><span style="font-weight:bold;font-size:12pt">服务费</span></td><td><span style="font-size:12pt">店面陈列、价签安插、收费标准如下：</span><br><span style="font-size:12pt">1、</span><span style="font-weight:bold;font-size:12pt">门店面积≤80㎡，陈列费用为2000元</span><span style="font-size:12pt">；</span><br><span style="font-size:12pt">2、80㎡＜门店面积≤150㎡，陈列费用为3000元；</span><br><span style="font-size:12pt">3、150㎡＜门店面积≤300㎡，陈列费用为4000元；</span><br><span style="font-size:12pt">注：武汉市外门店另外增加500元。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">开业物件</span></td><td><span style="font-size:12pt">营业员工装(包含卫衣/外套4件、T恤4件、围兜4条)、开业海报、服务看板、爆炸贴、门店地毯(尺寸800mm*1200mm)、红地毯(规格1米*5米)和礼花(6根)等开业物料，</span><span style="font-weight:bold;font-size:12pt">合计1500元</span><span style="font-size:12pt">。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">陈列道具</span></td><td><span style="font-size:12pt">1、部分公司统一定制的陈列道具需从公司采购（如：堆码台，定制购物篮，零食篮，落地展架，定制垃圾桶，亚克力展架，定制挂钟，定制挂板等）。</span><br><span style="font-size:12pt">2、S＜40平米</span><span style="font-weight:bold;font-size:12pt">3000元</span><span style="font-size:12pt">，40平米≤S＜70平米</span><span style="font-weight:bold;font-size:12pt">4000元</span><span style="font-size:12pt">,70平米≤S＜90平米</span><span style="font-weight:bold;font-size:12pt">5000元</span><span style="font-size:12pt">，此项为预估费用，据实结算。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">开业主持人服务</span></td><td><span style="font-size:12pt">1、可选方案：</span><br><span style="font-size:12pt">方案A:</span><span style="font-weight:bold;font-size:12pt">1200元</span><span style="font-size:12pt">（2人） 9:00-12:00 武汉市区三环内（专业、热情）</span><br><span style="font-size:12pt">方案B：</span><span style="font-weight:bold;font-size:12pt">600元</span><span style="font-size:12pt">（2人） 9:00-12:00 武汉市区三环内（热情、有活力）</span><br><span style="font-size:12pt">方案C：</span><span style="font-weight:bold;font-size:12pt">300元</span><span style="font-size:12pt">（1人） 9:00-12:00 武汉市区三环内（热情、有活力）</span><br><br><span style="font-size:12pt">2、武汉市三环外额外增加50元；外埠市场交通费需加盟商承担来回路费，以实际费用为准。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">运营要求</span></td><td style="text-align:center;"><span style="font-size:12pt">24小时营业（可含云值守）。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">设施设备</span></td><td><span style="font-size:12pt">门店所有设备设施均需找公司采购，按照品牌建设部指定的厂家、品牌、型号、数量一次性配置全新设备。包括但不限于：货架、子母柜、风幕柜、水柜、收银台、熟食设备等。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">电脑设备</span></td><td><span style="font-size:12pt">门店所有电脑设备均需找公司采购，按照信息部指定的厂家、品牌、型号、数量一次性配置全新设备。包括但不限于：PDA手持终端、包含后台电脑、触摸屏双屏收银机、打印机、扫描平台、无线路由器、音像功放、音频线，UPS不间断电源、扫描枪，鼠标，超五类网线（3根）,无线网卡,蓝牙打印机,交换机等。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">店铺装修</span></td><td><span style="font-size:12pt">1、武汉市内本埠战区新开门店默认公司装修；</span><br><span style="font-size:12pt">2、外埠战区审批后可选择缴纳装修保证金后自行装修，自装接受公司品牌建设部监督，严格按照公司设计要求施工，如不符合公司验收标准，则公司有权进行相应处罚，责令整顿期内不执行的，公司有权扣除装修保证金。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">系统授权使用费</span></td><td><span style="font-size:12pt">系统开发公司每年应收取的软件站点授权费用：海鼎系统600元/年，OA系统500元/年，帆软报表400元/年，</span><span style="font-weight:bold;font-size:12pt">合计1500元/年。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">宣传物料费用</span></td><td><span style="font-weight:bold;font-size:12pt">1、公司按运营需求给门店每月赠送宣传物料。</span><br><span style="font-size:12pt">2、门店须严格按照使用标准执行，不合格处按营运要求的整改时间内完成整改，不按要求整改或拒不整改者公司按要求予以处罚。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">房租、人工、水电</span></td><td style="text-align:center;"><span style="font-size:12pt">加盟商为经营主体并承担费用。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">店员上岗要求</span></td><td style="text-align:center;"><span style="font-size:12pt">开业前必须安排门店店长参加开业培训课程，并修满该课程，公司授予上岗合格证。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">关于进货及销售</span></td><td><span style="font-size:12pt">1、非烟商品需全部从公司订购，不允许外采，销售需全额入机。</span><br><span style="font-size:12pt">2、香烟门店自行采购，自行管理进销存。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">物流配送</span></td><td><span style="font-size:12pt">1、根据门店区域和线路，按照相应的配送方案核算。</span><br><span style="font-weight:bold;font-size:12pt">2、执行方案：武汉市内03方案（103%配送方案）；武汉市外06方案（104%配送方案）；需要开专票05方案（107%专票配送方案）。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">设备维保</span></td><td><span style="font-size:12pt">1、若门店设备由门店自行渠道采购，门店自行负责设备维保。</span><br><span style="font-size:12pt">2、若门店设备从公司处购买，公司提供维保服务，但若有费用产生则由门店据实承担。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">店铺盘点</span></td><td><span style="font-size:12pt">1、公司会根据经营需求定期或不定期组织人员到门店盘点，若产生费用则由加盟商承担。</span><br><span style="font-size:12pt">2、武汉市内门店：盘点金额＜6万，300元；6万≤盘点金额＜10万，400元；10万≤盘点金额＜16万，500元；16万≤盘点金额＜20万，600元。武汉市外门店另外增加200元。</span><br><span style="font-size:12pt">3、盘亏的部分由加盟商自行承担，盘盈的直接做入库处理。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">门店</span><br><span style="font-weight:bold;font-size:12pt">财产险</span></td><td><span style="font-size:12pt">1、紧密型加盟店须购买公司指定合作的《门店财产险》。</span><br><span style="font-size:12pt">2、上述保险费用由紧密型加盟商自行承担。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">运营费用</span></td><td style="text-align:center;"><span style="font-size:12pt">运营产生的物料费、废弃、宣传费、平台手续费等据实由门店承担。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">营业执照办理</span></td><td style="text-align:center;"><span style="font-size:12pt">加盟商所有，并负责年检。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">店铺对外名称及</span><br><span style="font-weight:bold;font-size:12pt">加盟者办理企业</span></td><td style="text-align:center;"><span style="font-size:12pt">直接注册申办个体工商户、个人独资企业或有限公司处理所有对外事宜。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">废弃补贴</span></td><td style="text-align:center;"><span style="font-size:12pt">门店自行承担鲜食类商品的损失。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">培训</span><br><span style="font-weight:bold;font-size:12pt">保证金</span></td><td><span style="font-size:12pt">考试分为笔试+实操，如考试成绩不合格则需二次参加培训学习，并给予门店两次补考机会，考试通过后公司将退回</span><span style="font-weight:bold;font-size:12pt">500元</span><span style="font-size:12pt">培训保证金于门店普通账户。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">开业陪跑</span></td><td style="text-align:center;"><span style="font-size:12pt">在门店开业后，由公司派专人陪跑带教15天。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">结算方式</span></td><td style="text-align:center;"><span style="font-size:12pt">营业款需要缴纳公司（非现金+现金），</span><span style="font-weight:bold;font-size:12pt">次月15日起开始结算转款</span><span style="font-size:12pt">。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">加盟商</span><br><span style="font-weight:bold;font-size:12pt">收益</span></td><td style="text-align:center;"><span style="font-size:12pt">销售额 - 商品成本 - 公司收益 - 部分月度费用 + 积分返款</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;color:#FF0000;font-size:12pt">合同签订要求</span></td><td style="text-align:center;"><span style="color:#FF0000;font-size:12pt">签加盟合同环节，需要录制视频（解读重要条款）、并存档视频，每一个视频都需要在电脑做好编号，以便后期随时查找。</span></td></tr><tr><td style="text-align:center;"><span style="font-weight:bold;font-size:12pt">公司收益</span></td><td><span style="font-weight:bold;font-size:12pt">1. 门店每月非烟销售额≤10万元，公司按门店非烟销售额的 1.5 %提点；</span><br><span style="font-weight:bold;font-size:12pt">2. 门店每月非烟销售额超出10万元的部分，公司按超出部分的 1 %提点；</span><br><span style="font-weight:bold;font-size:12pt">3. 每月提点总金额3000元封顶。</span><br><span style="font-size:11pt">举例：</span><br><span style="font-weight:bold;font-size:10pt">a.</span><span style="font-size:10pt">某店本月非烟销售9万元，&nbsp;&nbsp;&nbsp;&nbsp;公司提点计算：90000*1.5%=1350元</span><br><span style="font-weight:bold;font-size:10pt">b.</span><span style="font-size:10pt">某店本月非烟销售12.3万元， 公司提点计算：100000*1.5%+23000*1%=1730元</span><br><span style="font-weight:bold;font-size:10pt">c.</span><span style="font-size:10pt">某店本月非烟销售27万元，&nbsp;&nbsp;&nbsp;公司提点计算：100000*1.5%+170000*1%=3000元（因超过3000元最终按封顶收）</span></td></tr><tr><td rowspan="2" style="text-align:center;"><span style="font-weight:bold;font-size:12pt">其它政策</span></td><td><span style="font-weight:bold;font-size:12pt">★ 前100名成功开店加盟商（进度会+全款）可享受商品保证金减免的政策！</span></td></tr><tr><td><span style="font-weight:bold;font-size:12pt">★ 复数店政策：</span><br><span style="font-size:12pt">如果成功开店，享受复数店品牌使用费递减政策（第二家店2万元品牌使用费，第三家店收1.5万元品牌使用费，第四家店收1万元品牌使用费，此后该加盟商再有新开的门店均按照1万元品牌使用费收取。）。履约保证金没有递减政策。</span></td></tr></table></div>
+<p style="text-indent:2.0em;margin:3px 0;"><span style="font-size:12pt">此方案自签批之日起开始执行，试行三个月，到期如无调整则继续延用。</span></p>
+<p style="text-align:right;margin:3px 0;"><span style="font-weight:bold;font-size:12pt">市场开发部</span></p>
+<p style="text-align:right;margin:3px 0;"><span style="font-weight:bold;font-size:12pt">2025年12月10</span><span style="font-weight:bold;font-size:12pt">日</span><span style="font-size:14pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </div>
+  </div>
+  <div id="doc_1-scan" class="tab-content">
+    <div class="scan-content">
+<div class="scan-page"><img src="images/doc_03_p1.jpg" alt="第1页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 1 / 4 页</div></div>
+<div class="scan-page"><img src="images/doc_03_p2.jpg" alt="第2页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 2 / 4 页</div></div>
+<div class="scan-page"><img src="images/doc_03_p3.jpg" alt="第3页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 3 / 4 页</div></div>
+<div class="scan-page"><img src="images/doc_03_p4.jpg" alt="第4页" style="max-width:100%;height:auto;display:block;margin:0 auto;"/><div class="page-num">第 4 / 4 页</div></div>
         </div>
       </div>
-      
+
       <div class="tab-content" id="scan-content">
         <div class="scan-content">
-          <div class="scan-page">
-            <img src="../policy_images/doc3_page1.png" alt="可多新开带铺加盟方案3.0 - 扫描版" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div style="display:none; min-height:200px; align-items:center; justify-content:center; color:var(--text-muted);">
-              <span>扫描版图片加载中或暂不可用</span>
-            </div>
-            <div class="page-num">扫描版</div>
-          </div>
+<div class="scan-empty"><div style="font-size:48px;margin-bottom:16px">&#128247;</div><p>扫描版图片暂不可用</p></div>
         </div>
       </div>
     </article>
-    
-    <!-- 底部导航 -->
-    <div class="doc-nav">
-      <a href="doc_02.html" class="doc-nav-link prev">&#8592; 上一份</a>
-      <a href="../index.html" class="doc-nav-link">返回首页</a>
-      <a href="doc_04.html" class="doc-nav-link next">下一份 &#8594;</a>
+
+    <div class="doc-nav" style="margin-top:var(--space-5);margin-bottom:0">
+      <a href="doc_02.html" class="doc-nav-link">&#8592; 上一份</a>
+      <a href="../index.html" class="doc-nav-link">&#127968; 返回首页</a>
+      <a href="doc_04.html" class="doc-nav-link">下一份 &#8594;</a>
     </div>
   </main>
 </div>
 
-<!-- 返回顶部按钮 -->
 <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="返回顶部">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M18 15l-6-6-6 6"/>
@@ -1420,130 +492,85 @@ body {
 </button>
 
 <script>
-// Tab切换
 function switchTab(type) {
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-  
-  document.querySelector(`[data-tab="${type}"]`).classList.add('active');
-  document.getElementById(`${type}-content`).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelector('[data-tab="' + type + '"]').classList.add('active');
+  document.getElementById(type + '-content').classList.add('active');
 }
 
-// 搜索功能
-let searchResults = [];
-let currentSearchIndex = -1;
+var searchResults = [], currentIdx = -1;
 
-function handleSearch(event) {
-  const term = event.target.value.trim();
-  document.getElementById('searchClear').classList.toggle('visible', term.length > 0);
-  
-  if (event.key === 'Enter') {
-    doSearch();
-  }
+function handleSearch(e) {
+  document.getElementById('searchClear').classList.toggle('visible', e.target.value.length > 0);
+  if (e.key === 'Enter') doSearch();
 }
 
 function doSearch() {
-  const term = document.getElementById('searchInput').value.trim();
+  var term = document.getElementById('searchInput').value.trim();
   if (!term) return;
-  
   clearHighlights();
-  
-  searchResults = [];
-  currentSearchIndex = -1;
-  
-  const content = document.querySelector('.document-content');
-  const text = content.textContent;
-  
-  if (text.toLowerCase().includes(term.toLowerCase())) {
-    highlightText(content, term);
-    
-    const highlights = content.querySelectorAll('.highlight');
-    highlights.forEach(el => searchResults.push(el));
-    
-    document.getElementById('searchCount').textContent = searchResults.length;
-    document.getElementById('searchToast').classList.add('visible');
-    
-    if (searchResults.length > 0) {
-      currentSearchIndex = 0;
-      highlightCurrentResult();
-    }
-  } else {
-    document.getElementById('searchCount').textContent = '0';
-    document.getElementById('searchToast').classList.add('visible');
-  }
-  
-  updateNavButtons();
+  var content = document.getElementById('docContent');
+  highlightText(content, term);
+  searchResults = Array.from(content.querySelectorAll('.highlight'));
+  document.getElementById('searchCount').textContent = searchResults.length;
+  document.getElementById('searchToast').classList.toggle('visible', searchResults.length > 0);
+  document.getElementById('prevBtn').disabled = searchResults.length <= 1;
+  document.getElementById('nextBtn').disabled = searchResults.length <= 1;
+  if (searchResults.length > 0) { currentIdx = 0; markCurrent(); }
 }
 
-function highlightText(element, term) {
-  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
-  const textNodes = [];
-  let node;
-  
+function highlightText(el, term) {
+  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  var nodes = [];
+  var node;
   while (node = walker.nextNode()) {
-    if (node.nodeValue.toLowerCase().includes(term.toLowerCase())) {
-      textNodes.push(node);
-    }
+    if (node.nodeValue.toLowerCase().indexOf(term.toLowerCase()) >= 0) nodes.push(node);
   }
-  
-  textNodes.forEach(node => {
-    const span = document.createElement('span');
-    const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
-    span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
-    node.parentNode.replaceChild(span, node);
+  nodes.forEach(function(n) {
+    var span = document.createElement('span');
+    span.innerHTML = n.nodeValue.replace(new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<span class="highlight">$1</span>');
+    n.parentNode.replaceChild(span, n);
   });
 }
 
 function clearHighlights() {
-  const content = document.querySelector('.document-content');
-  content.querySelectorAll('.highlight').forEach(el => {
-    const parent = el.parentNode;
-    parent.replaceChild(document.createTextNode(el.textContent), el);
-    parent.normalize();
+  var content = document.getElementById('docContent');
+  content.querySelectorAll('.highlight').forEach(function(el) {
+    var p = el.parentNode;
+    p.replaceChild(document.createTextNode(el.textContent), el);
+    p.normalize();
   });
   document.getElementById('searchToast').classList.remove('visible');
+  searchResults = []; currentIdx = -1;
 }
 
 function clearSearch() {
   document.getElementById('searchInput').value = '';
   document.getElementById('searchClear').classList.remove('visible');
   clearHighlights();
-  searchResults = [];
-  currentSearchIndex = -1;
 }
 
-function escapeRegex(string) {
-  return string.replace(/[.*+?^${}()|[\]\]/g, '\$&');
-}
-
-function highlightCurrentResult() {
-  document.querySelectorAll('.highlight.current').forEach(el => el.classList.remove('current'));
-  if (searchResults[currentSearchIndex]) {
-    searchResults[currentSearchIndex].classList.add('current');
-    searchResults[currentSearchIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+function markCurrent() {
+  document.querySelectorAll('.highlight.current').forEach(function(el) { el.classList.remove('current'); });
+  if (searchResults[currentIdx]) {
+    searchResults[currentIdx].classList.add('current');
+    searchResults[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
 
 function goNext() {
-  if (searchResults.length === 0) return;
-  currentSearchIndex = (currentSearchIndex + 1) % searchResults.length;
-  highlightCurrentResult();
-  updateNavButtons();
+  if (!searchResults.length) return;
+  currentIdx = (currentIdx + 1) % searchResults.length;
+  markCurrent();
 }
 
 function goPrev() {
-  if (searchResults.length === 0) return;
-  currentSearchIndex = (currentSearchIndex - 1 + searchResults.length) % searchResults.length;
-  highlightCurrentResult();
-  updateNavButtons();
+  if (!searchResults.length) return;
+  currentIdx = (currentIdx - 1 + searchResults.length) % searchResults.length;
+  markCurrent();
 }
 
-function updateNavButtons() {
-  document.getElementById('prevBtn').disabled = searchResults.length <= 1;
-  document.getElementById('nextBtn').disabled = searchResults.length <= 1;
-}
-
-// 侧边栏控制
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('sidebarOverlay').classList.toggle('open');
@@ -1554,16 +581,11 @@ function closeSidebar() {
   document.getElementById('sidebarOverlay').classList.remove('open');
 }
 
-// 返回顶部
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-// 滚动监听
 window.addEventListener('scroll', function() {
   document.getElementById('backToTop').classList.toggle('visible', window.pageYOffset > 300);
 }, { passive: true });
 </script>
-
 </body>
 </html>
