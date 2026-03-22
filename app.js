@@ -23,8 +23,7 @@ const elements = {
     searchPageInput: document.getElementById('search-page-input'),
     searchPageBtn: document.getElementById('search-page-btn'),
     searchResults: document.getElementById('search-results'),
-    searchStats: document.getElementById('search-stats'),
-    fontSizeControls: document.getElementById('font-size-controls')
+    searchStats: document.getElementById('search-stats')
 };
 
 // PDF图片缓存
@@ -34,7 +33,6 @@ let currentPdfImages = [];
 // 当前状态
 let currentPolicy = null;
 let currentView = 'text';
-let currentFontSize = 'normal';
 
 // 滚动位置记忆
 // 详情页: { policyId: { text: scrollY, scan: scrollY } }
@@ -49,7 +47,6 @@ let isSearchIndexReady = false;
 async function init() {
     renderPolicyList();
     setupEventListeners();
-    loadFontSize();
     
     // 构建搜索索引
     await buildSearchIndex();
@@ -509,57 +506,7 @@ function hideSearchPage() {
     // 这个方法在点击搜索结果后调用
 }
 
-// 设置字体大小
-function setFontSize(size) {
-    const root = document.documentElement;
-    const textContent = document.getElementById('text-content');
-    const scanContent = document.getElementById('scan-content');
-    
-    currentFontSize = size;
-    
-    // 更新按钮状态
-    document.querySelectorAll('.font-size-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.size === size);
-    });
-    
-    // 应用字体大小
-    let fontSizeValue;
-    switch(size) {
-        case 'small':
-            fontSizeValue = 'var(--doc-font-size-small)';
-            break;
-        case 'normal':
-            fontSizeValue = 'var(--doc-font-size-base)';
-            break;
-        case 'large':
-            fontSizeValue = 'var(--doc-font-size-large)';
-            break;
-        case 'xlarge':
-            fontSizeValue = 'var(--doc-font-size-xlarge)';
-            break;
-        default:
-            fontSizeValue = 'var(--doc-font-size-base)';
-    }
-    
-    // 应用到文字版和扫描版
-    if (textContent) {
-        textContent.style.fontSize = fontSizeValue;
-    }
-    if (scanContent) {
-        scanContent.style.fontSize = fontSizeValue;
-    }
-    
-    // 保存到本地存储
-    localStorage.setItem('policy-assembly-font-size', size);
-}
 
-// 加载保存的字体大小
-function loadFontSize() {
-    const savedSize = localStorage.getItem('policy-assembly-font-size');
-    if (savedSize) {
-        setFontSize(savedSize);
-    }
-}
 
 // 设置事件监听
 function setupEventListeners() {
@@ -592,13 +539,6 @@ function setupEventListeners() {
     // 视图切换
     elements.textViewBtn.addEventListener('click', () => switchView('text'));
     elements.scanViewBtn.addEventListener('click', () => switchView('scan'));
-    
-    // 字体大小控制
-    document.querySelectorAll('.font-size-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            setFontSize(btn.dataset.size);
-        });
-    });
     
     // 浏览器返回按钮
     window.addEventListener('popstate', (e) => {
@@ -637,23 +577,6 @@ function setupEventListeners() {
         }
         
         // Ctrl/Cmd + +/- 调整字体大小
-        if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '=')) {
-            e.preventDefault();
-            const sizes = ['small', 'normal', 'large', 'xlarge'];
-            const currentIndex = sizes.indexOf(currentFontSize);
-            if (currentIndex < sizes.length - 1) {
-                setFontSize(sizes[currentIndex + 1]);
-            }
-        }
-        
-        if ((e.ctrlKey || e.metaKey) && e.key === '-') {
-            e.preventDefault();
-            const sizes = ['small', 'normal', 'large', 'xlarge'];
-            const currentIndex = sizes.indexOf(currentFontSize);
-            if (currentIndex > 0) {
-                setFontSize(sizes[currentIndex - 1]);
-            }
-        }
     });
     
     // 屏幕尺寸变化时重新加载PDF图片（如果当前在扫描版视图）
