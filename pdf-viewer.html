@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        #pdf-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .pdf-page {
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            background: white;
+            max-width: 100%;
+        }
+        .pdf-page img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .loading {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+        }
+        .error {
+            padding: 40px;
+            text-align: center;
+            color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-container">
+        <div class="loading">正在加载PDF...</div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        
+        // 从URL参数获取PDF路径
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get('file');
+        
+        if (!pdfUrl) {
+            document.getElementById('pdf-container').innerHTML = '<div class="error">未指定PDF文件</div>';
+        } else {
+            renderPDF(pdfUrl);
+        }
+        
+        async function renderPDF(url) {
+            try {
+                const loadingTask = pdfjsLib.getDocument(url);
+                const pdf = await loadingTask.promise;
+                
+                const container = document.getElementById('pdf-container');
+                container.innerHTML = '';
+                
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    
+                    // 根据屏幕宽度调整缩放比例
+                    const viewport = page.getViewport({ scale: 1 });
+                    const containerWidth = window.innerWidth - 40;
+                    const scale = Math.min(containerWidth / viewport.width, 2);
+                    const scaledViewport = page.getViewport({ scale: scale });
+                    
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = scaledViewport.width;
+                    canvas.height = scaledViewport.height;
+                    canvas.className = 'pdf-page';
+                    
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: scaledViewport
+                    };
+                    
+                    await page.render(renderContext).promise;
+                    container.appendChild(canvas);
+                }
+            } catch (error) {
+                console.error('PDF加载失败:', error);
+                document.getElementById('pdf-container').innerHTML = 
+                    '<div class="error">PDF加载失败，请直接下载查看</div>';
+            }
+        }
+    </script>
+</body>
+</html>
