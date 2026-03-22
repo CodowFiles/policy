@@ -147,13 +147,6 @@ async function openPolicy(id) {
     
     // 更新URL（用于刷新后保持状态）
     history.pushState({ page: 'detail', id: id }, '', `#policy-${id}`);
-    
-    // 优化移动端表格
-    if (window.optimizeTablesForMobile) {
-        setTimeout(() => {
-            window.optimizeTablesForMobile();
-        }, 300);
-    }
 }
 
 // 加载政策内容
@@ -348,12 +341,6 @@ function updateViewToggle() {
         elements.scanViewBtn.style.cursor = 'pointer';
     }
     
-    // 切换到文字版时优化移动端表格
-    if (currentView === 'text' && window.optimizeTablesForMobile) {
-        setTimeout(() => {
-            window.optimizeTablesForMobile();
-        }, 100);
-    }
 }
 
 // 切换视图
