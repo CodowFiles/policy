@@ -350,45 +350,6 @@ body {
     color: var(--text-primary);
 }
 
-/* 字体大小调整控制 */
-.font-size-controls {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    gap: 0.5rem;
-    background: var(--surface);
-    padding: 0.5rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    z-index: 90;
-}
-
-.font-size-btn {
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border-color);
-    background: var(--surface);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.font-size-btn:hover {
-    background: var(--background);
-    border-color: var(--primary-color);
-}
-
-.font-size-btn.active {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-
 /* Word文档样式 */
 #text-content .doc-heading {
     color: var(--text-primary);
